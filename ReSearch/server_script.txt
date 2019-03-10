@@ -1,0 +1,28 @@
+Server Scripts for creating ReSearch database and profile table
+PostgreSQL server stuff will be stored in documents like this until we learn how to store a database server
+
+
+Postgres Log-in
+    sudo -u postgres psql
+
+
+Creating database
+
+ create database research_db;
+
+Enter database
+
+ \c research_db;
+
+Creating user_profiles table
+
+CREATE TABLE IF NOT EXISTS user_profiles (
+    id SERIAL PRIMARY KEY, /* Unique identifier for each user */
+    name VARCHAR(50) NOT NULL, /* user's first and last name */
+    email VARCHAR(100) NOT NULL,
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(30) NOT NULL,
+    birthday DATE,
+    major VARCHAR(4),
+    year VARCHAR(3)
+);
