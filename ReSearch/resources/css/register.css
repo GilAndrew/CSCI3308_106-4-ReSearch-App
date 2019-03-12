@@ -1,0 +1,70 @@
+html, body{
+    background-color: #CFB87C;
+}
+
+.card {
+    background-color: #343a40;
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card-title {
+    color: white;
+}
+
+.card-end {
+    color: white;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+  
+.flex-item + .flex-item {
+    margin-left: 110px;
+    margin-right: 110px;
+}
+
+/*For Student/ Researcher Buttons*/
+input[type=button] {
+    background-color: #343a40; /* Green */
+    border: none;
+    border-radius: 8px;
+    width: 120px;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/*Gets Rid of outline when hovering above button*/
+input[type=button]:focus {
+    outline:0;
+}
+
+/*Initial Status of Student-Form*/
+#Student-Form {
+    visibility: visible;
+}
+
+/*Initial Status of Researcher-Form*/
+#Researcher-Form {
+    visibility: hidden;
+}
+
+/*
+For hidding the scroll bar that was poping up when student was selected
+Issue may come up if Researcher of Student aplication goes past end of page
+*/
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /*remove scrollbar*/
+}
