@@ -1,10 +1,11 @@
 html, body{
-    background-color: #CFB87C;
+    background-image: url('../img/register-image.jpg');
+    background-size: cover;
 }
 
 .card {
-    background-color: #343a40;
-    width: 600px;
+    background-color: rgba(0,0,0,0.7);
+    width: 550px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -29,9 +30,9 @@ html, body{
 
 /*For Student/ Researcher Buttons*/
 input[type=button] {
-    background-color: #343a40; /* Green */
+    background-color:rgba(0,0,0,0.7); 
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     width: 120px;
     color: white;
     padding: 15px 20px;
@@ -40,6 +41,10 @@ input[type=button] {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+}
+
+::placeholder {
+    color:white !important;
 }
 
 /*Gets Rid of outline when hovering above button*/

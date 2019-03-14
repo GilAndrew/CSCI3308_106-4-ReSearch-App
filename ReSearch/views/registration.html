@@ -51,25 +51,25 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                             </div>
-                            <input name="name" class="form-control" placeholder="Full name" type="text">
+                            <input name="name" class="form-control" placeholder="Full name" type="text" required>
+                        </div> <!-- form-group// -->
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            </div>
+                            <input name="User-name" class="form-control" placeholder="User name" type="text">
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                             </div>
-                            <input name="Email" class="form-control" placeholder="Email Address" type="email">
-                        </div> <!-- form-group// -->
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                            </div>
-                            <input name="Confirm-Email" class="form-control" placeholder="Confirm Email Address" type="email">
+                            <input name="Email" class="form-control" placeholder="Email Address" type="email" required>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-university"></i> </span>
                             </div>
-                            <select class="form-control"> <!--check to see if name really should go here-->
+                            <select class="form-control">
                                 <option selected=""> Select Year of Education</option> <!--Need to make sure they cannot submit this one-->
                                 <option value="FSH">Freshman</option>
                                 <option value="SPH">Sophmore</option>
@@ -90,13 +90,13 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                             </div>
-                            <input name="Password"class="form-control" placeholder="Create password" type="password">
+                            <input name="Password"class="form-control" placeholder="Create password" type="password" required>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                             </div>
-                            <input name="Confirm-Password" class="form-control" placeholder="Confirm password" type="password">
+                            <input name="Confirm-Password" class="form-control" placeholder="Confirm password" type="password" required>
                         </div> <!-- form-group// -->
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">Create Account</button>
@@ -127,24 +127,11 @@
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                                <span class="input-group-text"> <i class="fas fa-birthday-cake"></i> </span>
                             </div>
-                            <input name="Confirm-Email" class="form-control" placeholder="Confirm Email Address" type="email">
+                            <input name="Birthday" class="form-control" placeholder="Birth Date" type="date"
+                            value="2005-01-01" min="1930-01-01" max="2005-01-01"> <!--can probably find a better looking drop down somewhere-->
                         </div> <!-- form-group// -->
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"> <i class="fa fa-university"></i> </span>
-                            </div>
-                            <select class="form-control"> <!--check to see if name really should go here-->
-                                <option selected=""> Select Year of Education</option> <!--Need to make sure they cannot submit this one-->
-                                <option value="FSH">Freshman</option>
-                                <option value="SPH">Sophmore</option>
-                                <option value="JNR">Junior</option>
-                                <option value="SNR">Senior</option>
-                                <option value="OTH">Other</option>
-                                <option value="PNS">Prefer not to say</option>
-                            </select>
-                        </div> <!-- form-group end.// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
@@ -163,7 +150,7 @@
                         <p class="text-center card-end">Have an account?<a href="login.html"> Log In </a></p> <!--link to login-->
                     </form>
                 </article>
-                </div> <!-- card.// -->
+                </div>
             </div>
         </form>
 
@@ -172,5 +159,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="../resources/js/register_scripts.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> <!--Font and Logos on registration card-->
+        <link rel="stylesheet" href="../resources/css/style.css">
+        <link rel="stlyesheet" href="../resources/css/responsive.css"> <!---->
     </body>
 </html>
