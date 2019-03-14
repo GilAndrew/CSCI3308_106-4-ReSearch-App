@@ -1,5 +1,3 @@
-
-/* This css was created by Bootstrap for their login page example */
 html, body{
     height:100%; /* important to vertically align the container */
     margin:0;
@@ -58,4 +56,12 @@ body {
 #student-button , #researcher-button {
   display:inline-block;
   background-color: #555555;
+}
+
+#placeholder {
+  color:black;
+}
+
+#inputEmail, #inputPassword {
+  background-color: white !important;
 }
