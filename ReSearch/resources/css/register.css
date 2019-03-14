@@ -1,6 +1,7 @@
 html, body{
     background-image: url('../img/register-image.jpg');
     background-size: cover;
+    font-family: "Times New Roman", Times, serif !important;
 }
 
 .card {
