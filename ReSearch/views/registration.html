@@ -59,23 +59,15 @@
             </div>
         </nav>
 
-        <form action="#">
-            <!--Form Switch (Between Student and Researcher)-->
-            <fieldset class="form-group" style="margin-top:15px;">
-                <div class="flex">
-                    <div class="form-check flex-item">
-                        <input class="form-check-input" onclick="Student_Researcher_Visibility('Student-Form',1); Student_Researcher_Visibility('Researcher-Form',0)" type="button" id="Student-Register" value="Student"> <!--Might need to change Value-->
-                    </div>
-                    <div class="form-check flex-item">
-                        <input class="form-check-input" onclick="Student_Researcher_Visibility('Researcher-Form',1); Student_Researcher_Visibility('Student-Form',0)" type="button" id="Researcher-Register" value="Researcher"> <!--Might need to Change Value-->
-                    </div>
-                </div>
-            </fieldset>
+        <!--Buttons tha toggle between student and researcher-->
+        <div class="flex">
+            <button onclick="Student_Researcher_Visibility('Student-Form',1); Student_Researcher_Visibility('Researcher-Form',0)" id="Student-Register">Student</button>
+            <button onclick="Student_Researcher_Visibility('Researcher-Form',1); Student_Researcher_Visibility('Student-Form',0)" id="Researcher-Register">Researcher</button>
+        </div>
 
-            <!--Registration Forms-->
-
-            <!--Form if Student-->
-            <div class="container" style="margin-top:75px;" id="Student-Form">
+        <!--Form if Student-->
+        <form onsubmit="student_form_called()">    
+            <div class="container" style="margin-top:30px;" id="Student-Form">
                 <div class="card">
                 <article class="card-body mx-auto" style="width: 420px;">
                     <h4 class="card-title mt-3 text-center">Create Student Account</h4>
@@ -137,10 +129,12 @@
                         <p class="text-center card-end">Have an account?<a href="login.html"> Log In </a></p> <!--link to login-->
                     </form>
                 </article>
-                </div> <!-- card.// -->
+                </div> 
             </div>
+        </form>    
 
-            <!--Form if Researcher-->
+        <!--Form if Researcher-->
+        <form onsubmit="researcher_form_called()">
             <div class="container" id="Researcher-Form">
                 <div class="card">
                 <article class="card-body mx-auto" style="width: 420px;">
