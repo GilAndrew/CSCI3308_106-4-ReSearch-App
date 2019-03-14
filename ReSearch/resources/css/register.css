@@ -4,7 +4,7 @@ html, body{
 }
 
 .card {
-    background-color: rgba(76,76,76);
+    background-color: rgba(0,0,0,.7);
     width: 550px;
     margin-right: auto;
     margin-left: auto;
@@ -31,7 +31,7 @@ html, body{
 
 /*For Student/ Researcher Buttons*/
 input[type=button] {
-    background-color:rgba(76,76,76); 
+    background-color:rgba(0,0,0,.7); 
     border: none;
     border-radius: 4px;
     width: 200px;
