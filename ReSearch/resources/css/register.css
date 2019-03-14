@@ -4,10 +4,11 @@ html, body{
 }
 
 .card {
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(76,76,76);
     width: 550px;
     margin-right: auto;
     margin-left: auto;
+    border-radius: 4px;
 }
 
 .card-title {
@@ -24,16 +25,16 @@ html, body{
 }
   
 .flex-item + .flex-item {
-    margin-left: 110px;
-    margin-right: 110px;
+    margin-left: 200px;
+    margin-right: 200px;
 }
 
 /*For Student/ Researcher Buttons*/
 input[type=button] {
-    background-color:rgba(0,0,0,0.7); 
+    background-color:rgba(76,76,76); 
     border: none;
     border-radius: 4px;
-    width: 120px;
+    width: 200px;
     color: white;
     padding: 15px 20px;
     text-align: center;

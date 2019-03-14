@@ -23,6 +23,39 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
             </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Opportunity Type</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Featured</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Newest</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">All</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registration.html">Sign Up</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
         </nav>
         <!--Only including ReSearch button for now, so a user can go home if they acidentally click the button-->
 
@@ -31,10 +64,10 @@
             <fieldset class="form-group" style="margin-top:15px;">
                 <div class="flex">
                     <div class="form-check flex-item">
-                        <input class="form-check-input" onclick="Student_Researcher_Visibility('Student-Form',1); Student_Researcher_Visibility('Researcher-Form',0)" type="button" id="Student-Register" value="Student"> <!--Might need to change Value-->
+                        <input class="form-check-input" onclick="Student_Researcher_Visibility('Student-Form',1); Student_Researcher_Visibility('Researcher-Form',0)" type="button" id="Student-Register" value="Student Account"> <!--Might need to change Value-->
                     </div>
                     <div class="form-check flex-item">
-                        <input class="form-check-input" onclick="Student_Researcher_Visibility('Researcher-Form',1); Student_Researcher_Visibility('Student-Form',0)" type="button" id="Researcher-Register" value="Researcher"> <!--Might need to Change Value-->
+                        <input class="form-check-input" onclick="Student_Researcher_Visibility('Researcher-Form',1); Student_Researcher_Visibility('Student-Form',0)" type="button" id="Researcher-Register" value="Researcher Account"> <!--Might need to Change Value-->
                     </div>
                 </div>
             </fieldset>
