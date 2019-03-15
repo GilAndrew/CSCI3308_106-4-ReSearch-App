@@ -66,7 +66,7 @@
         </div>
 
         <!--Form if Student-->
-        <form onsubmit="student_form_called()">    
+        <form onsubmit="student_form_called()" id="Student-js">    
             <div class="container" style="margin-top:30px;" id="Student-Form">
                 <div class="card">
                 <article class="card-body mx-auto" style="width: 420px;">
@@ -76,7 +76,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                             </div>
-                            <input name="name" class="form-control" placeholder="Full name" type="text" required>
+                            <input name="Name" class="form-control" placeholder="Full name" type="text" required>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
@@ -94,7 +94,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-university"></i> </span>
                             </div>
-                            <select class="form-control">
+                            <select class="form-control" name="Year">
                                 <option selected=""> Select Year of Education</option> <!--Need to make sure they cannot submit this one-->
                                 <option value="FSH">Freshman</option>
                                 <option value="SPH">Sophmore</option>
@@ -134,7 +134,7 @@
         </form>    
 
         <!--Form if Researcher-->
-        <form onsubmit="researcher_form_called()">
+        <form onsubmit="researcher_form_called()" id="Researcher-js">
             <div class="container" id="Researcher-Form">
                 <div class="card">
                 <article class="card-body mx-auto" style="width: 420px;">
@@ -144,7 +144,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                             </div>
-                            <input name="name" class="form-control" placeholder="Full name" type="text" required>
+                            <input name="Name" class="form-control" placeholder="Full name" type="text" required>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
@@ -156,7 +156,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                             </div>
-                            <input name="password"class="form-control" placeholder="Create password" type="password" required>
+                            <input name="Password"class="form-control" placeholder="Create password" type="password" required>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
