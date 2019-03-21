@@ -30,6 +30,7 @@ Creating user_data table
 
 CREATE TABLE IF NOT EXISTS user_data (
     encryptId TEXT NOT NULL PRIMARY KEY,
+    major VARCHAR(4),
     psychReport TEXT,
     demographics TEXT,
     medHistory TEXT
