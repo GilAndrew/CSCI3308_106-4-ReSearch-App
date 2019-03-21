@@ -23,7 +23,6 @@ CREATE TABLE IF NOT EXISTS user_profiles (
     username VARCHAR(30) NOT NULL,
     password VARCHAR(30) NOT NULL,
     birthday DATE,
-    major VARCHAR(4),
     year VARCHAR(3)
 );
 

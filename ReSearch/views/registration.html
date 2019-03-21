@@ -18,7 +18,7 @@
     </head>
 
     <body>
-        <!--Nav bar, but only inlcudes link to home in ReSearch Text, keeping theme from home page-->
+        <!--Nav bar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html"><strong>ReSearch</strong></a> <!--Refrence Home Page-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,25 +58,16 @@
                 </form>
             </div>
         </nav>
-        <!--Only including ReSearch button for now, so a user can go home if they acidentally click the button-->
 
-        <form action="#">
-            <!--Form Switch (Between Student and Researcher)-->
-            <fieldset class="form-group" style="margin-top:15px;">
-                <div class="flex">
-                    <div class="form-check flex-item">
-                        <input class="form-check-input" onclick="Student_Researcher_Visibility('Student-Form',1); Student_Researcher_Visibility('Researcher-Form',0)" type="button" id="Student-Register" value="Student"> <!--Might need to change Value-->
-                    </div>
-                    <div class="form-check flex-item">
-                        <input class="form-check-input" onclick="Student_Researcher_Visibility('Researcher-Form',1); Student_Researcher_Visibility('Student-Form',0)" type="button" id="Researcher-Register" value="Researcher"> <!--Might need to Change Value-->
-                    </div>
-                </div>
-            </fieldset>
+        <!--Buttons tha toggle between student and researcher-->
+        <div class="flex">
+            <button onclick="Student_Researcher_Visibility('Student-Form',1); Student_Researcher_Visibility('Researcher-Form',0)" id="Student-Register">Student</button>
+            <button onclick="Student_Researcher_Visibility('Researcher-Form',1); Student_Researcher_Visibility('Student-Form',0)" id="Researcher-Register">Researcher</button>
+        </div>
 
-            <!--Registration Forms-->
-
-            <!--Form if Student-->
-            <div class="container" style="margin-top:75px;" id="Student-Form">
+        <!--Form if Student-->
+        <form onsubmit="student_form_called()" id="Student-js">    
+            <div class="container" style="margin-top:30px;" id="Student-Form">
                 <div class="card">
                 <article class="card-body mx-auto" style="width: 420px;">
                     <h4 class="card-title mt-3 text-center">Create Student Account</h4>
@@ -85,7 +76,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                             </div>
-                            <input name="name" class="form-control" placeholder="Full name" type="text" required>
+                            <input name="Name" class="form-control" placeholder="Full name" type="text" required>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
@@ -103,7 +94,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-university"></i> </span>
                             </div>
-                            <select class="form-control">
+                            <select class="form-control" name="Year">
                                 <option selected=""> Select Year of Education</option> <!--Need to make sure they cannot submit this one-->
                                 <option value="FSH">Freshman</option>
                                 <option value="SPH">Sophmore</option>
@@ -138,10 +129,12 @@
                         <p class="text-center card-end">Have an account?<a href="login.html"> Log In </a></p> <!--link to login-->
                     </form>
                 </article>
-                </div> <!-- card.// -->
+                </div> 
             </div>
+        </form>    
 
-            <!--Form if Researcher-->
+        <!--Form if Researcher-->
+        <form onsubmit="researcher_form_called()" id="Researcher-js">
             <div class="container" id="Researcher-Form">
                 <div class="card">
                 <article class="card-body mx-auto" style="width: 420px;">
@@ -151,7 +144,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                             </div>
-                            <input name="name" class="form-control" placeholder="Full name" type="text" required>
+                            <input name="Name" class="form-control" placeholder="Full name" type="text" required>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
@@ -163,7 +156,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                             </div>
-                            <input name="password"class="form-control" placeholder="Create password" type="password" required>
+                            <input name="Password"class="form-control" placeholder="Create password" type="password" required>
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
@@ -181,9 +174,10 @@
             </div>
         </form>
 
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        
+        <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> <!-- Added defer keyword so that jquery loads before bootstrap, breaks without it -->
+        <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="../resources/js/register_scripts.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> <!--Font and Logos on registration card-->
         <link rel="stylesheet" href="../resources/css/style.css">
