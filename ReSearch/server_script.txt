@@ -26,3 +26,38 @@ CREATE TABLE IF NOT EXISTS user_profiles (
     major VARCHAR(4),
     year VARCHAR(3)
 );
+
+Creating user_data table
+
+CREATE TABLE IF NOT EXISTS user_data (
+    encryptId TEXT NOT NULL PRIMARY KEY,
+    psychReport TEXT,
+    demographics TEXT,
+    medHistory TEXT
+);
+
+Creating researcher_data table
+
+CREATE TABLE IF NOT EXISTS researcher_data (
+    encryptId TEXT NOT NULL PRIMARY KEY,
+    projectName VARCHAR(50),
+    credentials TEXT,
+    field VARCHAR(4),
+    institution VARCHAR(50)
+);
+
+Creating majors table
+
+CREATE TABLE IF NOT EXISTS majors (
+    majorCode VARCHAR(4) NOT NULL PRIMARY KEY,
+    majorDescription TEXT NOT NULL,
+    numEnrolled INT
+);
+
+Creating postings table
+
+CREATE TABLE IF NOT EXISTS postings (
+    title VARCHAR(50) NOT NULL,
+    ownerProfile VARCHAR(30) NOT NULL PRIMARY KEY,
+    description TEXT
+);
