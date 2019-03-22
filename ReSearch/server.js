@@ -20,7 +20,7 @@ const dbConfig = {
 var db = pgp(dbConfig);
 
 
-app.post('/user_registration/send_form',jsonParser, function(req, res, next) { 
+app.post('/user_registration',jsonParser, function(req, res, next) { 
 	var name = req.body.name;
 	var email = req.body.email;
 	var username = req.body.username;
@@ -31,11 +31,11 @@ app.post('/user_registration/send_form',jsonParser, function(req, res, next) {
 	var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year) " + 
                         "VALUES('"+name+"', '"+email+"','"+username+"' , '"+password+"', '"+birthday+"', '"+year+"') ON CONFLICT DO NOTHING;";
 
-	var all_profiles = 'select * from user_profiles;';
+	var user_profiles = 'select * from user_profiles;';
 	db.task('get-everything', task => {
         return task.batch([
             task.any(insert_query),
-            task.any(all_profiles)
+            task.any(user_profiles)
         ]);
     })
     .then(info => {
@@ -50,6 +50,62 @@ app.post('/user_registration/send_form',jsonParser, function(req, res, next) {
         res.send({
             my_title: 'User Registration',
             data: ''
+        })
+    });
+});
+
+app.post('/researcher_registration',jsonParser, function(req, res, next) { 
+	var name = req.body.name;
+	var email = req.body.email;
+	var password = req.body.confirm_password;
+
+	var insert_query = "INSERT INTO researcher_profiles(name, email, password) " + 
+                        "VALUES('"+name+"', '"+email+"', '"+password+"') ON CONFLICT DO NOTHING;";
+
+	var researcher_profiles = 'select * from researcher_profiles;';
+	db.task('get-everything', task => {
+        return task.batch([
+            task.any(insert_query),
+            task.any(researcher_profiles)
+        ]);
+    })
+    .then(info => {
+    	res.send({
+				my_title: "Researcher Registration",
+				data: info[1]
+			})
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            my_title: 'Researcher Registration',
+            data: ''
+        })
+    });
+});
+
+app.post('/login',jsonParser, function(req, res, next) { 
+	var email = req.body.email;
+	var password = req.body.password;
+
+	var validation_query = "select exists(select 1 from user_profiles where email='"+email+"' AND password='"+password+"');";
+
+	db.task('get-everything', task => {
+        return task.batch([
+            task.any(validation_query)
+        ]);
+    })
+    .then(info => {
+    	res.send({
+				inTable: info[0]
+			})
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            inTable: info[0]
         })
     });
 });

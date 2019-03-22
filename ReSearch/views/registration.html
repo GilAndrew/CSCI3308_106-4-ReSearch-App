@@ -66,7 +66,7 @@
         </div>
 
         <!--Form if Student-->
-        <form onsubmit="student_form_called()" id="Student-js">    
+        <form onsubmit="event.preventDefault(); student_form_called();" id="Student-js">    
             <div class="container" style="margin-top:30px;" id="Student-Form">
                 <div class="card">
                 <article class="card-body mx-auto" style="width: 420px;">
@@ -109,7 +109,7 @@
                                 <span class="input-group-text"> <i class="fas fa-birthday-cake"></i> </span>
                             </div>
                             <input name="Birthday" class="form-control" placeholder="Birth Date" type="date"
-                            value="2005-01-01" min="1930-01-01" max="2005-01-01"> <!--can probably find a better looking drop down somewhere-->
+                            value="2000-01-01" min="1930-01-01" max="2005-01-01"> <!--can probably find a better looking drop down somewhere-->
                         </div> <!-- form-group// -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
@@ -134,7 +134,7 @@
         </form>    
 
         <!--Form if Researcher-->
-        <form onsubmit="researcher_form_called()" id="Researcher-js">
+        <form onsubmit="event.preventDefault(); researcher_form_called();" id="Researcher-js">
             <div class="container" id="Researcher-Form">
                 <div class="card">
                 <article class="card-body mx-auto" style="width: 420px;">
