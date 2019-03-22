@@ -102,7 +102,6 @@ function checks() {
 JS that submits forms
 */
 function student_form_called(callback)
->>>>>>> 8ca0ec3f246b32fefbf9a5a2c7bb1c1be3f9819d
 {
 	/*
 	going to have to manually insert student value
