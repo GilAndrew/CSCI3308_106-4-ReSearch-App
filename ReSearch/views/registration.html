@@ -17,7 +17,7 @@
 	    <link href="../resources/css/register.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body onload="checks()">
         <!--Nav bar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html"><strong>ReSearch</strong></a> <!--Refrence Home Page-->
@@ -61,7 +61,7 @@
 
         <!--Buttons tha toggle between student and researcher-->
         <div class="flex">
-            <button onclick="Student_Researcher_Visibility('Student-Form',1); Student_Researcher_Visibility('Researcher-Form',0)" id="Student-Register">Student</button>
+            <button onclick="Student_Researcher_Visibility('Student-Form',1); Student_Researcher_Visibility('Researcher-Form',0); student_form_key" id="Student-Register">Student</button>
             <button onclick="Student_Researcher_Visibility('Researcher-Form',1); Student_Researcher_Visibility('Student-Form',0)" id="Researcher-Register">Researcher</button>
         </div>
 
@@ -77,19 +77,19 @@
                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                             </div>
                             <input name="Name" class="form-control" placeholder="Full name" type="text" required>
-                        </div> <!-- form-group// -->
+                        </div> <!-- End form-group -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                             </div>
                             <input name="User-name" class="form-control" placeholder="User name" type="text">
-                        </div> <!-- form-group// -->
+                        </div> <!-- End form-group -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                             </div>
                             <input name="Email" class="form-control" placeholder="Email Address" type="email" required>
-                        </div> <!-- form-group// -->
+                        </div> <!-- End form-group -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-university"></i> </span>
@@ -103,29 +103,37 @@
                                 <option value="OTH">Other</option>
                                 <option value="PNS">Prefer not to say</option>
                             </select>
-                        </div> <!-- form-group end.// -->
+                        </div> <!-- End form-group -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fas fa-birthday-cake"></i> </span>
                             </div>
                             <input name="Birthday" class="form-control" placeholder="Birth Date" type="date"
                             value="2000-01-01" min="1930-01-01" max="2005-01-01"> <!--can probably find a better looking drop down somewhere-->
-                        </div> <!-- form-group// -->
+                        </div> <!-- End form-group -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                             </div>
                             <input name="Password"class="form-control" placeholder="Create password" type="password" required>
-                        </div> <!-- form-group// -->
+                        </div> <!-- End form-group -->
+                        <div class="flex-checks">
+                            <div class="not-correct" id="char-s">8 Characters (min)</div>
+                            <div class="not-correct" id="digit-s">Digit</div>
+                            <div class="not-correct" id="upper-s">Upper Case</div>
+                        </div> <!-- End Checks-->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                             </div>
                             <input name="Confirm-Password" class="form-control" placeholder="Confirm password" type="password" required>
-                        </div> <!-- form-group// -->
+                            <div class="popup">
+                                    <span class="popuptext" id="no-match">Passwords Did Not Match</span>
+                            </div>
+                        </div> <!-- End form-group -->
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">Create Account</button>
-                        </div> <!-- form-group// -->
+                        </div> <!-- End form-group -->
                         <p class="text-center card-end">Have an account?<a href="login.html"> Log In </a></p> <!--link to login-->
                     </form>
                 </article>
@@ -145,28 +153,33 @@
                                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                             </div>
                             <input name="Name" class="form-control" placeholder="Full name" type="text" required>
-                        </div> <!-- form-group// -->
+                        </div> <!-- End form-group -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                             </div>
                             <input name="Email" class="form-control" placeholder="Email Address" type="email" required>
-                        </div> <!-- form-group// -->
+                        </div> <!-- End form-group -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                             </div>
                             <input name="Password"class="form-control" placeholder="Create password" type="password" required>
-                        </div> <!-- form-group// -->
+                        </div> <!-- End form-group -->
+                        <div class="flex-checks">
+                            <div class="not-correct" id="char-r">8 Characters (min)</div>
+                            <div class="not-correct" id="digit-r">Digit</div>
+                            <div class="not-correct" id="upper-r">Upper Case</div>
+                        </div> <!-- End Checks-->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                             </div>
                             <input name="Confirm-Password" class="form-control" placeholder="Confirm password" type="password" required>
-                        </div> <!-- form-group// -->
+                        </div> <!-- End form-group -->
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">Create Account</button>
-                        </div> <!-- form-group// -->
+                        </div> <!-- End form-group -->
                         <p class="text-center card-end">Have an account?<a href="login.html"> Log In </a></p> <!--link to login-->
                     </form>
                 </article>
@@ -181,6 +194,6 @@
         <script src="../resources/js/register_scripts.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> <!--Font and Logos on registration card-->
         <link rel="stylesheet" href="../resources/css/style.css">
-        <link rel="stlyesheet" href="../resources/css/responsive.css"> <!---->
+        <link rel="stlyesheet" href="../resources/css/responsive.css"> 
     </body>
 </html>

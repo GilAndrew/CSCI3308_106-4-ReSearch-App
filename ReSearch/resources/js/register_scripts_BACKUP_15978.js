@@ -15,6 +15,9 @@ function Student_Researcher_Visibility(id, toggle)
 	}
 }
 
+<<<<<<< HEAD
+function student_form_called(callback)
+=======
 /* 
 JS to update password requirements for student and researcher 
 */
@@ -101,7 +104,7 @@ function checks() {
 /* 
 JS that submits forms
 */
-function student_form_called(callback)
+function student_form_called()
 >>>>>>> 8ca0ec3f246b32fefbf9a5a2c7bb1c1be3f9819d
 {
 	/*

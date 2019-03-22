@@ -32,6 +32,11 @@ html, body{
     justify-content: center;
 }
 
+.flex-checks {
+    display: flex;
+    justify-content: left;
+}
+
 ::placeholder {
     color:white !important;
 }
@@ -41,6 +46,7 @@ button:focus {
     outline:0;
 }
 
+/* Cards for Sudent for and researcher form */
 #Student-Register {
     background-color:rgba(0,0,0,.7); 
     border: none;
@@ -83,6 +89,40 @@ button:focus {
     visibility: hidden;
 }
 
+/*For Password Requirements*/
+.correct {
+    font-style: italic;
+    color: rgba(255,255,255,.5);
+    margin-top: -10px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+  
+.correct::after {
+    position: relative;
+    right: -5px;
+    content: "✔";
+    color: green;
+}
+  
+.not-correct {
+    font-style: normal;
+    color: white;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+  
+.not-correct::after {
+    position: relative;
+    right: -5px;
+    content: "✖";
+    color: red;
+}
+  
+
 /*
 For hidding the scroll bar that was poping up when student was selected
 Issue may come up if Researcher of Student aplication goes past end of page
@@ -94,3 +134,40 @@ html {
 ::-webkit-scrollbar {
     width: 0px;  /*remove scrollbar*/
 }
+
+
+/* Popups on form (for errors) */
+.popup {
+    position: relative;
+    display: inline-block;
+   
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: rgba(220, 220, 220, .8);
+    color: red;
+    text-align: center;
+    padding: 8px 0;
+    position: absolute;
+    left: 100%;
+    margin-left: 25px;
+}
+  
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 0%;
+    right: 100%;
+
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent; 
+    border-right: 20px solid rgba(220, 220, 220, .8); 
+    border-left: 20px solid transparent;
+}
+
+.popup .show {
+    visibility: visible;
+}
+  
