@@ -28,27 +28,26 @@ app.post('/user_registration',jsonParser, function(req, res, next) {
 	var birthday = req.body.birthday;
 	var year = req.body.year;
 
+    var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
 	var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year) " + 
-                        "VALUES('"+name+"', '"+email+"','"+username+"' , '"+password+"', '"+birthday+"', '"+year+"') ON CONFLICT DO NOTHING;";
+                        "SELECT'"+name+"', '"+email+"','"+username+"' , '"+password+"', '"+birthday+"', '"+year+"' WHERE " +
+                        "NOT EXISTS (SELECT email FROM user_profiles WHERE email = '"+email+"');";
 
-	var user_profiles = 'select * from user_profiles;';
 	db.task('get-everything', task => {
         return task.batch([
-            task.any(insert_query),
-            task.any(user_profiles)
+            task.any(unique_query),
+            task.any(insert_query)
         ]);
     })
     .then(info => {
     	res.send({
-				my_title: "User Registration",
-				data: info[1]
+				data: info[0]
 			})
     })
     .catch(err => {
         // display error message in case an error
         console.log(err);
         res.send({
-            my_title: 'User Registration',
             data: ''
         })
     });
@@ -59,27 +58,26 @@ app.post('/researcher_registration',jsonParser, function(req, res, next) {
 	var email = req.body.email;
 	var password = req.body.confirm_password;
 
+    var unique_query = "SELECT EXISTS(SELECT 1 FROM researcher_profiles where email='"+email+"');";
 	var insert_query = "INSERT INTO researcher_profiles(name, email, password) " + 
-                        "VALUES('"+name+"', '"+email+"', '"+password+"') ON CONFLICT DO NOTHING;";
+                        "SELECT '"+name+"', '"+email+"', '"+password+"' WHERE " +
+                        "NOT EXISTS (SELECT email FROM researcher_profiles WHERE email = '"+email+"');";
 
-	var researcher_profiles = 'select * from researcher_profiles;';
 	db.task('get-everything', task => {
         return task.batch([
-            task.any(insert_query),
-            task.any(researcher_profiles)
+            task.any(unique_query),
+            task.any(insert_query)
         ]);
     })
     .then(info => {
     	res.send({
-				my_title: "Researcher Registration",
-				data: info[1]
+				data: info[0]
 			})
     })
     .catch(err => {
         // display error message in case an error
         console.log(err);
         res.send({
-            my_title: 'Researcher Registration',
             data: ''
         })
     });
@@ -98,8 +96,8 @@ app.post('/login',jsonParser, function(req, res, next) {
     })
     .then(info => {
     	res.send({
-				inTable: info[0]
-			})
+			inTable: info[0]
+		})
     })
     .catch(err => {
         // display error message in case an error

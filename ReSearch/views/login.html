@@ -63,7 +63,7 @@
   </head>
   <body class="center text-center">
 
-    <form onsubmit="login()" class="form-signin" id="sign_in_form">
+    <form onsubmit="event.preventDefault(); login(toHomepage);" class="form-signin" id="sign_in_form">
       <button class="btn btn-lg btn-primary" id="student-button">Student Login</button>
       <br>
       <br>
