@@ -15,6 +15,91 @@ function Student_Researcher_Visibility(id, toggle)
 	}
 }
 
+/* 
+JS to update password requirements for student and researcher 
+*/
+function checks() {
+	/* Student Checks */
+	var student_pass = document.getElementById("Student-js").elements["Password"];
+	var upper_s = document.getElementById("upper-s");
+	var digit_s = document.getElementById("digit-s");
+	var char_s = document.getElementById("char-s");
+
+	student_pass.onkeyup = function(){
+		console.log("in student checks");
+
+        var upperCaseLetters = /(?=.*[A-Z])/g; 
+        var numbers = /(?=.*\d)/g;
+		var minLength = 8;
+		
+		if(student_pass.value.match(upperCaseLetters)) {            
+            upper_s.classList.remove("not-correct"); 
+            upper_s.classList.add("correct"); 
+        } else {
+            upper_s.classList.remove("correct"); 
+            upper_s.classList.add("not-correct"); 
+		}
+		
+		if(student_pass.value.match(numbers)) {            
+            digit_s.classList.remove("not-correct"); 
+            digit_s.classList.add("correct"); 
+        } else {
+            digit_s.classList.remove("correct"); 
+            digit_s.classList.add("not-correct"); 
+		}
+		
+		if(student_pass.value.length >= minLength) {            
+            char_s.classList.remove("not-correct"); 
+            char_s.classList.add("correct"); 
+        } else {
+            char_s.classList.remove("correct"); 
+            char_s.classList.add("not-correct"); 
+        }
+	}
+
+	/* researcher Checks */
+	var researcher_pass = document.getElementById("Researcher-js").elements["Password"];
+	var upper_r = document.getElementById("upper-r");
+	var digit_r = document.getElementById("digit-r");
+	var char_r = document.getElementById("char-r");
+
+	researcher_pass.onkeyup = function(){
+		console.log("in researcher checks");
+
+        var upperCaseLetters = /(?=.*[A-Z])/g; 
+        var numbers = /(?=.*\d)/g;
+		var minLength = 8;
+		
+		if(researcher_pass.value.match(upperCaseLetters)) {            
+            upper_r.classList.remove("not-correct"); 
+            upper_r.classList.add("correct"); 
+        } else {
+            upper_r.classList.remove("correct"); 
+            upper_r.classList.add("not-correct"); 
+		}
+		
+		if(researcher_pass.value.match(numbers)) {            
+            digit_r.classList.remove("not-correct"); 
+            digit_r.classList.add("correct"); 
+        } else {
+            digit_r.classList.remove("correct"); 
+            digit_r.classList.add("not-correct"); 
+		}
+		
+		if(researcher_pass.value.length >= minLength) {            
+            char_r.classList.remove("not-correct"); 
+            char_r.classList.add("correct"); 
+        } else {
+            char_r.classList.remove("correct"); 
+            char_r.classList.add("not-correct"); 
+        }
+	}
+}
+
+
+/* 
+JS that submits forms
+*/
 function student_form_called()
 {
 	/*
@@ -28,6 +113,19 @@ function student_form_called()
 	var Password = document.getElementById("Student-js").elements["Password"];
 	var Confirm_Password = document.getElementById("Student-js").elements["Confirm-Password"];
 
+	/* Confirm Passwords */
+	if (Password != Confirm_Password)
+	{
+		/* Clear password input fields */
+		document.getElementById("Student-js").elements["Password"].value = "";
+		document.getElementById("Student-js").elements["Confirm-Password"].value = "";
+
+		/* Display Error Message*/
+		
+		return;
+	}
+
+	/* database/server requests */
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
 	xmlhttp.open("POST", "http://localhost:3000/user_registration", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");

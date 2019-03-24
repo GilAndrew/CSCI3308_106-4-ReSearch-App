@@ -32,6 +32,11 @@ html, body{
     justify-content: center;
 }
 
+.flex-checks {
+    display: flex;
+    justify-content: left;
+}
+
 ::placeholder {
     color:white !important;
 }
@@ -82,6 +87,40 @@ button:focus {
 #Researcher-Form {
     visibility: hidden;
 }
+
+/*checks shit*/
+.correct {
+    font-style: italic;
+    color: rgba(255,255,255,.5);
+    margin-top: -10px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+  
+.correct::after {
+    position: relative;
+    right: -5px;
+    content: "✔";
+    color: green;
+}
+  
+.not-correct {
+    font-style: normal;
+    color: white;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+  
+.not-correct::after {
+    position: relative;
+    right: -5px;
+    content: "✖";
+    color: red;
+}
+  
 
 /*
 For hidding the scroll bar that was poping up when student was selected
