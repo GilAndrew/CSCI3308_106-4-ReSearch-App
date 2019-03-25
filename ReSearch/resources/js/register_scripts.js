@@ -18,12 +18,18 @@ function Student_Researcher_Visibility(id, toggle)
 /* 
 JS to update password requirements for student and researcher 
 */
+var student_pass = document.getElementById("Student-js").elements["Password"];
+var upper_s = document.getElementById("upper-s");
+var digit_s = document.getElementById("digit-s");
+var char_s = document.getElementById("char-s");
+
+var researcher_pass = document.getElementById("Researcher-js").elements["Password"];
+var upper_r = document.getElementById("upper-r");
+var digit_r = document.getElementById("digit-r");
+var char_r = document.getElementById("char-r");
+
 function checks() {
 	/* Student Checks */
-	var student_pass = document.getElementById("Student-js").elements["Password"];
-	var upper_s = document.getElementById("upper-s");
-	var digit_s = document.getElementById("digit-s");
-	var char_s = document.getElementById("char-s");
 
 	student_pass.onkeyup = function(){
 		console.log("in student checks");
@@ -58,10 +64,6 @@ function checks() {
 	}
 
 	/* researcher Checks */
-	var researcher_pass = document.getElementById("Researcher-js").elements["Password"];
-	var upper_r = document.getElementById("upper-r");
-	var digit_r = document.getElementById("digit-r");
-	var char_r = document.getElementById("char-r");
 
 	researcher_pass.onkeyup = function(){
 		console.log("in researcher checks");
@@ -96,7 +98,6 @@ function checks() {
 	}
 }
 
-
 /* 
 JS that submits forms
 */
@@ -114,14 +115,38 @@ function student_form_called()
 	var Confirm_Password = document.getElementById("Student-js").elements["Confirm-Password"];
 
 	/* Confirm Passwords */
-	if (Password != Confirm_Password)
+	var requirements = (digit_s.classList == "not-correct" || upper_s.classList == "not-correct" || char_s.classList == "not-correct");
+	var pass_check = (Password.value != Confirm_Password.value);
+	if (pass_check || requirements)
 	{
+		console.log("popup-b");
 		/* Clear password input fields */
 		document.getElementById("Student-js").elements["Password"].value = "";
 		document.getElementById("Student-js").elements["Confirm-Password"].value = "";
 
 		/* Display Error Message*/
-		
+		if (pass_check)
+		{
+			console.log("popup");
+			/* Passwords did not match */
+			var popup = document.getElementById("no-match");
+			popup.classList.toggle("show");
+		}
+
+		if (requirements)
+		{
+			console.log("req");
+			/* password didnt meet requirements */
+			upper_s.classList.remove("correct"); 
+			upper_s.classList.add("not-correct");
+			
+			digit_s.classList.remove("correct"); 
+            digit_s.classList.add("not-correct"); 
+
+			char_s.classList.remove("correct"); 
+			char_s.classList.add("not-correct"); 
+			/*Do popup stuff here */
+		}
 		return;
 	}
 
