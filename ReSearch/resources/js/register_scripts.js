@@ -372,10 +372,12 @@ function researcher_form_called(callback)
 			}
 		}
 	}
+
 	xmlhttp.send(JSON.stringify({name:Name.value, email:Email.value, password:Password.value, confirm_password:Confirm_Password.value}));
 }
 
 function toHomepage() {
 	// redirects to homepage
 	location.href = "file:///home/luke/Documents/CSCI3308_106-4-ReSearch-App/ReSearch/views/index.html";
+
 }

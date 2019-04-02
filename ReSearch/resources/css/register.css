@@ -47,6 +47,7 @@ button:focus {
 }
 
 /* Cards for Sudent for and researcher form */
+
 #Student-Register {
     background-color:rgba(0,0,0,.7); 
     border: none;
@@ -86,6 +87,7 @@ select {
 }
 option:not(:checked) {
     background-color: black;
+
 }
 
 /*Initial Status of Student-Form*/

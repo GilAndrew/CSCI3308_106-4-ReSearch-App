@@ -19,14 +19,15 @@ const dbConfig = {
 
 var db = pgp(dbConfig);
 
-
 app.post('/user_registration',jsonParser, function(req, res, next) { 
+
 	var name = req.body.name;
 	var email = req.body.email;
 	var username = req.body.username;
 	var password = req.body.confirm_password;
 	var birthday = req.body.birthday;
 	var year = req.body.year;
+
 
     var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
 	var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year) " + 
@@ -41,6 +42,7 @@ app.post('/user_registration',jsonParser, function(req, res, next) {
     })
     .then(info => {
     	res.send({
+
 				data: info[0]
 			})
     })
@@ -57,8 +59,7 @@ app.post('/researcher_registration',jsonParser, function(req, res, next) {
 	var name = req.body.name;
 	var email = req.body.email;
 	var password = req.body.confirm_password;
-
-    var unique_query = "SELECT EXISTS(SELECT 1 FROM researcher_profiles where email='"+email+"');";
+  var unique_query = "SELECT EXISTS(SELECT 1 FROM researcher_profiles where email='"+email+"');";
 	var insert_query = "INSERT INTO researcher_profiles(name, email, password) " + 
                         "SELECT '"+name+"', '"+email+"', '"+password+"' WHERE " +
                         "NOT EXISTS (SELECT email FROM researcher_profiles WHERE email = '"+email+"');";
@@ -132,8 +133,6 @@ app.post('/researcher_login',jsonParser, function(req, res, next) {
         })
     });
 });
-
-
 
 app.listen(3000);
 console.log('3000 is the magic port');

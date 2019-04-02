@@ -1,0 +1,441 @@
+Major,Major_Desc
+ARCH,Architecture
+DSGN,Design Studies
+ENVD,Environmental Design
+EVBU,Environmental Design & Bus
+LAND,Landscape Architecture Studies
+PLAN,Planning
+BSCI,Basic Science
+DIST,Distributed Studies
+INST,Individually Structured
+OPNO,Open Option
+PRBU,Pre-Business Arts&Sciences
+PRCM,Pre-Communication
+PRCO,Pre-Communication
+PREN,Pre-Engineering Arts&Sciences
+PRJR,Pre-Journalism & Mass Comm
+PXPL,Exploratory Studies
+XXAS,A&S - Open Option
+ZZAS,Post-Degree Additional Major
+ZZZZ,Arts & Sciences w/Bus Classes
+AAAH,Art History
+AAAH,Arts of the Americas
+AAH2,Art History Concurrent Degree
+AASA,Art Practices
+AASF,Art Practices
+ALAC,Asian Languages & Civs
+ARTC,Fine Arts - Creative Arts
+ARTE,Fine Arts - Art Education
+ARTH,Fine Arts - Art History
+ASIA,Asian Studies
+BAAE,Fine Arts - Art Education
+BAAH,Fine Arts - Art History
+BASA,Fine Arts - Studio Arts
+BFAE,Fine Arts - Art Education
+BFAH,Fine Arts - Art History
+BFAS,Fine Arts - Studio Arts
+CHIN,Chinese
+CHN2,Chinese - Concurrent Degree
+CLA2,"Classics, Concurrent Degree"
+CLAS,Classics
+CMLT,Comparative Literature
+CRWR,English Lit-Creative Writing
+DBFA,Dance
+DNCE,Dance
+EALC,Asian Lang/Civ Chinese
+EALJ,Asian Lang/Civ Japanese
+EAST,East Asian Studies
+ELC2,"Asian Lang/Civ Chinese, C. D."
+ELJ2,"Asian Lang/Civ Japanese, C. D."
+ENGL,English
+ENLT,English Literature
+EXDS,Experience Design
+FILM,Film Studies
+FLM2,Film Studies Concurr Degree
+FMST,Film Studies
+FREN,French
+FRN2,"French, Concurrent Degree"
+GER2,German - Concurrent Degree
+GRM2,"German Studies, Concur Degr"
+GRMA,German
+GRMN,German Studies
+HIST,History
+HUMN,Humanities
+ITAL,Italian
+JPN2,Japanese-Concurrent Degree
+JPNS,Japanese
+JWST,Jewish Studies
+PHIL,Philosophy
+RLDD,Rel.Stud w/Ealc/Eal or Hist
+RLST,Religious Studies
+RUSS,Russian Studies
+SPAN,Spanish
+SPPR,Spanish
+TBFA,Theatre
+TDXD,Experience Design
+THTR,Theatre
+AMAT,Math Dept Majr in Applied Math
+AME2,"Applied Math, Concurr Degree"
+AMEN,Applied Mathematics
+APAS,"Astrophys, Planetary & Atm Sc"
+APHY,Applied Physics
+ASPH,Astrophysics
+ASPS,Astrophysical & Planetary Sci
+ASTR,Astronomy
+ATOC,Atmospheric & Oceanic Sciences
+BCHM,Biochemistry
+BIOL,Biology
+CHEM,Chemistry
+COGS,Cognitive Science
+CSAP,Computer Science Applications
+CSCI,Computer Science
+EBIO,Ecology & Evolutionary Biology
+ENV,Master of the Environment
+ENVR,Master of the Environment
+ENVS,Environmental Studies
+EPO2,"Biological Sci-EPO, Concur Deg"
+EPOB,Biological Sciences-EPO
+EPOE,Biological Sci-Education
+EVOC,Environmental Conservation
+GEOG,Geography
+GEOL,Geology
+IPH2,Integrative Physiology-Con Deg
+IPHY,Integrative Physiology
+KIN2,"Kinesiology, Concurrent Degree"
+KINE,Kinesiology
+MAT2,"Mathematics, Concurrent Degree"
+MATH,Mathematics
+MCDB,Biological Sciences-MCD
+MTPH,Mathematical Physics
+NRSC,Neuroscience
+PHSS,Physics for Secondary Schools
+PHY2,"Physics, Concurrent Degree"
+PHYS,Physics
+PLCE,Planning/Community Engagement
+PLMG,Policy and Management
+PSY2,"Psychology, Concurrent Degree"
+PSYC,Psychology
+RECR,Recreation
+RNSE,Renewable/Sustainable Energy
+STAT,Statistics and Data Science
+AFRM,African & Middle East Studies
+AMST,American Studies
+ANTH,Anthropology
+AUDD,Audiology
+BLST,Afro-American Studies
+CDSS,Comm Disorders & Speech Sci
+CEES,Central & East European Stdy
+COMM,Communication
+ECN2,"Economics, Concurrent Degree"
+ECON,Economics
+ETHC,Comparative Ethnic Studies
+ETHN,Ethnic Studies
+IAFS,International Affairs
+LAMS,Latin American Studies
+LIN2,"Linguistics, Concurrent Degree"
+LING,Linguistics
+PREC,Pre-Economics
+PSCI,Political Science
+PSIA,Political Sci-Int Affairs
+PSPP,Political Sci-Publ Policy
+PSPS,Public Service Option-PSC
+SLHS,"Speech,Lang,Hearing Sciences"
+SOCI,Sociology
+SOCY,Sociology
+WMST,Women and Gender Studies
+ACCT,Accounting
+ACIS,Accounting-Information Systems
+ACT2,Accounting - Concurrent Degree
+ACTX,Taxation
+BUAD,Business Administration
+BUAN,Business Analytics
+BUUD,Business - Undetermined
+DMBA,MBA with Dual Degree
+ESBM,Small Bus Mgt & Entrprnship
+ESBU,Entreparneurship/Small Bus Mgt
+FNA2,Finance-Concurrent Degree
+FNCE,Finance
+IMBA,Global MBA in Tech & Entrepre
+INBU,International Business
+INFS,Information Systems
+ISA2,"Information Systems, Conc Degr"
+IST2,"Information Systems, Conc Degr"
+JMBA,Joint Juris Doctor/MBA
+MBAD,Master of Business Admin
+MGMT,Management
+MKTG,Marketing
+MLMG,Minerals Land Management
+MSIS,Mgt Sci-Information Systems
+OPIM,Operation Mgmt Info Systems
+OPMG,Operations Management
+ORMG,Organization Management
+PAAD,Public Agency Administration
+PHRM,Personnel-Human Resources Mgt
+PMBA,Professional MBA Program
+REAL,Real Estate
+SBME,Small Bus Mgt & Entrprnship
+SCMN,Supply Chain Management
+SELF,Self-Designed
+SYST,Systems
+SYT2,"Systems, Concurrent Degree"
+TIMG,Technology & Innovation Mgt
+TMBA,Joint MBA/MS in Telecomm
+TOMG,Tourism Management
+TREC,Tourism Management
+TRMG,Transport/Distribution Mgt
+XXBU,Business - Open Option
+NCAP,Non-Credit Au Pair
+NCAU,Non-Credit Auditor
+NCFS,Non-Credit Faculty Staff
+NCHI,Non-Credit High School
+NCIE,Non-Credit International Engl
+NCRD,Non-Credit
+NDAU,Non-Degree Unclassified
+NDEE,Non-Degree Unclass Engr Only
+NDEG,Non-Degree Unclassified Grad
+NDEU,Non-Degree Unclassified Ugrd
+NDFS,Non-Degree Unclassified GRAD
+NDGR,Non-Degree Unclassified GRAD
+NDHA,Non-Degree HS ASCENT
+NDHC,Non-Degree HS CONCURRENT PGM
+NDHN,Non-Degree HS NON CONCUR PGM
+NDHP,Non-Degree High School (PSEO)
+NDIE,Non-Degree Unclass Engr Only
+NDIG,Non-degree Unclassified Grad
+NDIL,Non-Degree Unclassified Law
+NDIO,Non-Degree Unclassified
+NDIU,Non-Degree Unclassified Ugrd
+NDPE,Non-Degree Pre Med
+NDPH,Non-Degree Pre Health UGRD
+NDPM,Non-Degree Pre Med
+NDRC,Reciprocal Exchange Student
+NDSA,Non-Degree Unclassified
+NDSF,Non-Degree Unclassified UGRD
+NDUG,Non-Degree Unclassified UGRD
+NGGA,Non-Degree Unclassified GRAD
+NGRC,Reciprocal Exchange Student
+NHFR,Non-Degree HS Freshman
+NHJR,Non-Degree HS Junior
+NHPJ,Non-Degree HS Junior
+NHPS,Non-Degree HS Senior
+NHSO,Non-Degree HS Sophomore
+NHSR,Non-Degree HS Senior
+NOHS,Non-Degree HS LVL Unknown
+NSAU,Non-Credit Auditor
+NUGA,Non-Degree Unclassified UGRD
+COMN,Communication
+ETMP,Emergent Tech&Media Art Prac
+IAWP,"Intermedia Art,Wrtng&Perfrmnce"
+IDMP,Interdis Documntry Media Prac
+INFO,Information Science
+JNRL,Delete
+JRNE,Journalism Entrepreneurship
+JRNL,Journalism
+JRNL,Journalism Entrepreneurship
+MAPE,Media and Public Engagement
+MDPD,Media Production
+MDRP,Media Research and Practice
+MDST,Media Studies
+STCM,Strategic Communication
+STCM,Strategic Communication Design
+CNDG,Denver Concurrent
+CNDU,Denver Concurrent
+CNHG,Health Sciences Concurrent
+CNHU,Health Sciences Concurrent
+CNSG,Colorado Springs Concurrent
+CNSU,Colorado Springs Concurrent
+CUVG,Visiting from Other CU Inst
+CLSI,"CmpLng,Analytics,Srch&Informat"
+CPHY,Chemical Physics
+GEOP,Geophysics
+GRAD,Cross-Career Professional Enrl
+MFST,Museum and Field Studies
+ORGL,Organizational Leadership
+PREB,Pre-Business
+PREE,Pre-Engineering
+UGRD,Cross-Career Professional Enrl
+XXES,Exploratory Studies
+EAUD,Endrsmnt-Audiologist
+ECLD,Endrsmnt-Cult Ling Dvrse K-12
+EDAR,Art Educ Elem Sec or K-12
+EDCI,Educ-Curriculum & Instruction
+EDDT,Drama/Theatre - Secondary
+EDEL,Elementary Education
+EDEN,English - Secondary Education
+EDFR,French - Secondary Education
+EDGR,German - Secondary Education
+EDIC,Educ-Inst & Curr in Cont Areas
+EDID,Inst & Curr + Elementary Licn
+EDIE,Inst & Curr + Sec English Licn
+EDIF,Inst & Curr + Sec Math Licn
+EDIG,Inst & Curr + Sec Sci Licn
+EDIH,Inst & Curr + Sec Soc Std Licn
+EDIJ,Inst&Curr-Alt/Exp Educ/Sec Lic
+EDIT,Italian - Secondary
+EDJP,Japanese - Secondary Education
+EDLT,Latin - Secondary Education
+EDMA,Mathematics-Secondary Educ.
+EDMU,Music Educ-Elem Sec or K-12
+EDPE,Physical Education - K-12
+EDPP,Physical Education - K-6
+EDPS,Physical Education - 7-12
+EDRU,Russian - Secondary Education
+EDSC,Science - Secondary Education
+EDSP,Spanish - Secondary Education
+EDSS,Social Studies-Secondary Educ.
+EECD,Educ Equity/Cultural Diversity
+EFPP,"Educ Foundations, Pol & Prac"
+ELDE,Endrsmnt-Ling Diverse K-12
+ELDS,Endrsmnt-Ling Diverse Biling
+ELED,Elementary Education
+EPSY,Education-Lrng Sci/Hmn Dev
+ERDT,Endrsmnt-Reading Teacher
+ESES,Endrsmnt-Special Ed Specialist
+ESLP,Endrsmnt-Speech/Lang Pathology
+ESPG,Endrsmnt-Special Ed Generalist
+HEDU,Higher Education
+ICCA,Educ-Inst & Curr in Cont Area
+ICCC,Inst & Curr + Elementary Licn
+ICCE,Inst & Curr + Sec English Licn
+ICCH,Inst & Curr + Sec Soc Std Licn
+ICCM,Inst & Curr + Sec Math Licn
+ICCS,Inst & Curr + Sec Sci Licn
+IDIS,Interdisciplinary Studies
+LDCE,Leadership/CommunityEngagement
+MCBL,"Social, Multicul & Biling Fnd"
+MCBN,Soc Mult Biling Fnd/Elem Licn
+PREL,Teacher Cert Preliminary
+REME,Educ-Research & Eval Methodol
+TECE,Teacher Certification
+XTED,Pre-Teacher Education
+AEBU,Aerospace Engineering & Bus
+AEC2,"Architectural Engr, C/Degree"
+AME2,"Applied Math, Concurr Degree"
+AMEN,Applied Mathematics
+AMEN,Applied Mathematics
+ARBU,Architect Engr & Bus
+AREN,Architectural Engineering
+AREN,Architectural Engineering
+ASE2,"Aerospace Engr Sci, Concur Deg"
+ASEN,Aerospace Engineering Sciences
+ASEN,Aerospace Engineering Sciences
+ATLS,"Tech, Media & Society (ATLAS)"
+BIEN,Biological Engineering
+CBEN,Chemical & Biological Engin
+CBEN,Chemical & Biological Engr
+CEBU,Chemical Engineering & Bus
+CHE2,"Chemical Engr, Concurrent Degr"
+CHEN,Chemical Engineering
+CHEN,Chemical Engineering
+CMSC,Computer Science
+CSAP,Applied Computer Science
+CSAP,Applied Computer Science
+CSBU,Computer Science & Business
+CSE2,"Computer Sci, Concurrent Degr"
+CSEN,Computer Science
+CSEN,Computer Science
+CVBU,Civil Engineering & Business
+CVE2,"Civil Engr, Concurrent Degree"
+CVEN,Civil Engineering
+CVEN,Civil Engineering
+ECBU,"Elec Engr, Computer Sci & Bus"
+ECE2,"Elec & Comp Engr, Concurr Deg"
+ECEN,Electrical & Comp Engineering
+ECEN,Electrical & Comp Engineering
+EECS,Elec Engr & Computer Sci
+EEEN,Electrical Engineering
+EEEN,Electrical Engineering
+EEMU,Electrical Engineering & Mus
+EEN2,"Electrical Engr, Concur Degree"
+EMEN,Engineering Management
+ENUD,Engineering - Undetermined
+EPBU,Engineering Phys & Business
+EPE2,Eng Physics/Physics Concur Deg
+EPEN,Engineering Physics
+EPEN,Engineering Physics
+EVC2,Envir/Civ Engineering Conc Deg
+EVEN,Environmental Engineering
+EVEN,Environmental Engineering
+GEEN,Engineering Plus
+GEEN,Engineering Plus
+ICTD,Info & Comm Tech for Dev
+MAEG,Engineering
+MCE2,"Mechanical Engr, Concur Degree"
+MCEN,Mechanical Engineering
+MCEN,Mechanical Engineering
+MEBU,Mechanical Engineering & Bus
+MECH,Mechanical
+MTEN,Materials Science&Engineering
+OPEN,Engineering Open Option
+TEL2,"Telecommunications, Conc Degr"
+TELE,Telecommunications
+TLEN,Telecommunications
+TMEN,"Technology, Arts and Media"
+TMEN,"Technology, Arts and Media"
+XXEN,Engineering - Open Option
+ADBU,Advertising & Business
+ADVT,Advertising
+BCNS,Broadcast News
+BCPM,Broadcast Production
+BNBU,Broadcast News & Business
+BPBU,Broadcast Prod Mgt & Bus
+COMC,Communication w Jour Mass Comm
+JADV,Advertising
+JBCN,Broadcast News
+JBCP,Broadcast Production
+JMST,Media Studies
+JNED,News - Editorial
+JOUR,Journalism
+JRGS,Journalism - General Studies
+JRUD,Journalism - Undetermined
+MDST,Media Studies
+NEBU,News - Editorial & Business
+NSED,News - Editorial
+PBBU,Public Relations & Business
+PBRL,Public Relations
+PRJM,Pre-Journalism & Mass Comm
+XXJM,Jour Mass Comm - Open Option
+XXJR,Journalism - Open Option
+LAW,Law
+LAWS,Master of Studies in Law
+LAWT,Law-Tax Emphasis
+LWIA,Law/International Affairs
+LWMB,Law - Master of Bus Admin
+LWPA,Law/Public Administration
+MBRP,Brass/Percussion Performance
+MCLG,Classical Guitar Performance
+MCMP,Composition
+MHRP,Harp Performance
+MJZP,Jazz Piano Performance
+MJZZ,Jazz Studies
+MMCY,Musicology
+MMED,Music Education (Masters)
+MOGN,Organ Performance
+MPNO,Piano Performance
+MSTG,String Performance
+MUAD,Music (Doctor of Musical Arts)
+MUBU,Music & Business
+MUED,Music Education (PhD)
+MULO,Musicology
+MUSA,Music - Arts
+MUSC,Music
+MUSD,Music (PhD)
+MUSE,Music Education (Undergraduate)
+MUSM,Music
+MUUD,Music - Undetermined
+MVCE,Voice Performance
+MWWD,Woodwind Performance
+XXMU,Music - Undeclared
+PHAR,Pharmacy
+PHSC,Pharmaceutical Sciences
+PRBA,Pre Post-Bac in Education
+PRCH,Pre-Child Health Associate
+PRDH,Pre-Dental Hygiene
+PRDX,Pre-Dentistry
+PRED,Pre-Education
+PRHL,Pre-Health
+PRMT,Pre-Medical Technology
+PRMX,Pre-Medical
+PRNU,Pre-Nursing
+PRPH,Pre-Pharmacy
+PRPT,Pre-Physical Therapy

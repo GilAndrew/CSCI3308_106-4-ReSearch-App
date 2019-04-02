@@ -1,0 +1,885 @@
+CREATE TABLE IF NOT EXISTS majors (
+Major VARCHAR(4) PRIMARY KEY,
+Major_Desc TEXT NOT NULL, 
+numSelected INT
+);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ARCH', 'Architecture', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('DSGN', 'Design Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ENVD', 'Environmental Design', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EVBU', 'Environmental Design & Bus', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('LAND', 'Landscape Architecture Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PLAN', 'Planning', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BSCI', 'Basic Science', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('DIST', 'Distributed Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('INST', 'Individually Structured', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('OPNO', 'Open Option', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRBU', 'Pre-Business Arts&Sciences', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRCM', 'Pre-Communication', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRCO', 'Pre-Communication', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PREN', 'Pre-Engineering Arts&Sciences', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRJR', 'Pre-Journalism & Mass Comm', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PXPL', 'Exploratory Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('XXAS', 'A&S - Open Option', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ZZAS', 'Post-Degree Additional Major', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ZZZZ', 'Arts & Sciences w/Bus Classes', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AAAH', 'Art History', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AAAH', 'Arts of the Americas', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AAH2', 'Art History Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AASA', 'Art Practices', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AASF', 'Art Practices', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ALAC', 'Asian Languages & Civs', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ARTC', 'Fine Arts - Creative Arts', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ARTE', 'Fine Arts - Art Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ARTH', 'Fine Arts - Art History', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ASIA', 'Asian Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BAAE', 'Fine Arts - Art Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BAAH', 'Fine Arts - Art History', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BASA', 'Fine Arts - Studio Arts', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BFAE', 'Fine Arts - Art Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BFAH', 'Fine Arts - Art History', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BFAS', 'Fine Arts - Studio Arts', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CHIN', 'Chinese', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CHN2', 'Chinese - Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CLA2', 'Classics, Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CLAS', 'Classics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CMLT', 'Comparative Literature', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CRWR', 'English Lit-Creative Writing', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('DBFA', 'Dance', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('DNCE', 'Dance', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EALC', 'Asian Lang/Civ Chinese', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EALJ', 'Asian Lang/Civ Japanese', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EAST', 'East Asian Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ELC2', 'Asian Lang/Civ Chinese, C. D.', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ELJ2', 'Asian Lang/Civ Japanese, C. D.', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ENGL', 'English', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ENLT', 'English Literature', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EXDS', 'Experience Design', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('FILM', 'Film Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('FLM2', 'Film Studies Concurr Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('FMST', 'Film Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('FREN', 'French', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('FRN2', 'French, Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('GER2', 'German - Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('GRM2', 'German Studies, Concur Degr', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('GRMA', 'German', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('GRMN', 'German Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('HIST', 'History', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('HUMN', 'Humanities', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ITAL', 'Italian', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JPN2', 'Japanese-Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JPNS', 'Japanese', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JWST', 'Jewish Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PHIL', 'Philosophy', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('RLDD', 'Rel.Stud w/Ealc/Eal or Hist', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('RLST', 'Religious Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('RUSS', 'Russian Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('SPAN', 'Spanish', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('SPPR', 'Spanish', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TBFA', 'Theatre', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TDXD', 'Experience Design', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('THTR', 'Theatre', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AMAT', 'Math Dept Majr in Applied Math', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AME2', 'Applied Math, Concurr Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AMEN', 'Applied Mathematics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('APAS', 'Astrophys, Planetary & Atm Sc', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('APHY', 'Applied Physics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ASPH', 'Astrophysics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ASPS', 'Astrophysical & Planetary Sci', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ASTR', 'Astronomy', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ATOC', 'Atmospheric & Oceanic Sciences', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BCHM', 'Biochemistry', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BIOL', 'Biology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CHEM', 'Chemistry', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('COGS', 'Cognitive Science', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CSAP', 'Computer Science Applications', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CSCI', 'Computer Science', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EBIO', 'Ecology & Evolutionary Biology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ENV', '    Master of the Environment', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ENVR', 'Master of the Environment', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ENVS', 'Environmental Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EPO2', 'Biological Sci-EPO, Concur Deg', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EPOB', 'Biological Sciences-EPO', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EPOE', 'Biological Sci-Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EVOC', 'Environmental Conservation', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('GEOG', 'Geography', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('GEOL', 'Geology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('IPH2', 'Integrative Physiology-Con Deg', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('IPHY', 'Integrative Physiology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('KIN2', 'Kinesiology, Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('KINE', 'Kinesiology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MAT2', 'Mathematics, Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MATH', 'Mathematics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MCDB', 'Biological Sciences-MCD', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MTPH', 'Mathematical Physics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NRSC', 'Neuroscience', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PHSS', 'Physics for Secondary Schools', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PHY2', 'Physics, Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PHYS', 'Physics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PLCE', 'Planning/Community Engagement', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PLMG', 'Policy and Management', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PSY2', 'Psychology, Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PSYC', 'Psychology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('RECR', 'Recreation', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('RNSE', 'Renewable/Sustainable Energy', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('STAT', 'Statistics and Data Science', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AFRM', 'African & Middle East Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AMST', 'American Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ANTH', 'Anthropology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AUDD', 'Audiology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BLST', 'Afro-American Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CDSS', 'Comm Disorders & Speech Sci', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CEES', 'Central & East European Stdy', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('COMM', 'Communication', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ECN2', 'Economics, Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ECON', 'Economics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ETHC', 'Comparative Ethnic Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ETHN', 'Ethnic Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('IAFS', 'International Affairs', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('LAMS', 'Latin American Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('LIN2', 'Linguistics, Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('LING', 'Linguistics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PREC', 'Pre-Economics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PSCI', 'Political Science', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PSIA', 'Political Sci-Int Affairs', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PSPP', 'Political Sci-Publ Policy', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PSPS', 'Public Service Option-PSC', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('SLHS', 'Speech,Lang,Hearing Sciences', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('SOCI', 'Sociology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('SOCY', 'Sociology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('WMST', 'Women and Gender Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ACCT', 'Accounting', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ACIS', 'Accounting-Information Systems', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ACT2', 'Accounting - Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ACTX', 'Taxation', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BUAD', 'Business Administration', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BUAN', 'Business Analytics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BUUD', 'Business - Undetermined', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('DMBA', 'MBA with Dual Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ESBM', 'Small Bus Mgt & Entrprnship', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ESBU', 'Entreparneurship/Small Bus Mgt', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('FNA2', 'Finance-Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('FNCE', 'Finance', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('IMBA', 'Global MBA in Tech & Entrepre', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('INBU', 'International Business', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('INFS', 'Information Systems', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ISA2', 'Information Systems, Conc Degr', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('IST2', 'Information Systems, Conc Degr', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JMBA', 'Joint Juris Doctor/MBA', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MBAD', 'Master of Business Admin', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MGMT', 'Management', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MKTG', 'Marketing', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MLMG', 'Minerals Land Management', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MSIS', 'Mgt Sci-Information Systems', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('OPIM', 'Operation Mgmt Info Systems', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('OPMG', 'Operations Management', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ORMG', 'Organization Management', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PAAD', 'Public Agency Administration', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PHRM', 'Personnel-Human Resources Mgt', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PMBA', 'Professional MBA Program', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('REAL', 'Real Estate', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('SBME', 'Small Bus Mgt & Entrprnship', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('SCMN', 'Supply Chain Management', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('SELF', 'Self-Designed', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('SYST', 'Systems', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('SYT2', 'Systems, Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TIMG', 'Technology & Innovation Mgt', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TMBA', 'Joint MBA/MS in Telecomm', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TOMG', 'Tourism Management', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TREC', 'Tourism Management', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TRMG', 'Transport/Distribution Mgt', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('XXBU', 'Business - Open Option', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NCAP', 'Non-Credit Au Pair', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NCAU', 'Non-Credit Auditor', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NCFS', 'Non-Credit Faculty Staff', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NCHI', 'Non-Credit High School', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NCIE', 'Non-Credit International Engl', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NCRD', 'Non-Credit', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDAU', 'Non-Degree Unclassified', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDEE', 'Non-Degree Unclass Engr Only', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDEG', 'Non-Degree Unclassified Grad', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDEU', 'Non-Degree Unclassified Ugrd', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDFS', 'Non-Degree Unclassified GRAD', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDGR', 'Non-Degree Unclassified GRAD', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDHA', 'Non-Degree HS ASCENT', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDHC', 'Non-Degree HS CONCURRENT PGM', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDHN', 'Non-Degree HS NON CONCUR PGM', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDHP', 'Non-Degree High School (PSEO)', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDIE', 'Non-Degree Unclass Engr Only', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDIG', 'Non-degree Unclassified Grad', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDIL', 'Non-Degree Unclassified Law', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDIO', 'Non-Degree Unclassified', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDIU', 'Non-Degree Unclassified Ugrd', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDPE', 'Non-Degree Pre Med', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDPH', 'Non-Degree Pre Health UGRD', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDPM', 'Non-Degree Pre Med', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDRC', 'Reciprocal Exchange Student', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDSA', 'Non-Degree Unclassified', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDSF', 'Non-Degree Unclassified UGRD', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NDUG', 'Non-Degree Unclassified UGRD', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NGGA', 'Non-Degree Unclassified GRAD', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NGRC', 'Reciprocal Exchange Student', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NHFR', 'Non-Degree HS Freshman', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NHJR', 'Non-Degree HS Junior', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NHPJ', 'Non-Degree HS Junior', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NHPS', 'Non-Degree HS Senior', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NHSO', 'Non-Degree HS Sophomore', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NHSR', 'Non-Degree HS Senior', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NOHS', 'Non-Degree HS LVL Unknown', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NSAU', 'Non-Credit Auditor', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NUGA', 'Non-Degree Unclassified UGRD', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('COMN', 'Communication', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ETMP', 'Emergent Tech&Media Art Prac', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('IAWP', 'Intermedia Art,Wrtng&Perfrmnce', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('IDMP', 'Interdis Documntry Media Prac', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('INFO', 'Information Science', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JNRL', 'Delete', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JRNE', 'Journalism Entrepreneurship', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JRNL', 'Journalism', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JRNL', 'Journalism Entrepreneurship', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MAPE', 'Media and Public Engagement', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MDPD', 'Media Production', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MDRP', 'Media Research and Practice', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MDST', 'Media Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('STCM', 'Strategic Communication', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('STCM', 'Strategic Communication Design', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CNDG', 'Denver Concurrent', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CNDU', 'Denver Concurrent', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CNHG', 'Health Sciences Concurrent', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CNHU', 'Health Sciences Concurrent', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CNSG', 'Colorado Springs Concurrent', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CNSU', 'Colorado Springs Concurrent', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CUVG', 'Visiting from Other CU Inst', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CLSI', 'CmpLng,Analytics,Srch&Informat', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CPHY', 'Chemical Physics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('GEOP', 'Geophysics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('GRAD', 'Cross-Career Professional Enrl', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MFST', 'Museum and Field Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ORGL', 'Organizational Leadership', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PREB', 'Pre-Business', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PREE', 'Pre-Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('UGRD', 'Cross-Career Professional Enrl', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('XXES', 'Exploratory Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EAUD', 'Endrsmnt-Audiologist', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ECLD', 'Endrsmnt-Cult Ling Dvrse K-12', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDAR', 'Art Educ Elem Sec or K-12', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDCI', 'Educ-Curriculum & Instruction', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDDT', 'Drama/Theatre - Secondary', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDEL', 'Elementary Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDEN', 'English - Secondary Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDFR', 'French - Secondary Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDGR', 'German - Secondary Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDIC', 'Educ-Inst & Curr in Cont Areas', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDID', 'Inst & Curr + Elementary Licn', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDIE', 'Inst & Curr + Sec English Licn', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDIF', 'Inst & Curr + Sec Math Licn', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDIG', 'Inst & Curr + Sec Sci Licn', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDIH', 'Inst & Curr + Sec Soc Std Licn', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDIJ', 'Inst&Curr-Alt/Exp Educ/Sec Lic', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDIT', 'Italian - Secondary', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDJP', 'Japanese - Secondary Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDLT', 'Latin - Secondary Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDMA', 'Mathematics-Secondary Educ.', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDMU', 'Music Educ-Elem Sec or K-12', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDPE', 'Physical Education - K-12', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDPP', 'Physical Education - K-6', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDPS', 'Physical Education - 7-12', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDRU', 'Russian - Secondary Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDSC', 'Science - Secondary Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDSP', 'Spanish - Secondary Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EDSS', 'Social Studies-Secondary Educ.', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EECD', 'Educ Equity/Cultural Diversity', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EFPP', 'Educ Foundations, Pol & Prac', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ELDE', 'Endrsmnt-Ling Diverse K-12', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ELDS', 'Endrsmnt-Ling Diverse Biling', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ELED', 'Elementary Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EPSY', 'Education-Lrng Sci/Hmn Dev', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ERDT', 'Endrsmnt-Reading Teacher', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ESES', 'Endrsmnt-Special Ed Specialist', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ESLP', 'Endrsmnt-Speech/Lang Pathology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ESPG', 'Endrsmnt-Special Ed Generalist', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('HEDU', 'Higher Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ICCA', 'Educ-Inst & Curr in Cont Area', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ICCC', 'Inst & Curr + Elementary Licn', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ICCE', 'Inst & Curr + Sec English Licn', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ICCH', 'Inst & Curr + Sec Soc Std Licn', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ICCM', 'Inst & Curr + Sec Math Licn', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ICCS', 'Inst & Curr + Sec Sci Licn', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('IDIS', 'Interdisciplinary Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('LDCE', 'Leadership/CommunityEngagement', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MCBL', 'Social, Multicul & Biling Fnd', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MCBN', 'Soc Mult Biling Fnd/Elem Licn', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PREL', 'Teacher Cert Preliminary', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('REME', 'Educ-Research & Eval Methodol', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TECE', 'Teacher Certification', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('XTED', 'Pre-Teacher Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AEBU', 'Aerospace Engineering & Bus', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AEC2', 'Architectural Engr, C/Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AME2', 'Applied Math, Concurr Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AMEN', 'Applied Mathematics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AMEN', 'Applied Mathematics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ARBU', 'Architect Engr & Bus', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AREN', 'Architectural Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('AREN', 'Architectural Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ASE2', 'Aerospace Engr Sci, Concur Deg', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ASEN', 'Aerospace Engineering Sciences', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ASEN', 'Aerospace Engineering Sciences', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ATLS', 'Tech, Media & Society (ATLAS)', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BIEN', 'Biological Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CBEN', 'Chemical & Biological Engin', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CBEN', 'Chemical & Biological Engr', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CEBU', 'Chemical Engineering & Bus', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CHE2', 'Chemical Engr, Concurrent Degr', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CHEN', 'Chemical Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CHEN', 'Chemical Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CMSC', 'Computer Science', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CSAP', 'Applied Computer Science', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CSAP', 'Applied Computer Science', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CSBU', 'Computer Science & Business', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CSE2', 'Computer Sci, Concurrent Degr', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CSEN', 'Computer Science', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CSEN', 'Computer Science', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CVBU', 'Civil Engineering & Business', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CVE2', 'Civil Engr, Concurrent Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CVEN', 'Civil Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('CVEN', 'Civil Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ECBU', 'Elec Engr, Computer Sci & Bus', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ECE2', 'Elec & Comp Engr, Concurr Deg', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ECEN', 'Electrical & Comp Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ECEN', 'Electrical & Comp Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EECS', 'Elec Engr & Computer Sci', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EEEN', 'Electrical Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EEEN', 'Electrical Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EEMU', 'Electrical Engineering & Mus', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EEN2', 'Electrical Engr, Concur Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EMEN', 'Engineering Management', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ENUD', 'Engineering - Undetermined', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EPBU', 'Engineering Phys & Business', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EPE2', 'Eng Physics/Physics Concur Deg', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EPEN', 'Engineering Physics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EPEN', 'Engineering Physics', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EVC2', 'Envir/Civ Engineering Conc Deg', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EVEN', 'Environmental Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('EVEN', 'Environmental Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('GEEN', 'Engineering Plus', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('GEEN', 'Engineering Plus', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ICTD', 'Info & Comm Tech for Dev', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MAEG', 'Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MCE2', 'Mechanical Engr, Concur Degree', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MCEN', 'Mechanical Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MCEN', 'Mechanical Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MEBU', 'Mechanical Engineering & Bus', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MECH', 'Mechanical', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MTEN', 'Materials Science&Engineering', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('OPEN', 'Engineering Open Option', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TEL2', 'Telecommunications, Conc Degr', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TELE', 'Telecommunications', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TLEN', 'Telecommunications', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TMEN', 'Technology, Arts and Media', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('TMEN', 'Technology, Arts and Media', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('XXEN', 'Engineering - Open Option', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ADBU', 'Advertising & Business', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('ADVT', 'Advertising', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BCNS', 'Broadcast News', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BCPM', 'Broadcast Production', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BNBU', 'Broadcast News & Business', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('BPBU', 'Broadcast Prod Mgt & Bus', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('COMC', 'Communication w Jour Mass Comm', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JADV', 'Advertising', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JBCN', 'Broadcast News', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JBCP', 'Broadcast Production', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JMST', 'Media Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JNED', 'News - Editorial', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JOUR', 'Journalism', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JRGS', 'Journalism - General Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('JRUD', 'Journalism - Undetermined', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MDST', 'Media Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NEBU', 'News - Editorial & Business', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('NSED', 'News - Editorial', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PBBU', 'Public Relations & Business', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PBRL', 'Public Relations', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRJM', 'Pre-Journalism & Mass Comm', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('XXJM', 'Jour Mass Comm - Open Option', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('XXJR', 'Journalism - Open Option', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('LAW', '    Law', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('LAWS', 'Master of Studies in Law', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('LAWT', 'Law-Tax Emphasis', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('LWIA', 'Law/International Affairs', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('LWMB', 'Law - Master of Bus Admin', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('LWPA', 'Law/Public Administration', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MBRP', 'Brass/Percussion Performance', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MCLG', 'Classical Guitar Performance', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MCMP', 'Composition', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MHRP', 'Harp Performance', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MJZP', 'Jazz Piano Performance', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MJZZ', 'Jazz Studies', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MMCY', 'Musicology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MMED', 'Music Education (Masters)', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MOGN', 'Organ Performance', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MPNO', 'Piano Performance', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MSTG', 'String Performance', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MUAD', 'Music (Doctor of Musical Arts)', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MUBU', 'Music & Business', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MUED', 'Music Education (PhD)', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MULO', 'Musicology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MUSA', 'Music - Arts', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MUSC', 'Music', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MUSD', 'Music (PhD)', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MUSE', 'Music Education (Undergraduate)', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MUSM', 'Music', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MUUD', 'Music - Undetermined', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MVCE', 'Voice Performance', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('MWWD', 'Woodwind Performance', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('XXMU', 'Music - Undeclared', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PHAR', 'Pharmacy', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PHSC', 'Pharmaceutical Sciences', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRBA', 'Pre Post-Bac in Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRCH', 'Pre-Child Health Associate', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRDH', 'Pre-Dental Hygiene', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRDX', 'Pre-Dentistry', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRED', 'Pre-Education', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRHL', 'Pre-Health', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRMT', 'Pre-Medical Technology', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRMX', 'Pre-Medical', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRNU', 'Pre-Nursing', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRPH', 'Pre-Pharmacy', 0);
+INSERT INTO majors(Major, Major_Desc, numSelected)
+VALUES('PRPT', 'Pre-Physical Therapy', 0);
