@@ -61,7 +61,7 @@
 
         <!--Buttons tha toggle between student and researcher-->
         <div class="flex">
-            <button onclick="Student_Researcher_Visibility('Student-Form',1); Student_Researcher_Visibility('Researcher-Form',0); student_form_key" id="Student-Register">Student</button>
+            <button onclick="Student_Researcher_Visibility('Student-Form',1); Student_Researcher_Visibility('Researcher-Form',0)" id="Student-Register">Student</button>
             <button onclick="Student_Researcher_Visibility('Researcher-Form',1); Student_Researcher_Visibility('Student-Form',0)" id="Researcher-Register">Researcher</button>
         </div>
 
@@ -95,7 +95,7 @@
                                 <span class="input-group-text"> <i class="fa fa-university"></i> </span>
                             </div>
                             <select class="form-control" name="Year">
-                                <option selected=""> Select Year of Education</option> <!--Need to make sure they cannot submit this one-->
+                                <option selected="">Select Year of Education</option> <!--Need to make sure they cannot submit this one-->
                                 <option value="FSH">Freshman</option>
                                 <option value="SPH">Sophmore</option>
                                 <option value="JNR">Junior</option>
@@ -103,6 +103,9 @@
                                 <option value="OTH">Other</option>
                                 <option value="PNS">Prefer not to say</option>
                             </select>
+                            <div class="popup">
+                                <span class="popuptext" id="no-option-s">Please Select an Option</span>
+                            </div>
                         </div> <!-- End form-group -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
@@ -116,6 +119,9 @@
                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                             </div>
                             <input name="Password"class="form-control" placeholder="Create password" type="password" required>
+                            <div class="popup">
+                                    <span class="popuptext" id="no-req-s">Password Did Not Meet Requirements</span>
+                            </div>
                         </div> <!-- End form-group -->
                         <div class="flex-checks">
                             <div class="not-correct" id="char-s">8 Characters (min)</div>
@@ -128,7 +134,7 @@
                             </div>
                             <input name="Confirm-Password" class="form-control" placeholder="Confirm password" type="password" required>
                             <div class="popup">
-                                    <span class="popuptext" id="no-match">Passwords Did Not Match</span>
+                                    <span class="popuptext" id="no-match-s">Passwords Did Not Match</span>
                             </div>
                         </div> <!-- End form-group -->
                         <div class="form-group">
@@ -165,6 +171,9 @@
                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                             </div>
                             <input name="Password"class="form-control" placeholder="Create password" type="password" required>
+                            <div class="popup">
+                                <span class="popuptext" id="no-req-r">Password Did Not Meet Requirements</span>
+                            </div>
                         </div> <!-- End form-group -->
                         <div class="flex-checks">
                             <div class="not-correct" id="char-r">8 Characters (min)</div>
@@ -176,6 +185,9 @@
                                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                             </div>
                             <input name="Confirm-Password" class="form-control" placeholder="Confirm password" type="password" required>
+                            <div class="popup">
+                                <span class="popuptext" id="no-match-r">Passwords Did Not Match</span>
+                            </div>
                         </div> <!-- End form-group -->
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">Create Account</button>

@@ -1,18 +1,67 @@
 /*
 Function to make either the student form or researcher form in view based on onclick
 */
+
+var current_visibility_confirm_S = false; /* For  keeping track of password confirm popup on S form */
+var current_visibility_requirements_s = false; /* for keeping track of password req popup on S form */
+var current_visibility_dropdown_s = false; /* for keeping track of dropdown popup visibility */
+var det_confirm = false;
+var det_requirements = false;
+var det_dropdown = false;
+/* Had to place these variables here due to weird bug where popup on student form would stay up if switched to researcher form.
+for some reson the bug doesnt appear when there are popups on researcher and you swithc to student */
+
 function Student_Researcher_Visibility(id, toggle)
 {
 	if(toggle == 0)
 	{
 		document.getElementById(id).style.visibility = "hidden";
 		document.getElementById(id).style.height = "0px";
+		/* Toggle student popups tog et rid of bug */
+		if (id == "Student-Form")
+		{
+			if (current_visibility_confirm_S == true && det_confirm == false)
+			{
+				current_visibility_confirm_S = document.getElementById("no-match-s").classList.toggle("show");
+				det_confirm = true;
+			}
+			if (current_visibility_requirements_s == true && det_requirements == false)
+			{
+				current_visibility_requirements_s = document.getElementById("no-req-s").classList.toggle("show");
+				det_requirements = true;
+			}
+			if (current_visibility_dropdown_s == true && det_dropdown == false)
+			{
+				current_visibility_dropdown_s = document.getElementById("no-option-s").classList.toggle("show");
+				det_dropdown = true;
+			}
+		}
 	}
-	else if(toggle == 1)
+	
+	if(toggle == 1)
 	{
 		document.getElementById(id).style.visibility = "visible";
 		document.getElementById(id).style.height = "auto";
-	}
+		/* Toggle student popups to get rid of bug */
+		if (id == "Student-Form")
+		{
+			if (current_visibility_confirm_S == false && det_confirm == true)
+			{
+				current_visibility_confirm_S = document.getElementById("no-match-s").classList.toggle("show");
+				det_confirm = false;
+			}
+			if (current_visibility_requirements_s == false && det_requirements == true)
+			{
+				current_visibility_requirements_s = document.getElementById("no-req-s").classList.toggle("show");
+				det_requirements = false;
+			}
+			if (current_visibility_dropdown_s == false && det_dropdown == true)
+			{
+				current_visibility_dropdown_s = document.getElementById("no-option-s").classList.toggle("show");
+				det_dropdown = false;
+			}
+		}
+	}	
 }
 
 /* 
@@ -28,6 +77,9 @@ var upper_r = document.getElementById("upper-r");
 var digit_r = document.getElementById("digit-r");
 var char_r = document.getElementById("char-r");
 
+/*
+Onkeyup functions for each form
+*/
 function checks() {
 	/* Student Checks */
 
@@ -114,41 +166,97 @@ function student_form_called()
 	var Password = document.getElementById("Student-js").elements["Password"];
 	var Confirm_Password = document.getElementById("Student-js").elements["Confirm-Password"];
 
-	/* Confirm Passwords */
+	/* 
+	Confirm Passwords and check password requirements and check drop down slection
+	*/
 	var requirements = (digit_s.classList == "not-correct" || upper_s.classList == "not-correct" || char_s.classList == "not-correct");
 	var pass_check = (Password.value != Confirm_Password.value);
-	if (pass_check || requirements)
+	var drop_check = (Year.value == "Select Year of Education")
+	if (pass_check || requirements || drop_check)
 	{
-		console.log("popup-b");
 		/* Clear password input fields */
-		document.getElementById("Student-js").elements["Password"].value = "";
-		document.getElementById("Student-js").elements["Confirm-Password"].value = "";
 
-		/* Display Error Message*/
-		if (pass_check)
+		if (pass_check || requirements)
 		{
-			console.log("popup");
-			/* Passwords did not match */
-			var popup = document.getElementById("no-match");
-			popup.classList.toggle("show");
-		}
+			document.getElementById("Student-js").elements["Password"].value = "";
+			document.getElementById("Student-js").elements["Confirm-Password"].value = "";
 
-		if (requirements)
-		{
-			console.log("req");
-			/* password didnt meet requirements */
 			upper_s.classList.remove("correct"); 
 			upper_s.classList.add("not-correct");
 			
 			digit_s.classList.remove("correct"); 
-            digit_s.classList.add("not-correct"); 
-
+			digit_s.classList.add("not-correct"); 
+	
 			char_s.classList.remove("correct"); 
 			char_s.classList.add("not-correct"); 
-			/*Do popup stuff here */
 		}
+
+		/* 
+		Display Error Messages
+		*/
+
+		/* Password Confirmation Popup */
+		var popup_match = document.getElementById("no-match-s");
+		if (pass_check)
+		{
+			/* Passwords did not match */
+			if (current_visibility_confirm_S == false)
+			{
+				current_visibility_confirm_S = popup_match.classList.toggle("show");
+			}
+		}
+		else if (!pass_check)
+		{
+			/* If passwords match disable popup */
+			if (current_visibility_confirm_S == true)
+			{
+				current_visibility_confirm_S = popup_match.classList.toggle("show");
+			}
+		}
+
+		/* Passowrd Requirements popup */
+		var popup_req = document.getElementById("no-req-s");
+		if (requirements)
+		{
+			/* password didnt meet requirements */
+			if (current_visibility_requirements_s == false)
+			{
+				current_visibility_requirements_s = popup_req.classList.toggle("show");
+			}
+		}
+		else if (!requirements)
+		{	
+			if (current_visibility_requirements_s == true)
+			{
+				current_visibility_requirements_s = popup_req.classList.toggle("show");
+			}
+		}
+
+		/* Drop Down requirements popup */
+		var popup_drop = document.getElementById("no-option-s");
+		if (drop_check)
+		{
+			/* User did not select a valid option */
+			if (current_visibility_dropdown_s == false)
+			{
+				current_visibility_dropdown_s = popup_drop.classList.toggle("show");
+			}
+			
+		}
+		else if (!drop_check)
+		{
+			if (current_visibility_dropdown_s == true)
+			{
+				current_visibility_dropdown_s = popup_drop.classList.toggle("show");
+			}
+		}
+
+		/* If there is any error do not submit form to database and return */
 		return;
 	}
+
+	console.log("Student form Met requirements to submit");
+
 
 	/* database/server requests */
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
@@ -165,6 +273,8 @@ function student_form_called()
 	//location.href = "file:///home/luke/Documents/CSCI3308_106-4-ReSearch-App/ReSearch/views/index.html";
 }
 
+var current_visibility_confirm_r = false; /* For  keeping track of password confirm popup on S form */
+var current_visibility_requirements_r = false; /* for keeping track of password req popup on S form */
 function researcher_form_called()
 {
 	/*
@@ -174,6 +284,71 @@ function researcher_form_called()
 	var Name = document.getElementById("Researcher-js").elements["Name"];
 	var Password = document.getElementById("Researcher-js").elements["Password"];
 	var Confirm_Password = document.getElementById("Researcher-js").elements["Confirm-Password"];
+
+	var requirements = (digit_r.classList == "not-correct" || upper_r.classList == "not-correct" || char_r.classList == "not-correct");
+	var pass_check = (Password.value != Confirm_Password.value);
+	if (pass_check || requirements)
+	{
+		/* Clear password input fields */
+		document.getElementById("Researcher-js").elements["Password"].value = "";
+		document.getElementById("Researcher-js").elements["Confirm-Password"].value = "";
+
+		upper_r.classList.remove("correct"); 
+		upper_r.classList.add("not-correct");
+		
+		digit_r.classList.remove("correct"); 
+		digit_r.classList.add("not-correct"); 
+
+		char_r.classList.remove("correct"); 
+		char_r.classList.add("not-correct"); 
+		
+
+		/* 
+		Display Error Messages
+		*/
+
+		/* Password Confirmation Popup */
+		var popup_match = document.getElementById("no-match-r");
+		if (pass_check)
+		{
+			/* Passwords did not match */
+			if (current_visibility_confirm_r == false)
+			{
+				current_visibility_confirm_r = popup_match.classList.toggle("show");
+			}
+		}
+		else if (!pass_check)
+		{
+			/* If passwords match disable popup */
+			if (current_visibility_confirm_r == true)
+			{
+				current_visibility_confirm_r = popup_match.classList.toggle("show");
+			}
+		}
+
+		/* Passowrd Requirements popup */
+		var popup_req = document.getElementById("no-req-r");
+		if (requirements)
+		{
+			/* password didnt meet requirements */
+			if (current_visibility_requirements_r == false)
+			{
+				current_visibility_requirements_r = popup_req.classList.toggle("show");
+			}
+		}
+		else if (!requirements)
+		{	
+			if (current_visibility_requirements_r == true)
+			{
+				current_visibility_requirements_r = popup_req.classList.toggle("show");
+			}
+		}
+
+		/* If there is any error do not submit form to database and return */
+		return;
+	}
+
+	console.log("Researcher form Met requirements to submit");
 
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
 	xmlhttp.open("POST", "http://localhost:3000/researcher_registration", true);
