@@ -3,7 +3,7 @@ function login(callback) {
 	var Password = document.getElementById("sign_in_form").elements["inputPassword"];
 
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-	xmlhttp.open("POST", "http://localhost:3000/login", true);
+	xmlhttp.open("POST", "http://localhost:3000/student_login", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {

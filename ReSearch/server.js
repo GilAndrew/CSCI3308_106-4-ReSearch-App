@@ -83,7 +83,7 @@ app.post('/researcher_registration',jsonParser, function(req, res, next) {
     });
 });
 
-app.post('/login',jsonParser, function(req, res, next) { 
+app.post('/student_login',jsonParser, function(req, res, next) { 
 	var email = req.body.email;
 	var password = req.body.password;
 
@@ -98,6 +98,31 @@ app.post('/login',jsonParser, function(req, res, next) {
     	res.send({
 			inTable: info[0]
 		})
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            inTable: info[0]
+        })
+    });
+});
+
+app.post('/researcher_login',jsonParser, function(req, res, next) { 
+    var email = req.body.email;
+    var password = req.body.password;
+
+    var validation_query = "select exists(select 1 from researcher_profiles where email='"+email+"' AND password='"+password+"');";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(validation_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+            inTable: info[0]
+        })
     })
     .catch(err => {
         // display error message in case an error
