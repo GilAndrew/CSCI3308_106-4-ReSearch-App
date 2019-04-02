@@ -37,7 +37,7 @@ function Student_Researcher_Visibility(id, toggle)
 			}
 		}
 	}
-	
+
 	if(toggle == 1)
 	{
 		document.getElementById(id).style.visibility = "visible";
@@ -153,7 +153,7 @@ function checks() {
 /* 
 JS that submits forms
 */
-function student_form_called()
+function student_form_called(callback)
 {
 	/*
 	going to have to manually insert student value
@@ -264,18 +264,24 @@ function student_form_called()
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			console.log(this.response)
-			
+			response = JSON.parse(this.response);
+			//Check if email is unique
+			if (response.data[0].exists) {
+				alert("The email you entered has already been registered")
+			}
+			else {
+				// Callback used to redirect user to homepage after inserting data into database
+				callback()
+			}
 		}
 	}
 	xmlhttp.send(JSON.stringify({name:Name.value, username:User_name.value, email:Email.value, year:Year.value, birthday:Birthday.value, password:Password.value, confirm_password:Confirm_Password.value}));
-	//redirect to homepage
-	//location.href = "file:///home/luke/Documents/CSCI3308_106-4-ReSearch-App/ReSearch/views/index.html";
+	
 }
 
 var current_visibility_confirm_r = false; /* For  keeping track of password confirm popup on S form */
 var current_visibility_requirements_r = false; /* for keeping track of password req popup on S form */
-function researcher_form_called()
+function researcher_form_called(callback)
 {
 	/*
 	going to have to manually insert the researcher value
@@ -355,9 +361,21 @@ function researcher_form_called()
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			console.log(this.response)
-			
+			response = JSON.parse(this.response);
+			//Check if email is unique
+			if (response.data[0].exists) {
+				alert("The email you entered has already been registered")
+			}
+			else {
+				// Callback used to redirect user to homepage after inserting data into database
+				callback()
+			}
 		}
 	}
 	xmlhttp.send(JSON.stringify({name:Name.value, email:Email.value, password:Password.value, confirm_password:Confirm_Password.value}));
+}
+
+function toHomepage() {
+	// redirects to homepage
+	location.href = "file:///home/luke/Documents/CSCI3308_106-4-ReSearch-App/ReSearch/views/index.html";
 }

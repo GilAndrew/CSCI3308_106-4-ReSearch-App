@@ -1,4 +1,4 @@
-function login() {
+function login(callback) {
 	var Email = document.getElementById("sign_in_form").elements["inputEmail"];
 	var Password = document.getElementById("sign_in_form").elements["inputPassword"];
 
@@ -11,13 +11,17 @@ function login() {
 			response = JSON.parse(this.response);
 			//alert(response.inTable[0].exists);
 			if (response.inTable[0].exists){
-				alert("We found your profile!");
+				callback()
 			}
 			else {
-				alert("We were unable able to find a profile with that email/password")
+				alert("We were unable to find a profile with that email/password")
 			}
 		}
 	}
 	xmlhttp.send(JSON.stringify({email:Email.value, password:Password.value}));
-	alert("Searching for profile...");
+}
+
+function toHomepage() {
+	// redirects to homepage
+	location.href = "file:///home/luke/Documents/CSCI3308_106-4-ReSearch-App/ReSearch/views/index.html";
 }
