@@ -163,3 +163,30 @@ html,body {
     padding-bottom: 20px;
     max-width: fit-content;
 }
+
+/*=================================================
+                TESTIMONIES SECTION
+=================================================*/
+.exteneded-row h2 {
+    text-align: center;
+    color: #4C4C4C;
+    font-weight: 600;
+}
+
+#testimonie-title {
+    text-align: center;
+    color: #4C4C4C;
+}
+
+.testimonie-textbox p {
+    text-align: center;
+    color: #4C4C4C;
+}
+
+.exteneded-row {
+    font-weight: 400;
+    padding-bottom: 20px;
+    max-width: fit-content;
+    padding-right: 75px;
+    padding-left: 75px;
+}
