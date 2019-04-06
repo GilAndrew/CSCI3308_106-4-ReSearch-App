@@ -230,3 +230,41 @@ html,body {
     margin: 0;
     padding-left: 85px;
 }
+
+/*=================================================
+                FOOTER SECTION
+=================================================*/
+.contact-row {
+    padding-top: 20px;
+    font-weight: 200;
+    max-width: fit-content;
+    background-color: #4C4C4C;
+    color: white;
+}
+
+.social-list {
+    text-align: center;
+    padding: 0px;
+}
+
+.social-list li {
+    list-style: none;
+    display: inline-block;
+    width: 30px;
+    height: 32px;
+    margin-right: 15px;
+    margin-top: 20px;
+}
+
+.footer-icon {
+    color: white;
+}
+
+.footer-icon:hover {
+    color: #CFB87C;
+}
+
+#copyrights-row {
+    text-align: center;
+    padding-bottom: 5px;
+}
