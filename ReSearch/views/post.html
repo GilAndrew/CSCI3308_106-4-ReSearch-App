@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- font-awesome EXTERNAL RESOURCE-->
     <link href="../resources/css/post.css" rel="stylesheet">
-    <link href="../resources/css/responsive.css" rel="stylesheet">
     <!-- after style.css becouse style.css will be modified -->
 </head>
 
@@ -25,27 +24,24 @@
     <!--================================================
         NAVBAR
     =================================================-->
-    <!--Setup-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html"><strong>ReSearch</strong></a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
     </nav>
 
     <!--================================================
         Post Card
     =================================================-->
-    <section id="home">
-       <br>
-             <div class="container">
-              <div class="row">
-               <div class="col-xl-3 col-lg-3"></div>
+    <section id="post">
+        <br>
+        <div class="container">
+            <div class="row">
+                <!-- Dummy space to center card -->
+                <div class="col-xl-3 col-lg-3"></div>
+                <!-- Post Card -->
                 <div class="col-xl-6 col-lg-6">
                     <div class="card">
-                        <!-- Card Header - Dropdown -->
-                        <div class="card-header py-3 flex-row align-items-center justify-content-between">
+                        <!-- Card Header -->
+                        <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold">Create A Posting</h6>
                         </div>
                         <!-- Card Body -->
@@ -53,111 +49,109 @@
                             <form>
                                 <div class="form-group row">
                                     <div class="col-xl-12 col-lg-12">
-                                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Posting Title">
+                                        <input type="text" class="form-control form-control-sm" id="title" placeholder="Posting Title">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-xl-12 col-lg-12">
-                                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Educational Institute">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                   <div class="col-xl-12 col-lg-12">
-                                    <div class="form-row">
-                                        <div class="col-7">
-                                            <input type="text" class="form-control form-control-sm" placeholder="City">
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control form-control-sm" placeholder="State">
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control form-control-sm" placeholder="Zip">
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-xl-12 col-lg-12">
-                                        <textarea class="form-control form-control-sm" placeholder="Posting Body" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                        <input type="text" class="form-control form-control-sm" id="school" placeholder="Educational Institute">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-xl-12 col-lg-12">
-                                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Major">
+                                        <div class="form-row">
+                                            <div class="col-7">
+                                                <input type="text" class="form-control form-control-sm" id="city" placeholder="City">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control form-control-sm" id="state" placeholder="State">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control form-control-sm" id="zip" placeholder="Zip">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-
+                                <div class="form-group row">
+                                    <div class="col-xl-12 col-lg-12">
+                                        <textarea class="form-control form-control-sm" placeholder="Posting Body" id="body" rows="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-xl-12 col-lg-12">
+                                        <input type="text" class="form-control form-control-sm" id="major" placeholder="Major">
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <div class="col-xl-12 col-lg-12">
                                         <select class="form-control form-control-sm">
                                             <option selected>Select Eligible Applicants</option>
-                                            <option value="1">Undergraduate Students</option>
-                                            <option value="2">Graduate Students</option>
-                                            <option value="3">Both</option>
+                                            <option value="under">Undergraduate Students</option>
+                                            <option value="grad">Graduate Students</option>
+                                            <option value="both">Both</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                   <div class="col-xl-12 col-lg-12">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" class="form-control form-control-sm" placeholder="Application Opens (mm/dd/yyyy)">
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control form-control-sm" placeholder="Application Deadline (mm/dd/yyyy)">
+                                    <div class="col-xl-12 col-lg-12">
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <input type="text" class="form-control form-control-sm" id="app-open" placeholder="Application Opens (mm/dd/yyyy)">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control form-control-sm" id="app-close" placeholder="Application Deadline (mm/dd/yyyy)">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                                 <div class="form-group row">
-                                   <div class="col-xl-12 col-lg-12">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" class="form-control form-control-sm" placeholder="Start Date (mm/dd/yyyy)">
-                                        </div>
-                                        <div class="col">
-                                            <input type="text" class="form-control form-control-sm" placeholder="End Date (mm/dd/yyyy)">
+                                    <div class="col-xl-12 col-lg-12">
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <input type="text" class="form-control form-control-sm" placeholder="Start Date (mm/dd/yyyy)" id="start-date">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control form-control-sm" placeholder="End Date (mm/dd/yyyy)" id="end-date">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                                 <hr>
                                 <div class="form-group row">
-                                   <div class="col-xl-12 col-lg-12">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" class="form-control form-control-sm" placeholder="Contact Name">
+                                    <div class="col-xl-12 col-lg-12">
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <input type="text" class="form-control form-control-sm" placeholder="Contact Name" id="contact-name">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                                 <div class="form-group row">
-                                   <div class="col-xl-12 col-lg-12">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="email" class="form-control form-control-sm" placeholder="Contact Email">
+                                    <div class="col-xl-12 col-lg-12">
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <input type="email" class="form-control form-control-sm" id="contact-email" placeholder="Contact Email">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                                 <div class="form-group row">
-                                   <div class="col-xl-12 col-lg-12">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="email" class="form-control form-control-sm" placeholder="Contact Phone Number">
+                                    <div class="col-xl-12 col-lg-12">
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <input type="text" class="form-control form-control-sm" id="contact-phone" placeholder="Contact Phone Number">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                                 <div class="form-group row">
-                                   <div class="col-xl-12 col-lg-12">
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="text" class="form-control form-control-sm" placeholder="Contact Fax Number">
+                                    <div class="col-xl-12 col-lg-12">
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <input type="text" class="form-control form-control-sm" id="contact-fax" placeholder="Contact Fax Number">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                             </form>
                             <hr>
@@ -168,12 +162,10 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                </div>
-    <br>
+            </div>
+        </div>
+        <br>
     </section>
-    
-
 
     <!--================================================
         End

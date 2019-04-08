@@ -1,8 +1,7 @@
 html,body {
-    height: 100%;
     font-family: "Raleway", cursive;
+    background-color: #F9F9FA;
     scroll-behavior: smooth;
-    
 }
 
 /*================================================
@@ -13,32 +12,6 @@ html,body {
 }
 
 /*================================================
-        HOME
-=================================================*/
-#home {
-    background-color: #F9F9FA;
-            align-items: center !important;
-    align-content: center !important;
-    text-align: center !important;
-
-}
-
-#home-content-box {
-            align-items: center !important;
-    align-content: center !important;
-    text-align: center !important;
-}
-
-.row {
-        align-items: center !important;
-    align-content: center !important;
-    text-align: center !important;
-}
-
-.form-control{
-    color: #6D747E;
-}
-/*================================================
         Card
 =================================================*/
 .card-header{
@@ -47,13 +20,9 @@ html,body {
     text-align: center;
 }
 
-
-.finish-submit h6{
+/* Selector form color change from black, small detail. */
+.form-control{
     color: #6D747E;
-    padding-top: 15px;
-    text-align: center;
-    font-size: 12px;
-    margin-bottom: 0px;
 }
 
 .btn-outline-primary {
@@ -65,4 +34,12 @@ html,body {
     color: white;
     border-color: #4C4C4C;
     background-color: #4C4C4C;
+}
+
+.finish-submit h6{
+    color: #6D747E;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 15px;
+    margin-bottom: 0px;
 }
