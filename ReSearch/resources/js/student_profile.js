@@ -1,4 +1,4 @@
-
+/* For Profile Picture */
 $(document).ready(function() {
 
     
@@ -24,8 +24,19 @@ $(document).ready(function() {
     });
 });
 
-function button_click()
+function Sample_Populate()
 {
-    alert("Button Clicked");
-    console.log("we made it");
+    console.log("In Sample_Populate");
+
+    var Email = "sample@sample.com";
+    var Username = "Sample_Username";
+    var Birthdate = "01/02/2003";
+    var Year = "Junior";
+    var Name = "Douglas Thomas";
+
+    document.getElementById("Email").innerHTML = Email;
+    document.getElementById("Birthdate").innerHTML = Birthdate;
+    document.getElementById("Year").innerHTML = Year;
+    document.getElementById("Username").innerHTML = Username;
+    document.getElementById("Name").innerHTML = Name;
 }
