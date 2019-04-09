@@ -11,9 +11,11 @@ function loadHomepage() {
     if (this.readyState == 4 && this.status == 200) {
     	// console.log(this.response)
     	response = JSON.parse(this.response);
-      alert(JSON.stringify(response.name[0].name));
+      //alert(JSON.stringify(response.name[0].name));
+      //Here we want to update the name on the homepage
     }
   };
+  // Retrieve user ID of current user
   var userID = window.sessionStorage.getItem('userID')
   xmlhttp.send(JSON.stringify({userID: userID}));
 }
