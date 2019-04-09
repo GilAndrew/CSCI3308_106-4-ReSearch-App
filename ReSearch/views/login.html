@@ -10,9 +10,9 @@
     <link rel='icon' href='../resources/img/favicon.ico' type='image/x-icon'/> <!--Not sure we will want the cu logo here, but will act as a place holder for now-->
     <title>ReSearch Login</title>
 
-	  <link rel='icon' href='#' type='image/x-icon'/>
+    <link rel='icon' href='#' type='image/x-icon'/>
     <!-- Bootstrap core CSS -->
-	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="../resources/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../resources/css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="../resources/css/style.css" rel="stylesheet">
@@ -59,26 +59,29 @@
     </nav>
 
     <!-- Custom styles for this template -->
+    <script type="text/javascript" src="../resources/js/signin.js"></script>
     <link href="../resources/css/signin.css" rel="stylesheet">
   </head>
   <body class="center text-center">
-    <form class="form-signin">
-      <button class="btn btn-lg btn-primary" type="submit" id="student-button">Student Login</button>
-      <br>
-      <br>
-  	  <button class="btn btn-lg btn-primary" type="submit" id="researcher-button">Researcher Login</button>
-      <br>
-      <br>
-  	  <label for="inputEmail" class="sr-only">Email address</label>
-  	  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-  	  <label for="inputPassword" class="sr-only">Password</label>
-  	  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-  	  <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
-  	  <a class="btn btn-lg btn-primary" href="registration.html">Register</a>
-  	</form>
-  	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-  	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <form onsubmit="event.preventDefault(); login(toHomepage);" class="form-signin" id="sign_in_form">
+      <button class="btn btn-lg btn-primary" id="student-button" style="border-width: medium" onclick="event.preventDefault(); switchToStudent(); userType = 's';">Student Login</button>
+      <br>
+      <br>
+      <button class="btn btn-lg btn-primary" id="researcher-button" onclick="event.preventDefault(); switchToResearcher(); userType = 'r';">Researcher Login</button>
+      <br>
+      <br>
+      <!-- <label for="inputEmail" class="sr-only">Email address</label> --> <!-- Commented out to make the buttons work with the text box color -->
+      <input id="email-field" type="email" name="inputEmail" class="form-control" placeholder="Student Email Address" required autofocus>
+      <!-- <label for="inputPassword" class="sr-only">Password</label> --> <!-- Commented out to make the buttons work with the text box color -->
+      <input id="password-field" type="password" name="inputPassword" class="form-control" placeholder="Password" required>
+
+      <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+      <a class="btn btn-lg btn-primary" href="registration.html">Register</a>
+    </form>
+    <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="../resources/js/signin.js"></script>
   </body>
 </html>
