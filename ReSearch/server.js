@@ -1,11 +1,14 @@
 var express = require('express'); //Ensure our express framework has been added
 var app = express();
+//var session = require('express-session')
+//var cookieParser = require('cookie-parser')
 var cors = require('cors') 
 var bodyParser = require('body-parser'); //Ensure our body-parser tool has been added
 var jsonParser = bodyParser.json() // this is the depenency that you need to parse the requst of the form Application/Json
 app.use(cors())
 app.use(bodyParser.json());              // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+//app.use(cookieParser())
 
 var pgp = require('pg-promise')();
 
@@ -89,22 +92,26 @@ app.post('/student_login',jsonParser, function(req, res, next) {
 	var password = req.body.password;
 
 	var validation_query = "select exists(select 1 from user_profiles where email='"+email+"' AND password='"+password+"');";
+    var user_id_query = "select id from user_profiles where email='"+email+"' AND password='"+password+"';"
 
 	db.task('get-everything', task => {
         return task.batch([
-            task.any(validation_query)
+            task.any(validation_query),
+            task.any(user_id_query)
         ]);
     })
     .then(info => {
     	res.send({
-			inTable: info[0]
+			inTable: info[0],
+            id: info[1]
 		})
     })
     .catch(err => {
         // display error message in case an error
         console.log(err);
         res.send({
-            inTable: info[0]
+            inTable: info[0],
+            id: info[1]
         })
     });
 });
@@ -114,22 +121,74 @@ app.post('/researcher_login',jsonParser, function(req, res, next) {
     var password = req.body.password;
 
     var validation_query = "select exists(select 1 from researcher_profiles where email='"+email+"' AND password='"+password+"');";
+    var user_id_query = "select id from researcher_profiles where email='"+email+"' AND password='"+password+"';"
 
     db.task('get-everything', task => {
         return task.batch([
-            task.any(validation_query)
+            task.any(validation_query),
+            task.any(user_id_query)
         ]);
     })
     .then(info => {
         res.send({
-            inTable: info[0]
+            inTable: info[0],
+            id: info[1]
         })
     })
     .catch(err => {
         // display error message in case an error
         console.log(err);
         res.send({
-            inTable: info[0]
+            inTable: info[0],
+            id: info[1]
+        })
+    });
+});
+
+app.post('/load_homepage_student', jsonParser, function(req, res, next) {
+    var userID = req.body.userID;
+
+    var name_query = "select name from user_profiles where id='"+userID+"';";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(name_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+            name: info[0]
+        })
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            name: info[0]
+        })
+    });
+});
+
+app.post('/load_homepage_researcher', jsonParser, function(req, res, next) {
+    var userID = req.body.userID;
+
+    var name_query = "select name from researcher_profiles where id='"+userID+"';";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(name_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+            name: info[0]
+        })
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            name: info[0]
         })
     });
 });
