@@ -1,7 +1,6 @@
 /* For Profile Picture */
 $(document).ready(function() {
 
-    
     var readURL = function(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -14,7 +13,6 @@ $(document).ready(function() {
         }
     }
     
-
     $(".file-upload").on('change', function(){
         readURL(this);
     });
@@ -27,6 +25,7 @@ $(document).ready(function() {
 function Sample_Populate()
 {
     console.log("In Sample_Populate");
+    
 
     var Email = "sample@sample.com";
     var Username = "Sample_Username";
@@ -39,4 +38,30 @@ function Sample_Populate()
     document.getElementById("Year").innerHTML = Year;
     document.getElementById("Username").innerHTML = Username;
     document.getElementById("Name").innerHTML = Name;
+}
+
+function edit_profile(id, toggle)
+{
+    console.log("In edit_profile");
+    if(toggle == 0)
+	{
+		document.getElementById(id).style.visibility = "hidden";
+		document.getElementById(id).style.height = "0px";
+	}
+
+	if(toggle == 1)
+	{
+		document.getElementById(id).style.visibility = "visible";
+		document.getElementById(id).style.height = "auto";
+	}	
+}
+
+function headingToEdit()
+{
+    //populate place Holders with individuals information
+}
+
+function headingToProfile()
+{
+    //going to be similar to submit form for registration + update the data on profile page
 }
