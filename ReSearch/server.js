@@ -22,7 +22,7 @@ const dbConfig = {
 
 var db = pgp(dbConfig);
 
-app.post('/user_registration',jsonParser, function(req, res, next) { 
+app.post('/student_registration',jsonParser, function(req, res, next) { 
 
 	var name = req.body.name;
 	var email = req.body.email;
@@ -35,7 +35,8 @@ app.post('/user_registration',jsonParser, function(req, res, next) {
     var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
 	var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year) " + 
                         "SELECT'"+name+"', '"+email+"','"+username+"' , '"+password+"', '"+birthday+"', '"+year+"' WHERE " +
-                        "NOT EXISTS (SELECT email FROM user_profiles WHERE email = '"+email+"');";
+                        "NOT EXISTS (SELECT email FROM user_profiles WHERE email = '"+email+"') " +
+                        "RETURNING id;";
 
 	db.task('get-everything', task => {
         return task.batch([
@@ -45,15 +46,16 @@ app.post('/user_registration',jsonParser, function(req, res, next) {
     })
     .then(info => {
     	res.send({
-
-				data: info[0]
+				unique: info[0],
+                id: info[1]
 			})
     })
     .catch(err => {
         // display error message in case an error
         console.log(err);
         res.send({
-            data: ''
+            unique: '',
+            id: ''
         })
     });
 });
@@ -62,10 +64,11 @@ app.post('/researcher_registration',jsonParser, function(req, res, next) {
 	var name = req.body.name;
 	var email = req.body.email;
 	var password = req.body.confirm_password;
-  var unique_query = "SELECT EXISTS(SELECT 1 FROM researcher_profiles where email='"+email+"');";
+    var unique_query = "SELECT EXISTS(SELECT 1 FROM researcher_profiles where email='"+email+"');";
 	var insert_query = "INSERT INTO researcher_profiles(name, email, password) " + 
                         "SELECT '"+name+"', '"+email+"', '"+password+"' WHERE " +
-                        "NOT EXISTS (SELECT email FROM researcher_profiles WHERE email = '"+email+"');";
+                        "NOT EXISTS (SELECT email FROM researcher_profiles WHERE email = '"+email+"') " +
+                        "RETURNING id;";
 
 	db.task('get-everything', task => {
         return task.batch([
@@ -75,14 +78,16 @@ app.post('/researcher_registration',jsonParser, function(req, res, next) {
     })
     .then(info => {
     	res.send({
-				data: info[0]
+				unique: info[0],
+                id: info[1]
 			})
     })
     .catch(err => {
         // display error message in case an error
         console.log(err);
         res.send({
-            data: ''
+            unique: '',
+            id: ''
         })
     });
 });
@@ -189,6 +194,42 @@ app.post('/load_homepage_researcher', jsonParser, function(req, res, next) {
         console.log(err);
         res.send({
             name: info[0]
+        })
+    });
+});
+
+app.post('/post_submit',jsonParser, function(req, res, next) { 
+
+    var name = req.body.name;
+    var email = req.body.email;
+    var username = req.body.username;
+    var password = req.body.confirm_password;
+    var birthday = req.body.birthday;
+    var year = req.body.year;
+
+
+    var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
+    var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year) " + 
+                        "SELECT'"+name+"', '"+email+"','"+username+"' , '"+password+"', '"+birthday+"', '"+year+"' WHERE " +
+                        "NOT EXISTS (SELECT email FROM user_profiles WHERE email = '"+email+"');";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(unique_query),
+            task.any(insert_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+
+                data: info[0]
+            })
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            data: ''
         })
     });
 });

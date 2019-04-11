@@ -46,10 +46,17 @@
             </ul>
             <!-- Links Right-->
             <span class="navbar-nav form-inline">
-                <li class="nav-item mr-auto"><a class="nav-link" href="login.html">Login</a></li>
-                <li class="nav-item mr-auto"><a class="nav-link" href="registration.html">Sign Up</a></li>
-                <li class="nav-item mr-auto"><a class="nav-link" href="post.html">Post</a></li>
-                <li class="nav-item mr-auto"><i class="nav-icon fas fa-user-circle fa-2x" href="#"></i></li>
+                <li class="nav-item mr-auto"><a class="nav-link" href="login.html" id="login_link">Login</a></li>
+                <li class="nav-item mr-auto"><a class="nav-link" href="registration.html" id="signin_link">Sign Up</a></li>
+                <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="profile_link"><span class="fas fa-user-circle fa-lg"></span><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Profile<i class="fas fa-user pull-right"></i></a></li>
+                        <li id="post_link"><a href="post.html">Post<i id="post_icon" class="fas fa-edit pull-right"></i></a></li>
+                        <li><a href="#contact">Contact<i class="fas fa-envelope pull-right"></i></a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a onclick="logout();">Logout<i class="fas fa-power-off pull-right"></i></a></li>
+                    </ul>
+                </li>
             </span>
         </div>
     </nav>
