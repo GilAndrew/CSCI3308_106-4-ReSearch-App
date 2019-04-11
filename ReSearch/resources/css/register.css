@@ -36,14 +36,15 @@ html, body{
     display: flex;
     justify-content: left;
 }
-
+/*
 ::placeholder {
     color:white !important;
 }
-
+*/
 /*Gets Rid of outline after clicking button*/
+
 button:focus {
-    outline:0;
+    outline:1;
 }
 
 /* Cards for Sudent for and researcher form */

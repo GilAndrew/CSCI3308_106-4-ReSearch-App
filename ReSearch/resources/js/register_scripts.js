@@ -260,17 +260,19 @@ function student_form_called(callback)
 
 	/* database/server requests */
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-	xmlhttp.open("POST", "http://localhost:3000/user_registration", true);
+	xmlhttp.open("POST", "http://localhost:3000/student_registration", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			response = JSON.parse(this.response);
 			//Check if email is unique
-			if (response.data[0].exists) {
+			if (response.unique[0].exists) {
 				alert("The email you entered has already been registered")
 			}
 			else {
 				// Callback used to redirect user to homepage after inserting data into database
+				window.sessionStorage.setItem('userID', response.id[0].id)
+				window.sessionStorage.setItem('userType', 's')
 				callback()
 			}
 		}
@@ -363,11 +365,13 @@ function researcher_form_called(callback)
 		if (this.readyState == 4 && this.status == 200) {
 			response = JSON.parse(this.response);
 			//Check if email is unique
-			if (response.data[0].exists) {
+			if (response.unique[0].exists) {
 				alert("The email you entered has already been registered")
 			}
 			else {
 				// Callback used to redirect user to homepage after inserting data into database
+				window.sessionStorage.setItem('userID', response.id[0].id)
+				window.sessionStorage.setItem('userType', 'r')
 				callback()
 			}
 		}
