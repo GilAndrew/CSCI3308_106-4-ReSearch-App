@@ -22,11 +22,10 @@
 </head>
 
 <body onload="loadHomepage()">
-
+   
     <!--================================================
         NAVBAR
     =================================================-->
-    <!--Setup-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#"><strong>ReSearch</strong></a>
 
@@ -42,21 +41,14 @@
                 <li class="nav-item"><a class="nav-link" href="#testimonies">Testimonies</a></li>
                 <li class="nav-item"><a class="nav-link" href="#popular">Popular</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="#opportunities">All Opportunities</a></li>
+                <li class="nav-item"><a class="nav-link" href="feed.html">Opportunities</a></li>
             </ul>
             <!-- Links Right-->
             <span class="navbar-nav form-inline">
-                <li class="nav-item mr-auto"><a class="nav-link" href="login.html" id="login_link">Login</a></li>
-                <li class="nav-item mr-auto"><a class="nav-link" href="registration.html" id="signin_link">Sign Up</a></li>
-                <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="profile_link"><span class="fas fa-user-circle fa-lg"></span><b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Profile<i class="fas fa-user pull-right"></i></a></li>
-                        <li id="post_link"><a href="post.html">Post<i id="post_icon" class="fas fa-edit pull-right"></i></a></li>
-                        <li><a href="#contact">Contact<i class="fas fa-envelope pull-right"></i></a></li>
-                        <li class="dropdown-divider"></li>
-                        <li><a onclick="logout();">Logout<i class="fas fa-power-off pull-right"></i></a></li>
-                    </ul>
-                </li>
+                <li class="nav-item mr-auto"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item mr-auto"><a class="nav-link" href="registration.html">Sign Up</a></li>
+                <li class="nav-item mr-auto"><a class="nav-link" href="post.html">Post</a></li>
+                <li class="nav-item mr-auto"><i class="nav-icon fas fa-user-circle fa-2x" href="#"></i></li>
             </span>
         </div>
     </nav>
@@ -112,13 +104,7 @@
                     <p>Every new product, service, or feature we invent is the result of people working together to make each other’s ideas stronger. That happens here because every one of us strives toward a common goal — creating the best research experiences. Marvals in the product field are the hard work of of hundreds of experts who complement each other’s thinking. Multiply that effort across every feature in every revolutionary product. Collaboration is important here.</p>
                 </div>
             </div>
-        </div>
-        <!--About Images 1 Broken-->
-        <div class="container about-row">
-            <div class="row">
-                <div class="col-md-6 img-wrapper"><img src="../resources/img/bc1.jpg" class="img-responsive" alt="About Picture 1"></div>
-                <div class="col-md-6 img-wrapper"><img src="../resources/img/bc1.jpg" class="img-responsive" alt="About Picture 2"></div>
-            </div>
+            <br>
         </div>
     </section>
 
@@ -166,20 +152,17 @@
             </div>
             <br>
             <br>
-            <!--Testimonies Image 1 Broken-->
-            <div class="row img-wrapper">
-                <img src="../resources/img/bc2.jpg" class="row img-wrapper" alt="Testimonie Image">
-                <br>
-            </div>
         </div>
         <br>
     </section>
-
+    <section id="tesimony_image"></section>
+    
     <!--================================================
                     Popular
     =================================================-->
     <section id="popular">
-       <br>
+        <br>
+        <br>
         <div class="content-box">
             <h2>Popular</h2>
             <br>
@@ -189,7 +172,8 @@
                     <!--Popular item Text Box-->
                     <div class="col-md-4 col-sm-6">
                         <div class="popular-item">
-                            <i class="fa fa-space-shuttle fa-3x"></i>
+
+                            <a href="feed.html"><i class="fa fa-space-shuttle fa-3x"></i></a>
                             <h3>Astronomy</h3>
                             <p>The branch of science which deals with celestial objects, space, and the physical universe as a whole.</p>
                         </div>
@@ -197,7 +181,7 @@
                     <!--Popular item Text Box-->
                     <div class="col-md-4 col-sm-6">
                         <div class="popular-item">
-                            <i class="fas fa-seedling fa-3x"></i>
+                            <a href="feed.html"><i class="fas fa-seedling fa-3x"></i></a>
                             <h3>Biology</h3>
                             <p>Biology is a natural science concerned with the study of life and living organisms.</p>
                         </div>
@@ -205,7 +189,7 @@
                     <!--Popular item Text Box-->
                     <div class="col-md-4 col-sm-6">
                         <div class="popular-item">
-                            <i class="fas fa-briefcase fa-3x"></i>
+                            <a href="feed.html"><i class="fas fa-briefcase fa-3x"></i></a>
                             <h3>Business</h3>
                             <p>Business is the activity of making one's living or making money by producing or buying and selling products (such as goods and services).</p>
                         </div>
@@ -213,7 +197,7 @@
                     <!--Popular item Text Box-->
                     <div class="col-md-4 col-sm-6">
                         <div class="popular-item">
-                            <i class="fas fa-flask fa-3x"></i>
+                            <a href="feed.html"><i class="fas fa-flask fa-3x"></i></a>
                             <h3>Chemistry</h3>
                             <p>Chemistry is a branch of science that involves the study of the composition, structure and properties of matter.</p>
                         </div>
@@ -221,7 +205,7 @@
                     <!--Popular item Text Box-->
                     <div class="col-md-4 col-sm-6">
                         <div class="popular-item">
-                            <i class="fas fa-laptop fa-3x"></i>
+                            <a href="feed.html"><i class="fas fa-laptop fa-3x"></i></a>
                             <h3>Computer Science</h3>
                             <p>The study of the principles and use of computers.</p>
                         </div>
@@ -229,7 +213,7 @@
                     <!--Popular item Text Box-->
                     <div class="col-md-4 col-sm-6">
                         <div class="popular-item">
-                            <i class="fas fa-database fa-3x"></i>
+                            <a href="feed.html"><i class="fas fa-database fa-3x"></i></a>
                             <h3>Data Science</h3>
                             <p>Data science is a field of Big Data geared toward providing meaningful information based on large amounts of complex data.</p>
                         </div>
@@ -237,7 +221,7 @@
                     <!--Popular item Text Box-->
                     <div class="col-md-4 col-sm-6">
                         <div class="popular-item">
-                            <i class="fas fa-cogs fa-3x"></i>
+                            <a href="feed.html"><i class="fas fa-cogs fa-3x"></i></a>
                             <h3>Engineering</h3>
                             <p>The branch of science and technology concerned with the design, building, and use of engines, machines, and structures.</p>
                         </div>
@@ -245,7 +229,7 @@
                     <!--Popular item Text Box-->
                     <div class="col-md-4 col-sm-6">
                         <div class="popular-item">
-                            <i class="fas fa-clinic-medical fa-3x"></i>
+                            <a href="feed.html"><i class="fas fa-clinic-medical fa-3x"></i></a>
                             <h3>Medicine</h3>
                             <p>The science or practice of the diagnosis, treatment, and prevention of disease (in technical use often taken to exclude surgery).</p>
                         </div>
@@ -253,7 +237,7 @@
                     <!--Popular item Text Box-->
                     <div class="col-md-4 col-sm-6">
                         <div class="popular-item">
-                            <i class="fas fa-brain fa-3x"></i>
+                            <a href="feed.html"><i class="fas fa-brain fa-3x" href="feed.html"></i></a>
                             <h3>Philosophy</h3>
                             <p>The study of the fundamental nature of knowledge, reality, and existence, especially when considered as an academic discipline.</p>
                         </div>
@@ -261,7 +245,7 @@
                     <!--Popular item Text Box-->
                     <div class="col-md-4 col-sm-6">
                         <div class="popular-item">
-                            <i class="fas fa-atom fa-3x"></i>
+                            <a href="feed.html"><i class="fas fa-atom fa-3x"></i></a>
                             <h3>Physics</h3>
                             <p>The branch of science concerned with the nature and properties of matter and energy.</p>
                         </div>
@@ -269,7 +253,7 @@
                     <!--Popular item Text Box-->
                     <div class="col-md-4 col-sm-6">
                         <div class="popular-item">
-                            <i class="fas fa-flag-usa fa-3x"></i>
+                            <a href="feed.html"><i class="fas fa-flag-usa fa-3x"></i></a>
                             <h3>Political Science</h3>
                             <p>The branch of knowledge that deals with systems of government; the analysis of political activity and behavior.</p>
                         </div>
@@ -277,7 +261,7 @@
                     <!--Popular item Text Box-->
                     <div class="col-md-4 col-sm-6">
                         <div class="popular-item">
-                            <i class="fas fa-users fa-3x"></i>
+                            <a href="feed.html"><i class="fas fa-users fa-3x"></i></a>
                             <h3>Sociology</h3>
                             <p>The study of the development, structure, and functioning of human society.</p>
                         </div>
@@ -285,26 +269,10 @@
                 </div>
             </div>
         </div>
-        <!--Popular Image-->
-        <div class="container">
-            <div class="row">
-                <!--Image 1-->
-                <div class="col-md-6">
-                    <div class="img-wrapper">
-                        <img src="../resources/img/bc1.jpg" class="img-wrapper" alt="Popular Image">
-                    </div>
-                </div>
-                <!--Image 2-->
-                <div class="col-md-6 img-wrapper">
-                    <div class="img-wrapper">
-                        <img src="../resources/img/bc4.jpg" class="img-wrapper" alt="Popular Image">
-                    </div>
-                </div>
-            </div>
-        </div>
         <br>
     </section>
-
+    <section id="footer_images"></section>
+    
     <!--================================================
                     Contact
     =================================================-->

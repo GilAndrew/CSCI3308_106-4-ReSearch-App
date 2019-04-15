@@ -1,4 +1,4 @@
-html,body {
+html, body {
     height: 100%;
     font-family: "Raleway", cursive;
     scroll-behavior: smooth;
@@ -26,58 +26,60 @@ html,body {
 
 /* Dropdown button */
 .dropdown {
-  background-color: inherit !important;
-  font-family: inherit !important; /* Important for vertical align on mobile phones */
+    background-color: inherit !important;
+    font-family: inherit !important;
+    /* Important for vertical align on mobile phones */
 }
 
 .dropdown-menu {
-  display: none;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  right: 0;
-  left: auto;
+    display: none;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 0;
+    left: auto;
 }
 
 /* Links inside the dropdown */
 .dropdown-menu a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
 }
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-menu a:hover {
-  background-color: #ddd;
+    background-color: #ddd;
 }
 
 .pull-right {
     float: right;
 }
+
 /*================================================
         IMAGES
 =================================================*/
-.img-wrapper {
-    overflow: hidden;
-    max-height: 600px;
-    max-width: 700px;
+#tesimony_image {
+    height: 60%;
+    background-image: url(../img/bc2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: right;
 }
 
-/* smooth in smooth zoom effect */
-.img-wrapper img {
-    transition: transform .5s ease;
-}
-
-/* zoom effect on image when hovered over */
-.img-wrapper img:hover {
-    transform: scale(1.5);
+#footer_images {
+    height: 60%;
+    background-image: url(../img/bc3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 /*================================================
