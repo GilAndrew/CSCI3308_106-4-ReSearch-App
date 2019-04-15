@@ -1,0 +1,41 @@
+html,body {
+    font-family: "Raleway", cursive;
+    background-color: #F9F9FA;
+    scroll-behavior: smooth;
+}
+
+/*================================================
+        NAVBAR
+=================================================*/
+.navbar {
+    background: #4C4C4C !important;
+}
+
+.card-header{
+    background-color: white;
+    color: #4C4C4C;
+    text-align: center;
+}
+
+.card_body {
+    font-size: 13px;
+}
+
+/* Remove space for hr tags.*/
+.card_body hr{
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+/* Remove space above hr tags.*/
+.row_above_hr{
+    margin-bottom: 0px;
+}
+
+.end_statement h6{
+    color: #6D747E;
+    text-align: center;
+    font-size: 13px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+}
