@@ -6,6 +6,7 @@ function post_submit(callback) {
 	var zip = document.getElementById("zip");
 	var body = document.getElementById("body");
 	var major = document.getElementById("major");
+	var student_type = document.getElementById("student-type");
 	var app_open = document.getElementById("app-open");
 	var app_close = document.getElementById("app-close");
 	var start_date = document.getElementById("start-date");
@@ -26,8 +27,8 @@ function post_submit(callback) {
 		}
 	}
 	xmlhttp.send(JSON.stringify({title:title.value, school:school.value, city:city.value, state:state.value, zip:zip.value, 
-									body:body.value, major:major.value, app_open:app_open, app_close:app_close, start_date:start_date, end_date:end_date,
-									contact_name:contact_name, contact_email:contact_email, contact_phone:contact_phone, contact_fax:contact_fax}));
+									body:body.value, major:major.value, student_type:student_type.value, app_open:app_open.value, app_close:app_close.value, start_date:start_date.value, end_date:end_date.value,
+									contact_name:contact_name.value, contact_email:contact_email.value, contact_phone:contact_phone.value, contact_fax:contact_fax.value}));
 }
 
 function toHomepage() {

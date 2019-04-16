@@ -206,6 +206,8 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     var state = req.body.state;
     var zip = req.body.zip;
     var body = req.body.body;
+    var major = req.body.major;
+    var student_type = req.body.student_type;
     var app_open = req.body.app_open;
     var app_close = req.body.app_close;
     var start_date = req.body.start_date;
@@ -215,11 +217,10 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     var contact_phone = req.body.contact_phone;
     var contact_fax = req.body.contact_fax;
 
-
-    var insert_query = "INSERT INTO postings (title, school, city, state, zip, body, app_open, app_close, " +
+    var insert_query = "INSERT INTO postings (title, school, city, state, zip, body, major, app_open, app_close, " +
                         "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax)" +
-                        "VALUES (title, school, city, state, zip, body, app_open, app_close, " +
-                        "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax);";
+                        "VALUES ('"+title+"', '"+school+"', '"+city+"', '"+state+"', "+zip+", '"+body+"', '"+major+"', '"+app_open+"', '"+app_close+"', '" +
+                        start_date+"', '"+end_date+"', '"+contact_name+"', '"+contact_email+"', '"+contact_phone+"', '"+contact_fax+"');";
 
     db.task('get-everything', task => {
         return task.batch([
@@ -236,6 +237,29 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
         console.log(err);
         res.send({
             data: ''
+        })
+    });
+});
+
+app.get('/populate_feed',jsonParser, function(req, res, next) { 
+
+    var all_postings_query = "SELECT * FROM postings;";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(all_postings_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+                postings: info[0]
+            })
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            postings: ''
         })
     });
 });

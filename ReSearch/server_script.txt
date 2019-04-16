@@ -59,6 +59,18 @@ Creating postings table
 
 CREATE TABLE IF NOT EXISTS postings (
     title VARCHAR(50) NOT NULL,
-    ownerProfile VARCHAR(30) NOT NULL PRIMARY KEY,
-    description TEXT
+    school VARCHAR(50) NOT NULL,
+    city VARCHAR(40) NOT NULL,
+    state VARCHAR(2) NOT NULL,
+    zip NUMERIC(5) NOT NULL,
+    body TEXT NOT NULL,
+    major VARCHAR(40),
+    app_open DATE,
+    app_close DATE,
+    start_date DATE,
+    end_date DATE,
+    contact_name VARCHAR(50),
+    contact_email VARCHAR(50),
+    contact_phone VARCHAR(15),
+    contact_fax VARCHAR(20)
 );
