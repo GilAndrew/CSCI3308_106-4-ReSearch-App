@@ -1,19 +1,19 @@
-function post_submit() {
-	var title = documents.getElementById("title");
-	var school = documents.getElementById("school");
-	var city = documents.getElementById("city");
-	var state = documents.getElementById("state");
-	var zip = documents.getElementById("zip");
-	var body = documents.getElementById("body");
-	var major = documents.getElementById("major");
-	var app_open = documents.getElementById("app-open");
-	var app_close = documents.getElementById("app-close");
-	var start_date = documents.getElementById("start-date");
-	var end_date = documents.getElementById("end-date");
-	var contact_name = documents.getElementById("contact-name");
-	var contact_email = documents.getElementById("contact-email");
-	var contact_phone = documents.getElementById("contact-phone");
-	var contact_fax = documents.getElementById("contact-fax");
+function post_submit(callback) {
+	var title = document.getElementById("title");
+	var school = document.getElementById("school");
+	var city = document.getElementById("city");
+	var state = document.getElementById("state");
+	var zip = document.getElementById("zip");
+	var body = document.getElementById("body");
+	var major = document.getElementById("major");
+	var app_open = document.getElementById("app-open");
+	var app_close = document.getElementById("app-close");
+	var start_date = document.getElementById("start-date");
+	var end_date = document.getElementById("end-date");
+	var contact_name = document.getElementById("contact-name");
+	var contact_email = document.getElementById("contact-email");
+	var contact_phone = document.getElementById("contact-phone");
+	var contact_fax = document.getElementById("contact-fax");
 
 	/* database/server requests */
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
@@ -21,11 +21,16 @@ function post_submit() {
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			response = JSON.parse(this.response);
-			
+			//response = JSON.parse(this.response);
+			callback()
 		}
 	}
 	xmlhttp.send(JSON.stringify({title:title.value, school:school.value, city:city.value, state:state.value, zip:zip.value, 
 									body:body.value, major:major.value, app_open:app_open, app_close:app_close, start_date:start_date, end_date:end_date,
 									contact_name:contact_name, contact_email:contact_email, contact_phone:contact_phone, contact_fax:contact_fax}));
+}
+
+function toHomepage() {
+	// redirects to homepage
+	location.href = "file:///home/luke/Documents/CSCI3308_106-4-ReSearch-App/ReSearch/views/index.html";
 }

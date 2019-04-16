@@ -200,29 +200,35 @@ app.post('/load_homepage_researcher', jsonParser, function(req, res, next) {
 
 app.post('/post_submit',jsonParser, function(req, res, next) { 
 
-    var name = req.body.name;
-    var email = req.body.email;
-    var username = req.body.username;
-    var password = req.body.confirm_password;
-    var birthday = req.body.birthday;
-    var year = req.body.year;
+    var title = req.body.title;
+    var school = req.body.school;
+    var city = req.body.city;
+    var state = req.body.state;
+    var zip = req.body.zip;
+    var body = req.body.body;
+    var app_open = req.body.app_open;
+    var app_close = req.body.app_close;
+    var start_date = req.body.start_date;
+    var end_date = req.body.end_date;
+    var contact_name = req.body.contact_name;
+    var contact_email = req.body.contact_email;
+    var contact_phone = req.body.contact_phone;
+    var contact_fax = req.body.contact_fax;
 
 
-    var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
-    var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year) " + 
-                        "SELECT'"+name+"', '"+email+"','"+username+"' , '"+password+"', '"+birthday+"', '"+year+"' WHERE " +
-                        "NOT EXISTS (SELECT email FROM user_profiles WHERE email = '"+email+"');";
+    var insert_query = "INSERT INTO postings (title, school, city, state, zip, body, app_open, app_close, " +
+                        "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax)" +
+                        "VALUES (title, school, city, state, zip, body, app_open, app_close, " +
+                        "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax);";
 
     db.task('get-everything', task => {
         return task.batch([
-            task.any(unique_query),
             task.any(insert_query)
         ]);
     })
     .then(info => {
         res.send({
-
-                data: info[0]
+                data: ''
             })
     })
     .catch(err => {
