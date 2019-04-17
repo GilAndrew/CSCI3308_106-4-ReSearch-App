@@ -162,16 +162,18 @@ function student_form_called(callback)
 	var User_name = document.getElementById("Student-js").elements["User-name"];
 	var Email = document.getElementById("Student-js").elements["Email"];
 	var Year = document.getElementById("Student-js").elements["Year"];
+	var Major = document.getElementById("Student-js").elements["Major"];
 	var Birthday = document.getElementById("Student-js").elements["Birthday"];
 	var Password = document.getElementById("Student-js").elements["Password"];
 	var Confirm_Password = document.getElementById("Student-js").elements["Confirm-Password"];
-
+	
 	/* 
 	Confirm Passwords and check password requirements and check drop down slection
 	*/
 	var requirements = (digit_s.classList == "not-correct" || upper_s.classList == "not-correct" || char_s.classList == "not-correct");
 	var pass_check = (Password.value != Confirm_Password.value);
-	var drop_check = (Year.value == "Select Year of Education")
+	var drop_check = (Year.value == "Select Year of Education");
+
 	if (pass_check || requirements || drop_check)
 	{
 		/* Clear password input fields */
@@ -275,7 +277,7 @@ function student_form_called(callback)
 			}
 		}
 	}
-	xmlhttp.send(JSON.stringify({name:Name.value, username:User_name.value, email:Email.value, year:Year.value, birthday:Birthday.value, password:Password.value, confirm_password:Confirm_Password.value}));
+	xmlhttp.send(JSON.stringify({name:Name.value, username:User_name.value, email:Email.value, year:Year.value, major: Major.value, birthday:Birthday.value, password:Password.value, confirm_password:Confirm_Password.value}));
 	
 }
 
@@ -381,3 +383,52 @@ function toHomepage() {
 	location.href = "file:///home/luke/Documents/CSCI3308_106-4-ReSearch-App/ReSearch/views/index.html";
 
 }
+
+function autoComplete(value) {
+
+	var current = value;
+
+	var currentMost = current.substring(0, current.length - 1);
+	var charLast = current.charCodeAt(current.length - 1);
+
+	var charNext = String.fromCharCode(1 + charLast);
+
+	var retrieval_query = "select major, major_desc from majors where (major_desc >= '" + current + "' and major_desc < '" + currentMost + charNext + "') order by numSelected, major;";
+
+	//major info retrieval from database
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("POST", "http://localhost:3000/major_retrieve", true);
+	xmlhttp.setRequestHeader("Content-Type", "application/json");
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var response = JSON.parse(this.response);
+			if (response) {
+				for (i = 0; i < response.data.length; i++) {
+					var id = "option" + (i+1);
+					document.getElementById(id).value = "";
+					document.getElementById(id).label = "";
+					var result = JSON.parse(JSON.stringify(response.data[i].major)) + " - " + JSON.parse(JSON.stringify(response.data[i].major_desc));
+					document.getElementById(id).value = JSON.parse(JSON.stringify(response.data[i].major));
+					document.getElementById(id).label = result;
+				}
+
+			}
+			else {
+				console.log(err);
+			}
+
+		}
+	}
+	xmlhttp.send(JSON.stringify({query:retrieval_query}));
+
+	//possibly use query to populate array with top 3 respones from table
+
+	//right side of equals needs to load the drop down recommendation
+	//document.getElementById("majorInput").oninput = '';
+
+	/*inp.addEventListener("input", function(e) {
+		console.log("AUTO COMPLETE!!!");
+	});*/
+	console.log("AUTO COMPLETE!!!");
+	return ;
+};

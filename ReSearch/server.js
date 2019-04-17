@@ -11,10 +11,10 @@ var pgp = require('pg-promise')();
 
 const dbConfig = {
 	host: 'localhost',
-	port: 5432,
+	port: 5432, //5432 or 3000
 	database: 'research_db',
 	user: 'postgres',
-	password: 'pwd'
+	password: 'newpassword' //pwd or newpassword
 };
 
 var db = pgp(dbConfig);
@@ -26,8 +26,10 @@ app.post('/user_registration',jsonParser, function(req, res, next) {
 	var username = req.body.username;
 	var password = req.body.confirm_password;
 	var birthday = req.body.birthday;
-	var year = req.body.year;
+    var year = req.body.year;
+    var major = req.body.major;
 
+    //need to add major into the insert statement, will have to utilize the foreign key
 
     var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
 	var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year) " + 
@@ -59,7 +61,7 @@ app.post('/researcher_registration',jsonParser, function(req, res, next) {
 	var name = req.body.name;
 	var email = req.body.email;
 	var password = req.body.confirm_password;
-  var unique_query = "SELECT EXISTS(SELECT 1 FROM researcher_profiles where email='"+email+"');";
+    var unique_query = "SELECT EXISTS(SELECT 1 FROM researcher_profiles where email='"+email+"');";
 	var insert_query = "INSERT INTO researcher_profiles(name, email, password) " + 
                         "SELECT '"+name+"', '"+email+"', '"+password+"' WHERE " +
                         "NOT EXISTS (SELECT email FROM researcher_profiles WHERE email = '"+email+"');";
@@ -130,6 +132,30 @@ app.post('/researcher_login',jsonParser, function(req, res, next) {
         console.log(err);
         res.send({
             inTable: info[0]
+        })
+    });
+});
+
+app.post('/major_retrieve',jsonParser, function(req, res, next) {
+
+    var query = req.body.query;
+
+    db.task('get-majors', task => {
+        return task.batch([
+            task.any(query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+            data: [info[0][0], info[0][1], info[0][2], info[0][3]]
+            
+        })
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            data: ''
         })
     });
 });
