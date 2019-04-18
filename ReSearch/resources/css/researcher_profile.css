@@ -1,7 +1,6 @@
 html, body{
   background: -webkit-linear-gradient(left,#cfb87c, #4c4c4c);
 }
-
 .profile{
   padding: 3%;
   margin-top: 3%;
@@ -10,7 +9,6 @@ html, body{
   border-radius: 0.5rem;
   background: #fff;
 }
-
 .p-image {
   position: relative;
   left: 175px;
@@ -31,7 +29,6 @@ html, body{
 .file-upload{
   display: none;
 }
-
 #edit_profile {
   visibility: hidden !important;
   padding: 0%;
