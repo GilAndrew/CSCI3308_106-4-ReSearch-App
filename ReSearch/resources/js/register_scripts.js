@@ -164,10 +164,6 @@ function student_form_called(callback)
 	var Birthday = document.getElementById("Student-js").elements["Birthday"];
 	var Password = document.getElementById("Student-js").elements["Password"];
 	var Confirm_Password = document.getElementById("Student-js").elements["Confirm-Password"];
-	
-
-	//test major variable
-	console.log("Major: " + Major.value);
 
 	/* 
 	Confirm Passwords and check password requirements and check drop down slection
@@ -289,9 +285,6 @@ var current_visibility_confirm_r = false; /* For  keeping track of password conf
 var current_visibility_requirements_r = false; /* for keeping track of password req popup on S form */
 function researcher_form_called(callback)
 {
-	/*
-	going to have to manually insert the researcher value
-	*/
 	var Email = document.getElementById("Researcher-js").elements["Email"];
 	var Name = document.getElementById("Researcher-js").elements["Name"];
 	var Password = document.getElementById("Researcher-js").elements["Password"];
@@ -393,12 +386,9 @@ function toHomepage() {
 function autoComplete(value) {
 
 	var current = value;
-
 	var currentMost = current.substring(0, current.length - 1);
 	var charLast = current.charCodeAt(current.length - 1);
-
 	var charNext = String.fromCharCode(1 + charLast);
-
 	var retrieval_query = "select major, major_desc from majors where (major_desc >= '" + current + "' and major_desc < '" + currentMost + charNext + "') order by numSelected, major;";
 
 	//major info retrieval from database
@@ -426,15 +416,5 @@ function autoComplete(value) {
 		}
 	}
 	xmlhttp.send(JSON.stringify({query:retrieval_query}));
-
-	//possibly use query to populate array with top 3 respones from table
-
-	//right side of equals needs to load the drop down recommendation
-	//document.getElementById("majorInput").oninput = '';
-
-	/*inp.addEventListener("input", function(e) {
-		console.log("AUTO COMPLETE!!!");
-	});*/
-	console.log("AUTO COMPLETE!!!");
 	return ;
 };

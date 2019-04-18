@@ -14,7 +14,7 @@ var pgp = require('pg-promise')();
 
 const dbConfig = {
 	host: 'localhost',
-	port: 5432, //5432 or 3000
+	port: 5432,
 	database: 'research_db',
 	user: 'postgres',
 	password: 'newpassword' //pwd or newpassword
@@ -211,8 +211,6 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     var state = req.body.state;
     var zip = req.body.zip;
     var body = req.body.body;
-    var major = req.body.major;
-    var student_type = req.body.student_type;
     var app_open = req.body.app_open;
     var app_close = req.body.app_close;
     var start_date = req.body.start_date;
@@ -224,7 +222,7 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
 
     var insert_query = "INSERT INTO postings (title, school, city, state, zip, body, major, app_open, app_close, " +
                         "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax)" +
-                        "VALUES ('"+title+"', '"+school+"', '"+city+"', '"+state+"', "+zip+", '"+body+"', '"+major+"', '"+app_open+"', '"+app_close+"', '" +
+                        "VALUES ('"+title+"', '"+school+"', '"+city+"', '"+state+"', "+zip+", '"+body+"', '"+app_open+"', '"+app_close+"', '" +
                         start_date+"', '"+end_date+"', '"+contact_name+"', '"+contact_email+"', '"+contact_phone+"', '"+contact_fax+"');";
 
     db.task('get-everything', task => {
