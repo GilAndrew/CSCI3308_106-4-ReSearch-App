@@ -19,16 +19,21 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 var pgp = require('pg-promise')();
 
-const dbConfig = {
+/*const dbConfig = {
 	host: 'localhost',
 	port: 5432, //5432 or 3000
 	database: 'research_db',
 	user: 'postgres',
 	password: 'newpassword' //pwd or newpassword
-};
+};*/
+
+const dbConfig = process.env.DATABASE_URL; //test this
+
 
 var db = pgp(dbConfig);
 
+app.set('view engine', 'ejs'); //test this
+app.use(express.static(__dirname + '/')); //test this
 
 app.post('/student_registration',jsonParser, function(req, res, next) { 
 
@@ -348,5 +353,6 @@ app.post('/major_retrieve',jsonParser, function(req, res, next) {
     });
 });
 
-app.listen(3000);
+app.listen(process.env.PORT); //test this
+//app.listen(3000);
 console.log('3000 is the magic port');
