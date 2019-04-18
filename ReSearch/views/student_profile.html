@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Douglas Thomas">
+        <meta name="description" content="Student Profile Page">
+        <meta name="keywords" content=""> <!--Only need to worry about keywords if we decide to host/ care about being found-->
+
+        <title>ReSearch Profile</title>
+        <link href="#" rel="shortcut icon">
+	    <link rel='icon' href='../resources/img/favicon.ico' type='image/x-icon'/> <!--Not sure we will want the cu logo here, but will act as a place holder for now-->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> <!-- Need Jquerey to load first -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link href="../resources/css/student_profile.css" rel="stylesheet">
+    </head>
+
+    <body onload="load_from_DB(); get_correct_data();">
+
+        <!--Nav bar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html"><strong>ReSearch</strong></a> <!--Refrence Home Page-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Opportunity Type</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Featured</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Newest</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">All</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registration.html">Sign Up</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
+        <!-- Main Form to Hold Student Profile Information-->
+        <div class="container" id="profile"> 
+            <div class="profile">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <!-- User Profile Image -->
+                            <div class="rounded">
+                                <!-- Default Image -->
+                                <img id="Profile-Image" class="profile-pic" src="https://pbs.twimg.com/media/DTJLmSAW4AIMBrg.jpg" alt="Image Not Found">
+                                <!-- <i class="fa fa-user fa-5x"></i> -->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                <h5 id="Name">
+                                Individuals Name
+                                </h5>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-6">
+                                        <label>User Name:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p id="Username">Iwanttodie</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p id="Email">idk@idk.com</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Year of Education:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p id="Year">Sophmore</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Birthdate:</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p id="Birthday">Birthday</p>
+                                    </div>
+                                </div>  
+                            </div>
+                        <div class="col-md-2">
+                            <input class="profile-edit-btn" name="Edit" onclick="edit_profile('edit-profile',1); edit_profile('profile',0); headingToEdit();" value="Edit Profile"/>
+                        </div>
+                    </div>
+                </form>   
+            </div>        
+        </div>
+
+        <!--Form To Submit Edits to Profile-->
+        <form action="#" onsubmit="headingToProfile(); return false;" id="edit-profile-js">
+            <div class="container" id="edit-profile">
+                <div class="edit-profile">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <!-- User Profile Image -->
+                                <div class="rounded">
+                                    <!-- Default Image -->
+                                    <img id="Edit-Image" class="profile-pic" src="https://pbs.twimg.com/media/DTJLmSAW4AIMBrg.jpg" alt="Image Not Found">
+                                    <!-- <i class="fa fa-user fa-5x"></i> -->
+                                </div>
+                                <div class="p-image form-group input-group">
+                                    <i class="fa fa-camera upload-button"></i>
+                                        <input name="photo-file" class="file-upload" type="file" accept="image/*"/> <!-- Not sure how wer are going to go about updating in DB/Store Photos-->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <h5 id="Edit-Name">
+                                    Individuals Name
+                                    </h5>
+                                </div>
+                                <div class="row edit">
+                                    <div class="col-md-6">
+                                        <label>User Name:</label>
+                                    </div>
+                                    <div class="col-md-6 form-group input-group">
+                                        <input name="Edit-Username" class="form-control" type="text" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="row edit">
+                                    <div class="col-md-6">
+                                        <label>Email:</label>
+                                    </div>
+                                    <div class="col-md-6 form-group input-group">
+                                        <input name="Edit-Email" class="form-control" type="email" placeholder="Email Adress">
+                                    </div>
+                                </div>
+                                <div class="row edit">
+                                    <div class="col-md-6">
+                                        <label>Year of Education:</label>
+                                    </div>
+                                    <div class="col-md-6 form-group input-group">
+                                        <select class="form-control" name="Edit-Year" id="DropDown">
+                                            <option selected="">Select Year of Education</option> <!--Need to make sure they cannot submit this one-->
+                                            <option value="FSH">Freshman</option>
+                                            <option value="SPH">Sophmore</option>
+                                            <option value="JNR">Junior</option>
+                                            <option value="SNR">Senior</option>
+                                            <option value="OTH">Other</option>
+                                            <option value="PNS">Prefer not to say</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row edit">
+                                    <div class="col-md-6">
+                                        <label>Birthdate:</label>
+                                    </div>
+                                    <div class="col-md-6 form-group input-group">
+                                        <input name="Edit-Birthday" class="form-control bday" placeholder="Birth Date" type="date"
+                            value="2000-01-01" min="1930-01-01" max="2005-01-01"> <!--can probably find a better looking drop down somewhere-->
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="col-md-2 form-group">
+                                <button type="submit" class="profile-save-btn">Save Changes</button>
+                                <p class="Note-Txt"></br>Please note default option will not change data.</br></p>
+                            </div>
+                        </div>
+                    </form> 
+                </div>          
+            </div>
+        </form>
+        <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="../resources/js/student_profile.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> <!--Font and Logos on registration card-->
+        <link rel="stylesheet" href="../resources/css/style.css">
+        <link rel="stlyesheet" href="../resources/css/responsive.css"> 
+    </body>
+</html>

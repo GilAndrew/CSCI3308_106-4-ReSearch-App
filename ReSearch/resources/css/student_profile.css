@@ -1,0 +1,147 @@
+html, body{
+  background: -webkit-linear-gradient(left, #cfb87c, #4c4c4c);
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+/*Card which hold all the profile information*/
+.profile{
+  padding: 3%;
+  margin-top: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.edit-profile{
+  padding: 3%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+#profile {
+  visibility: visible;
+}
+
+#edit-profile {
+  visibility: hidden;
+}
+
+/* Profile Pic Stuff*/
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  display: block;
+}
+.file-upload {
+  display: none;
+}
+img {
+  max-width: auto;
+  height: auto;
+}
+.p-image {
+  position: relative;
+  left: 175px;
+  bottom: 25px;
+  color: #666666;
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+.p-image:hover {
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+.upload-button {
+  font-size: 1.2em;
+}
+.upload-button:hover {
+  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+  color: #999;
+}
+
+/*
+Making Page Cant Scroll
+*/
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0px;  /*remove scrollbar*/
+}
+ /* Edit Profile Button*/
+.profile-edit-btn{
+  border: none;
+  border-radius: 1.5rem;
+  width: 90%;
+  padding: 2%;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  background-color: #4c4c4c;
+  cursor: pointer;
+  text-align: center;
+}
+
+.profile-save-btn{
+  border: none;
+  border-radius: 1.5rem;
+  width: 110%;
+  padding: 2%;
+  font-weight: 500;
+  color: white;
+  background-color: blue;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Name Header */
+h5:after {
+  content:' ';
+  display:block;
+  border:2px solid #4c4c4c;
+  border-radius:4px;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+  -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+  -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Styling Select drop down */
+select {
+  background: white !important;
+  color:white !important;
+}
+option:not(:checked) {
+  background-color: white;
+  color: #000 !important;
+}
+option:checked {
+  color: #000;
+}
+select.form-control {
+  color: black !important;
+}
+
+/* Changing birthday text color */
+input.form-control.bday {
+  color:black !important;
+}
+/* Changing other inputs font color */
+input.form-control {
+  color: black !important;
+}
+
+.Note-Txt{
+  color: red;
+  font-size: .9em;
+}
+
+.row.edit{
+  height: 40px;
+}
