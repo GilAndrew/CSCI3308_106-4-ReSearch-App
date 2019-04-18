@@ -14,10 +14,10 @@ var pgp = require('pg-promise')();
 
 const dbConfig = {
 	host: 'localhost',
-	port: 5432,
+	port: 5432, //5432 or 3000
 	database: 'research_db',
 	user: 'postgres',
-	password: 'pwd'
+	password: 'newpassword' //pwd or newpassword
 };
 
 var db = pgp(dbConfig);
@@ -29,8 +29,10 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
 	var username = req.body.username;
 	var password = req.body.confirm_password;
 	var birthday = req.body.birthday;
-	var year = req.body.year;
+    var year = req.body.year;
+    var major = req.body.major;
 
+    //need to add major into the insert statement, will have to utilize the foreign key
 
     var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
 	var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year) " + 
@@ -38,6 +40,9 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
                         "NOT EXISTS (SELECT email FROM user_profiles WHERE email = '"+email+"') " +
                         "RETURNING id;";
 
+    var data_query = "INSERT INTO user_data(encryptId, major) " + 
+                     "SELECT '"+ /*ENCRYPTID VARIABLE GOES HERE*/ +"', '" + major +"'";
+                        
 	db.task('get-everything', task => {
         return task.batch([
             task.any(unique_query),
@@ -241,6 +246,7 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     });
 });
 
+
 app.get('/populate_feed',jsonParser, function(req, res, next) { 
 
     var all_postings_query = "SELECT * FROM postings;";
@@ -253,13 +259,36 @@ app.get('/populate_feed',jsonParser, function(req, res, next) {
     .then(info => {
         res.send({
                 postings: info[0]
-            })
+        })          
     })
     .catch(err => {
         // display error message in case an error
         console.log(err);
         res.send({
-            postings: ''
+          postings: ''
+        })
+    });
+}); 
+
+app.post('/major_retrieve',jsonParser, function(req, res, next) {
+
+    var query = req.body.query;
+
+    db.task('get-majors', task => {
+        return task.batch([
+            task.any(query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+            data: [info[0][0], info[0][1], info[0][2], info[0][3]]
+        })
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            data: ''
         })
     });
 });

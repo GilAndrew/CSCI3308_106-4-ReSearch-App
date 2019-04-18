@@ -109,6 +109,18 @@
                                 <span class="popuptext" id="no-option-s">Please Select an Option</span>
                             </div>
                         </div> <!-- End form-group -->
+                        <div class="form-group input-group" autocomplete="off"> <!-- form-group for majors-->
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fa fa-university"></i> </span>
+                            </div>
+                            <input id="majorInput" name="Major" oninput="autoComplete(this.value)" class="form-control" placeholder="Major/Area of Study (XXXX - Major)" type="text" list="majorSuggest">
+                            <datalist id="majorSuggest">
+                                <option id="option1" label="" value="">
+                                <option id="option2" label="" value="">
+                                <option id="option3" label="" value="">
+                                <option id="option4" label="" value="">
+                            </datalist>
+                        </div> <!-- End form-group for majors -->
                         <div class="form-group input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"> <i class="fas fa-birthday-cake"></i> </span>
