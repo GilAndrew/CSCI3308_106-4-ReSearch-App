@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Michael Rogers">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="---">
+    <link rel='icon' href='../resources/img/favicon.ico' type='image/x-icon'/> <!--Not sure we will want the cu logo here, but will act as a place holder for now-->
+
+    <title>Researcher Profile</title>
+
+    <link href="#" rel="shortcut icon">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> <!-- Need Jquerey to load first -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="../resources/css/researcher_profile.css" rel="stylesheet">
+    <link href="../resources/css/style.css" rel="stylesheet">
+    <script src="../resources/js/researcher_profile.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> <!--Font and Logos on registration card-->
+
+
+    <!--================================================
+        NAVBAR
+    =================================================-->
+    <!--Setup-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><strong>ReSearch</strong></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Links Left-->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#testimonies">Testimonies</a></li>
+                <li class="nav-item"><a class="nav-link" href="#popular">Popular</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#opportunities">All Opportunities</a></li>
+            </ul>
+            <!-- Links Right-->
+            <span class="navbar-nav form-inline">
+                <li class="nav-item mr-auto"><a class="nav-link" href="login.html" id="login_link">Login</a></li>
+                <li class="nav-item mr-auto"><a class="nav-link" href="registration.html" id="signin_link">Sign Up</a></li>
+                <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="profile_link"><span class="fas fa-user-circle fa-lg"></span><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Profile<i class="fas fa-user pull-right"></i></a></li>
+                        <li id="post_link"><a href="post.html">Post<i id="post_icon" class="fas fa-edit pull-right"></i></a></li>
+                        <li><a href="#contact">Contact<i class="fas fa-envelope pull-right"></i></a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a onclick="logout();">Logout<i class="fas fa-power-off pull-right"></i></a></li>
+                    </ul>
+                </li>
+            </span>
+        </div>
+    </nav>
+  </head>
+  <body onload="hide()">
+    <div class="container profile" id="info_page">
+      <form method="post">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- User Profile Image -->
+            <div class="rounded">
+            <!-- Default Image -->
+              <img class="profile-pic" src="../resources/img/profile-blank.png" alt="Image Not Found">
+              <!-- <i class="fa fa-user fa-5x"></i> -->
+            </div>
+            <div class="p-image">
+              <i class="fa fa-camera upload-button"></i>
+                <input name="photo-file" class="file-upload" type="file" accept="image/*"/> <!-- Not sure how wer are going to go about updating in DB/Store Photos-->
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <h5 id="Name">
+                Researcher's Name
+              </h5>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Researcher:</label>
+              </div>
+              <div class="col-md-6">
+                <p id="Username">Research Name or Company</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Contact Email:</label>
+              </div>
+              <div class="col-md-6">
+                <p id="Email">researcher@somecompany.com</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Contact Number:</label>
+              </div>
+              <div class="col-md-6">
+                <p id="Phone">303-XXX-XXXX</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>About Us:</label>
+              </div>
+              <div class="col-md-6">
+                <p id="Research_Info">Researcher Info</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <input type="button" class="btn btn-primary" name="Edit" onclick="edit_profile()" value="Edit Profile"/>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="container profile" id="edit_page">
+      <form method="post">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- User Profile Image -->
+            <div class="rounded">
+            <!-- Default Image -->
+              <img class="profile-pic" src="../resources/img/profile-blank.png" alt="Image Not Found">
+              <!-- <i class="fa fa-user fa-5x"></i> -->
+            </div>
+            <div class="p-image">
+              <i class="fa fa-camera upload-button"></i>
+                <input name="photo-file" class="file-upload" type="file" accept="image/*"/> <!-- Not sure how wer are going to go about updating in DB/Store Photos-->
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <h5 id="edit_page_name">
+                Researcher's Name
+              </h5>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Researcher:</label>
+              </div>
+              <div class="col-md-6">
+                <input type="text" placeholder="Enter Name" id="edit_Username">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Contact Email:</label>
+              </div>
+              <div class="col-md-6">
+                <input type="text" placeholder="Enter Email" id="edit_Email">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Contact Number:</label>
+              </div>
+              <div class="col-md-6">
+                <input type="text" placeholder="Enter Phone" id="edit_Phone">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>About Us:</label>
+              </div>
+              <div class="col-md-6">
+                <textarea rows="3" placeholder="Enter Info"id="Research_Info_Edit"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <input type="button" class="btn btn-primary" name="Edit" onclick="save_changes()" value="Save Changes"/>
+          </div>
+        </div>
+      </form>
+  </div>
+  </body>
+</html>
