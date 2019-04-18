@@ -1,0 +1,26 @@
+{
+  "name": "research",
+  "version": "1.0.0",
+  "description": "ReSearch student psysch study opportunity finder website",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "pg-promise": "^8.6.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GilAndrew/CSCI3308_106-4-ReSearch-App.git"
+  },
+  "author": "TEAM MADLAS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GilAndrew/CSCI3308_106-4-ReSearch-App/issues"
+  },
+  "homepage": "https://github.com/GilAndrew/CSCI3308_106-4-ReSearch-App#readme"
+}
