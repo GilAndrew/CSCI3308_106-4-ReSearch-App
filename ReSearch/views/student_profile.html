@@ -18,7 +18,7 @@
         <link href="../resources/css/student_profile.css" rel="stylesheet">
     </head>
 
-    <body onload="get_correct_data()">
+    <body onload="load_from_DB(); get_correct_data();">
 
         <!--Nav bar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -122,7 +122,7 @@
         </div>
 
         <!--Form To Submit Edits to Profile-->
-        <form action="#" onsubmit="headingToProfile(); edit_profile('edit-profile',0); edit_profile('profile',1); return false;" id="edit-profile-js">
+        <form action="#" onsubmit="headingToProfile(); return false;" id="edit-profile-js">
             <div class="container" id="edit-profile">
                 <div class="edit-profile">
                     <form>
@@ -145,7 +145,7 @@
                                     Individuals Name
                                     </h5>
                                 </div>
-                                <div class="row">
+                                <div class="row edit">
                                     <div class="col-md-6">
                                         <label>User Name:</label>
                                     </div>
@@ -153,33 +153,43 @@
                                         <input name="Edit-Username" class="form-control" type="text" placeholder="Username">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row edit">
                                     <div class="col-md-6">
                                         <label>Email:</label>
                                     </div>
                                     <div class="col-md-6 form-group input-group">
-                                        <input name="Edit-Email" class="form-control" type="text" placeholder="Email">
+                                        <input name="Edit-Email" class="form-control" type="email" placeholder="Email Adress">
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row edit">
                                     <div class="col-md-6">
                                         <label>Year of Education:</label>
                                     </div>
                                     <div class="col-md-6 form-group input-group">
-                                        <input name="Edit-Year"class="form-control" type="text" placeholder="Year of Education">
+                                        <select class="form-control" name="Edit-Year" id="DropDown">
+                                            <option selected="">Select Year of Education</option> <!--Need to make sure they cannot submit this one-->
+                                            <option value="FSH">Freshman</option>
+                                            <option value="SPH">Sophmore</option>
+                                            <option value="JNR">Junior</option>
+                                            <option value="SNR">Senior</option>
+                                            <option value="OTH">Other</option>
+                                            <option value="PNS">Prefer not to say</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row edit">
                                     <div class="col-md-6">
                                         <label>Birthdate:</label>
                                     </div>
                                     <div class="col-md-6 form-group input-group">
-                                        <input name="Edit-Birthday" class="form-control" type="text" placeholder="Birthdate">
+                                        <input name="Edit-Birthday" class="form-control bday" placeholder="Birth Date" type="date"
+                            value="2000-01-01" min="1930-01-01" max="2005-01-01"> <!--can probably find a better looking drop down somewhere-->
                                     </div>
                                 </div>  
                             </div>
                             <div class="col-md-2 form-group">
                                 <button type="submit" class="profile-save-btn">Save Changes</button>
+                                <p class="Note-Txt"></br>Please note default option will not change data.</br></p>
                             </div>
                         </div>
                     </form> 

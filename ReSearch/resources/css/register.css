@@ -87,7 +87,9 @@ select {
 }
 option:not(:checked) {
     background-color: black;
-
+}
+option:checked {
+    color: black;
 }
 
 /*Initial Status of Student-Form*/

@@ -111,3 +111,37 @@ h5:after {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+/* Styling Select drop down */
+select {
+  background: white !important;
+  color:white !important;
+}
+option:not(:checked) {
+  background-color: white;
+  color: #000 !important;
+}
+option:checked {
+  color: #000;
+}
+select.form-control {
+  color: black !important;
+}
+
+/* Changing birthday text color */
+input.form-control.bday {
+  color:black !important;
+}
+/* Changing other inputs font color */
+input.form-control {
+  color: black !important;
+}
+
+.Note-Txt{
+  color: red;
+  font-size: .9em;
+}
+
+.row.edit{
+  height: 40px;
+}
