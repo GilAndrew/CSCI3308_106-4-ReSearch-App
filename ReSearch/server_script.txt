@@ -21,10 +21,18 @@ CREATE TABLE IF NOT EXISTS user_profiles (
     name VARCHAR(50) NOT NULL, /* user's first and last name */
     email VARCHAR(100) NOT NULL,
     username VARCHAR(30) NOT NULL,
-    type VARCHAR(1) NOT NULL, /* Profile type: U for user, R for researcher, D for dual */
     password VARCHAR(30) NOT NULL,
     birthday DATE,
     year VARCHAR(3)
+);
+
+Creating researcher_profiles table
+
+CREATE TABLE IF NOT EXISTS researcher_profiles (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(30) NOT NULL
 );
 
 Creating user_data table
@@ -41,24 +49,29 @@ Creating researcher_data table
 
 CREATE TABLE IF NOT EXISTS researcher_data (
     encryptId TEXT NOT NULL PRIMARY KEY,
-    projectName VARCHAR(50),
     credentials TEXT,
     field VARCHAR(4),
     institution VARCHAR(50)
 );
 
-Creating majors table
-
-CREATE TABLE IF NOT EXISTS majors (
-    majorCode VARCHAR(4) NOT NULL PRIMARY KEY,
-    majorDescription TEXT NOT NULL,
-    numEnrolled INT
-);
 
 Creating postings table
 
 CREATE TABLE IF NOT EXISTS postings (
-    title VARCHAR(50) NOT NULL,
     ownerProfile VARCHAR(30) NOT NULL PRIMARY KEY,
-    description TEXT
+    title VARCHAR(50) NOT NULL,
+    school TEXT NOT NULL,
+    city VARCHAR (50) NOT NULL,
+    state VARCHAR (30) NOT NULL,
+    zip INT NOT NULL,
+    body TEXT NOT NULL,
+    app_open DATE NOT NULL,
+    app_close DATE NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
+    contact_name VARCHAR(50) NOT NULL,
+    contact_email VARCHAR(100) NOT NULL,
+    contact_phone INT NOT NULL,
+    contact_fax INT
+ 
 );
