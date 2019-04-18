@@ -84,11 +84,11 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-xl-12 col-lg-12">
-                                        <select class="form-control form-control-sm">
+                                        <select class="form-control form-control-sm" id="student-type">
                                             <option selected>Select Eligible Applicants</option>
                                             <option value="under">Undergraduate Students</option>
                                             <option value="grad">Graduate Students</option>
-                                            <option value="both">Both</option>
+                                            <option value="both">All</option>
                                         </select>
                                     </div>
                                 </div>
@@ -96,10 +96,10 @@
                                     <div class="col-xl-12 col-lg-12">
                                         <div class="form-row">
                                             <div class="col">
-                                                <input type="text" class="form-control form-control-sm" id="app-open" placeholder="Application Opens (mm/dd/yyyy)">
+                                                <input type="text" onfocus = "(this.type = 'date')" class="form-control form-control-sm" id="app-open"placeholder="Application Opens (mm/dd/yyyy)">
                                             </div>
                                             <div class="col">
-                                                <input type="text" class="form-control form-control-sm" id="app-close" placeholder="Application Deadline (mm/dd/yyyy)">
+                                                <input type="text" onfocus = "(this.type = 'date')" class="form-control form-control-sm" id="app-close" placeholder="Application Deadline (mm/dd/yyyy)">
                                             </div>
                                         </div>
                                     </div>
@@ -108,10 +108,10 @@
                                     <div class="col-xl-12 col-lg-12">
                                         <div class="form-row">
                                             <div class="col">
-                                                <input type="text" class="form-control form-control-sm" placeholder="Start Date (mm/dd/yyyy)" id="start-date">
+                                                <input type="text" onfocus = "(this.type = 'date')" class="form-control form-control-sm" placeholder="Start Date (mm/dd/yyyy)" id="start-date">
                                             </div>
                                             <div class="col">
-                                                <input type="text" class="form-control form-control-sm" placeholder="End Date (mm/dd/yyyy)" id="end-date">
+                                                <input type="text" onfocus = "(this.type = 'date')" class="form-control form-control-sm" placeholder="End Date (mm/dd/yyyy)" id="end-date">
                                             </div>
                                         </div>
                                     </div>

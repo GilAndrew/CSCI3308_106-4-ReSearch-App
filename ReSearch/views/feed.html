@@ -20,7 +20,7 @@
     <!-- after style.css becouse style.css will be modified -->
 </head>
 
-<body>
+<body onload="populateFeed()">
     <!--================================================
         NAVBAR
     =================================================-->
@@ -34,20 +34,21 @@
     <section id="post">
         <br>
         <div class="container">
-            <div class="row">
+            <div id="feed" class="row">
                 <!-- Dummy space to center card -->
                 <!-- Post Card -->
+                <!--
                 <div class="col-xl-4 col-lg-4">
-                    <div class="card">
-                        <!-- Card Header -->
+                    <div class="card"> -->
+                        <!-- Card Header 
                         <div class="card-header py-3 card_title">
                             <h6 class="m-0 font-weight-bold">National Institutes of Health Cancer Research</h6>
-                        </div>
-                        <!-- Card Body -->
+                        </div> -->
+                        <!-- Card Body
                         <div class="card-body card_body">
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <label for="title">Universicty of Colorado Boulder</label>
+                                    <label for="title">University of Colorado Boulder</label>
                                     <label for="location">Boulder, CO 80200</label>
                                 </div>
                             </div>
@@ -105,6 +106,7 @@
                     </div>
                     <br>
                 </div>
+                -->
             </div>
         </div>
         <br>
@@ -116,6 +118,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../resources/js/feed.js"></script>
     <script src="../resources/js/custom.js"></script>
 
 </body>
