@@ -155,9 +155,7 @@ JS that submits forms
 */
 function student_form_called(callback)
 {
-	/*
-	going to have to manually insert student value
-	*/
+
 	var Name = document.getElementById("Student-js").elements["Name"];
 	var User_name = document.getElementById("Student-js").elements["User-name"];
 	var Email = document.getElementById("Student-js").elements["Email"];
@@ -167,6 +165,10 @@ function student_form_called(callback)
 	var Password = document.getElementById("Student-js").elements["Password"];
 	var Confirm_Password = document.getElementById("Student-js").elements["Confirm-Password"];
 	
+
+	//test major variable
+	console.log("Major: " + Major.value);
+
 	/* 
 	Confirm Passwords and check password requirements and check drop down slection
 	*/
@@ -380,7 +382,7 @@ function researcher_form_called(callback)
 
 function toHomepage() {
 	// redirects to homepage
-	location.href = "file:///home/luke/Documents/CSCI3308_106-4-ReSearch-App/ReSearch/views/index.html";
+	location.href = "file:index.html";
 
 }
 

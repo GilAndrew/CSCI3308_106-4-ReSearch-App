@@ -36,6 +36,9 @@ app.post('/user_registration',jsonParser, function(req, res, next) {
                         "SELECT'"+name+"', '"+email+"','"+username+"' , '"+password+"', '"+birthday+"', '"+year+"' WHERE " +
                         "NOT EXISTS (SELECT email FROM user_profiles WHERE email = '"+email+"');";
 
+    var data_query = "INSERT INTO user_data(encryptId, major) " + 
+                     "SELECT '"+ /*ENCRYPTID VARIABLE GOES HERE*/ +"', '" + major +"'";
+                        
 	db.task('get-everything', task => {
         return task.batch([
             task.any(unique_query),
