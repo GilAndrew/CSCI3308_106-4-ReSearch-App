@@ -44,19 +44,19 @@ app.get('/', function(req, res) {
 });
 
 app.get('/index.html', function(req, res) {
-    res.render('index.html');
+    res.sendFile(__dirname + '/views/index.html');
 });
 
 app.get('/login.html', function(req, res) {
-    res.render('login.html');
+    res.sendFile(__dirname + '/views/login.html');
 });
 
 app.get('/feed.html', function(req, res) {
-    res.render('feed.html');
+    res.sendFile(__dirname + '/views/feed.html');
 });
 
 app.get('/post.html', function(req, res) {
-    res.render('post.html');
+    res.sendFile(__dirname + '/views/post.html');
 });
 
 app.get('/registration.html', function(req, res) {
@@ -64,11 +64,11 @@ app.get('/registration.html', function(req, res) {
 });
 
 app.get('/researcher_profile.html', function(req,res) {
-    res.render('researcher_profile.html');
+    res.sendFile(__dirname + '/views/researcher_profile.html');
 });
 
 app.get('/student_profile.html', function(req, res) {
-    res.render('student_profile.html')
+    res.sendFile(__dirname + '/views/student_profile.html')
 });
 
 /*
