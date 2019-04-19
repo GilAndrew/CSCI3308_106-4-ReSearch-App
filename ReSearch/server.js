@@ -40,7 +40,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.get('/', function(req, res) {
-    res.sendFile('views/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 app.get('/index.html', function(req, res) {
