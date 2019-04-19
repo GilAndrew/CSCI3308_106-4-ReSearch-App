@@ -46,7 +46,7 @@ app.get('/index', function(req, res) {
     res.render('index.html');
 });
 
-app.get('/login', function(req, res) {
+app.get('/login.html', function(req, res) {
     res.render('login.html');
 });
 
