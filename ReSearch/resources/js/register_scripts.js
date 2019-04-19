@@ -398,8 +398,10 @@ function autoComplete(value) {
 	xmlhttp.onreadystatechange = function() {
 		console.log("Well?");
 		if (this.readyState == 4 && this.status == 200) {
+			console.log("We good?");
 			var response = JSON.parse(this.response);
 			if (response) {
+				console.log("There's a response");
 				for (i = 0; i < response.data.length; i++) {
 					var id = "option" + (i+1);
 					document.getElementById(id).value = "";

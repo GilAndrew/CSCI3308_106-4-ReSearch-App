@@ -371,12 +371,13 @@ app.get('/populate_feed',jsonParser, function(req, res, next) {
 app.post('/major_retrieve',jsonParser, function(req, res, next) {
     console.log("Here?");
     var query = req.body.query;
-
+    console.log("QUERY MADE");
     db.task('get-majors', task => {
         return task.batch([
             task.any(query)
         ]);
     })
+    console.log("QUERY SENT");
     .then(info => {
         res.send({
             data: [info[0][0], info[0][1], info[0][2], info[0][3]]
