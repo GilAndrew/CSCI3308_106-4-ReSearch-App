@@ -6,6 +6,7 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "cors": "^2.8.5",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "pg-promise": "^8.6.4"
   },
@@ -18,7 +19,11 @@
     "type": "git",
     "url": "git+https://github.com/GilAndrew/CSCI3308_106-4-ReSearch-App.git"
   },
-  "author": "TEAM MADLAS",
+  "author": "TEAM MADLADS",
+  "engines": {
+    "node": "11.x",
+    "npm": "6.7.0"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/GilAndrew/CSCI3308_106-4-ReSearch-App/issues"

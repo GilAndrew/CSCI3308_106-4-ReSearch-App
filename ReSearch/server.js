@@ -19,26 +19,56 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 var pgp = require('pg-promise')();
 
+//dbConfig for localhost, kept for archical/testing purposes
 /*const dbConfig = {
 	host: 'localhost',
-	port: 5432, //5432 or 3000
+	port: 5432, //5432
 	database: 'research_db',
 	user: 'postgres',
-	password: 'newpassword' //pwd or newpassword
+	password: 'newpassword' //newpassword
 };*/
 
-const dbConfig = process.env.DATABASE_URL; //test this
+const dbConfig = process.env.DATABASE_URL;
 
 
 var db = pgp(dbConfig);
 
 app.set('view engine', 'ejs'); //test this
-app.use(express.static(__dirname + '/')); //test this
+app.use(express.static(__dirname + '/'));
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 app.get('/', function(req, res) {
-    res.render('views/index',{
-    
-    });
+    res.render('index.html');
+});
+
+app.get('/index.html', function(req, res) {
+    res.render('index.html');
+});
+
+app.get('/login.html', function(req, res) {
+    res.render('login.html');
+});
+
+app.get('/feed.html', function(req, res) {
+    res.render('feed.html');
+});
+
+app.get('/post.html', function(req, res) {
+    res.render('post.html');
+});
+
+app.get('/registration.html', function(req, res) {
+    res.render('registration.html');
+});
+
+app.get('/researcher_profile.html', function(req,res) {
+    res.render('researcher_profile.html');
+});
+
+app.get('/student_profile.html', function(req, res) {
+    res.render('student_profile.html')
 });
 
 app.post('/student_registration',jsonParser, function(req, res, next) { 
@@ -51,7 +81,9 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
     var year = req.body.year;
     var major = req.body.major;
 
-    //bcrypt.hash(password, saltRounds, function (err, hash));
+    bcrypt.hash(password, saltRounds, function (err, hash) {
+
+    });
 
     //need to add major into the insert statement, will have to utilize the foreign key
 
@@ -278,7 +310,6 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     var zip = req.body.zip;
     var body = req.body.body;
     var major = req.body.major;
-    var student_type = req.body.student_type;
     var app_open = req.body.app_open;
     var app_close = req.body.app_close;
     var start_date = req.body.start_date;
@@ -359,6 +390,5 @@ app.post('/major_retrieve',jsonParser, function(req, res, next) {
     });
 });
 
-app.listen(process.env.PORT || 3000); //test this
-//app.listen(3000);
+app.listen(process.env.PORT || 3000, "0.0.0.0");
 console.log('3000 is the magic port');
