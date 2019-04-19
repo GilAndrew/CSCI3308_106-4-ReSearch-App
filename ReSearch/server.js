@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 var pgp = require('pg-promise')();
 
-//dbConfig for localhost
+//dbConfig for localhost, kept for archical/testing purposes
 /*const dbConfig = {
 	host: 'localhost',
 	port: 5432, //5432
@@ -82,7 +82,7 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
     var major = req.body.major;
 
     bcrypt.hash(password, saltRounds, function (err, hash) {
-        
+
     });
 
     //need to add major into the insert statement, will have to utilize the foreign key
@@ -310,7 +310,6 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     var zip = req.body.zip;
     var body = req.body.body;
     var major = req.body.major;
-    var student_type = req.body.student_type;
     var app_open = req.body.app_open;
     var app_close = req.body.app_close;
     var start_date = req.body.start_date;
@@ -391,6 +390,5 @@ app.post('/major_retrieve',jsonParser, function(req, res, next) {
     });
 });
 
-app.listen(process.env.PORT || 3000, "0.0.0.0"); //test this
-//app.listen(3000);
+app.listen(process.env.PORT || 3000, "0.0.0.0");
 console.log('3000 is the magic port');
