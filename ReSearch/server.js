@@ -369,7 +369,7 @@ app.get('/populate_feed',jsonParser, function(req, res, next) {
 }); 
 
 app.post('/major_retrieve',jsonParser, function(req, res, next) {
-
+    console.log("Here?");
     var query = req.body.query;
 
     db.task('get-majors', task => {

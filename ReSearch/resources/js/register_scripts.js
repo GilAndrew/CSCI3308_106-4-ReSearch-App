@@ -385,7 +385,6 @@ function toHomepage() {
 
 function autoComplete(value) {
 	//begin console logging here to see where autoComplete goes wrong
-	console.log("Is it here?");
 	var current = value;
 	var currentMost = current.substring(0, current.length - 1);
 	var charLast = current.charCodeAt(current.length - 1);
@@ -397,6 +396,7 @@ function autoComplete(value) {
 	xmlhttp.open("POST", "/major_retrieve", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
+		console.log("Well?");
 		if (this.readyState == 4 && this.status == 200) {
 			var response = JSON.parse(this.response);
 			if (response) {
