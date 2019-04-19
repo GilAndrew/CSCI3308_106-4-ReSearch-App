@@ -401,13 +401,16 @@ function autoComplete(value) {
 			if (response) {
 				for (i = 0; i < response.data.length; i++) {
 					//document object might be breaking
+					//console log it, see if you need to change how you reference it
 					var id = "option" + (i+1);
-					console.log("ID: " + id);
 					document.getElementById(id).value = "";
 					document.getElementById(id).label = "";
 					var result = JSON.parse(JSON.stringify(response.data[i].major)) + " - " + JSON.parse(JSON.stringify(response.data[i].major_desc));
 					document.getElementById(id).value = JSON.parse(JSON.stringify(response.data[i].major));
 					document.getElementById(id).label = result;
+					console.log("TEST");
+					console.log("Value: " +document.getElementById(id).value);
+					console.log("LABEL: " + document.getElementById(id).label);
 				}
 
 			}
