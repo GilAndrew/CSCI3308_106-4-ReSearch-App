@@ -391,6 +391,12 @@ function autoComplete(value) {
 	var charNext = String.fromCharCode(1 + charLast);
 	var retrieval_query = "select major, major_desc from majors where (major_desc >= '" + current + "' and major_desc < '" + currentMost + charNext + "') order by numSelected, major;";
 
+	for (j = 0; j < 4; j++) {
+		var id = "option" + (j+1);
+		document.getElementById(id).value = "";
+		document.getElementById(id).label = "";
+	}
+
 	//major info retrieval from database
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("POST", "/major_retrieve", true);
@@ -401,8 +407,8 @@ function autoComplete(value) {
 			if (response) {
 				for (i = 0; i < response.data.length && response.data[i] != null; i++) {
 					var id = "option" + (i+1);
-					document.getElementById(id).value = "";
-					document.getElementById(id).label = "";
+				//	document.getElementById(id).value = "";
+				//	document.getElementById(id).label = "";
 					var result = JSON.parse(JSON.stringify(response.data[i].major)) + " - " + JSON.parse(JSON.stringify(response.data[i].major_desc));
 					document.getElementById(id).value = JSON.parse(JSON.stringify(response.data[i].major));
 					document.getElementById(id).label = result;
