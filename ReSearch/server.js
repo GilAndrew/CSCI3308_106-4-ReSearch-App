@@ -36,7 +36,7 @@ app.set('view engine', 'ejs'); //test this
 app.use(express.static(__dirname + '/'))
 
 app.get('/', function(req, res) {
-    res.render('views/index',{
+    res.render('views/index.html',{
     
     });
 });
