@@ -35,6 +35,12 @@ var db = pgp(dbConfig);
 app.set('view engine', 'ejs'); //test this
 app.use(express.static(__dirname + '/')); //test this
 
+app.get('/', function(req, res) {
+    res.render('views/index',{
+    
+    });
+});
+
 app.post('/student_registration',jsonParser, function(req, res, next) { 
 
     var name = req.body.name;
@@ -353,6 +359,6 @@ app.post('/major_retrieve',jsonParser, function(req, res, next) {
     });
 });
 
-app.listen(process.env.PORT); //test this
+app.listen(process.env.PORT || 3000); //test this
 //app.listen(3000);
 console.log('3000 is the magic port');
