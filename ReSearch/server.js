@@ -33,7 +33,7 @@ const dbConfig = process.env.DATABASE_URL; //test this
 var db = pgp(dbConfig);
 
 app.set('view engine', 'ejs'); //test this
-app.use(express.static(__dirname + '/')); //test this
+app.use(express.static(__dirname + '/'))
 
 app.get('/', function(req, res) {
     res.render('views/index',{
