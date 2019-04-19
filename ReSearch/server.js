@@ -42,6 +42,35 @@ app.get('/', function(req, res) {
     res.render('index.html');
 });
 
+app.get('/index', function(req, res) {
+    res.render('index.html');
+});
+
+app.get('/login', function(req, res) {
+    res.render('login.html');
+});
+
+app.get('/feed', function(req, res) {
+    res.render('feed.html');
+});
+
+app.get('/post', function(req, res) {
+    res.render('post.html');
+});
+
+app.get('/registration', function(req, res) {
+    res.render('registration.html');
+});
+
+app.get('/researcher_profile', function(req,res) {
+    res.render('researcher_profile.html');
+});
+
+app.get('/student_profile', function(req, res) {
+    res.render('student_profile.html')
+});
+//index, login, feed, post, registration, researcher_profile, student_profile
+
 app.post('/student_registration',jsonParser, function(req, res, next) { 
 
     var name = req.body.name;
