@@ -60,7 +60,7 @@ app.get('/post.html', function(req, res) {
 });
 
 app.get('/registration.html', function(req, res) {
-    res.render('registration.html');
+    res.sendFile(__dirname + '/views/registration.html');
 });
 
 app.get('/researcher_profile.html', function(req,res) {
