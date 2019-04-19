@@ -409,12 +409,13 @@ function autoComplete(value) {
 					document.getElementById(id).value = JSON.parse(JSON.stringify(response.data[i].major));
 					document.getElementById(id).label = result;
 					console.log("TEST");
-					console.log("Value: " +document.getElementById(id).value);
+					console.log("Value: " + document.getElementById(id).value);
 					console.log("LABEL: " + document.getElementById(id).label);
 				}
 
 			}
 			else {
+				console.log("NUUUUUUULL");
 				console.log(err);
 			}
 
