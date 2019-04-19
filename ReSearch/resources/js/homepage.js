@@ -7,10 +7,10 @@ function loadHomepage() {
     var xmlhttp = new XMLHttpRequest(); 
     // Check if user is student or researcher
 	  if (window.sessionStorage.getItem('userType') == 's') {
-      xmlhttp.open("POST", "http://localhost:3000/load_homepage_student", true);
+      xmlhttp.open("POST", "/load_homepage_student", true);
     }
     else {
-      xmlhttp.open("POST", "http://localhost:3000/load_homepage_researcher", true);
+      xmlhttp.open("POST", "/load_homepage_researcher", true);
     }
 
     xmlhttp.setRequestHeader("Content-Type", "application/json");

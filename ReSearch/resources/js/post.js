@@ -18,7 +18,7 @@ function post_submit(callback) {
 
 	/* database/server requests */
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-	xmlhttp.open("POST", "http://localhost:3000/post_submit", true);
+	xmlhttp.open("POST", "/post_submit", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -33,5 +33,5 @@ function post_submit(callback) {
 
 function toHomepage() {
 	// redirects to homepage
-	location.href = "file:///home/luke/Documents/CSCI3308_106-4-ReSearch-App/ReSearch/views/index.html";
+	location.href = "/index.html";
 }
