@@ -33,14 +33,14 @@ const dbConfig = process.env.DATABASE_URL;
 
 var db = pgp(dbConfig);
 
-app.set('view engine', 'ejs'); //test this
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/'));
 app.set('views', __dirname + '/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.get('/', function(req, res) {
-    res.render('index.html');
+    res.sendFile('index.html');
 });
 
 app.get('/index.html', function(req, res) {
