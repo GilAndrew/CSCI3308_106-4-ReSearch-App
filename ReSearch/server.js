@@ -19,16 +19,27 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 var pgp = require('pg-promise')();
 
-const dbConfig = {
+/*const dbConfig = {
 	host: 'localhost',
 	port: 5432, //5432 or 3000
 	database: 'research_db',
 	user: 'postgres',
 	password: 'newpassword' //pwd or newpassword
-};
+};*/
+
+const dbConfig = process.env.DATABASE_URL; //test this
+
 
 var db = pgp(dbConfig);
 
+app.set('view engine', 'ejs'); //test this
+app.use(express.static(__dirname + '/')); //test this
+
+app.get('/', function(req, res) {
+    res.render('views/index',{
+    
+    });
+});
 
 app.post('/student_registration',jsonParser, function(req, res, next) { 
 
@@ -40,7 +51,7 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
     var year = req.body.year;
     var major = req.body.major;
 
-    bcrypt.hash(password, saltRounds, function (err, hash);
+    bcrypt.hash(password, saltRounds, function (err, hash));
 
     //need to add major into the insert statement, will have to utilize the foreign key
 
@@ -348,5 +359,6 @@ app.post('/major_retrieve',jsonParser, function(req, res, next) {
     });
 });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000); //test this
+//app.listen(3000);
 console.log('3000 is the magic port');
