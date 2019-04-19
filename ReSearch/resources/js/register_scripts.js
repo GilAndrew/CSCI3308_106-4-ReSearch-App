@@ -263,7 +263,9 @@ function student_form_called(callback)
 	xmlhttp.open("POST", "/student_registration", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
+		console.log("TESTING");
 		if (this.readyState == 4 && this.status == 200) {
+			Console.log("TESTER");
 			response = JSON.parse(this.response);
 			//Check if email is unique
 			if (response.unique[0].exists) {
@@ -379,7 +381,7 @@ function researcher_form_called(callback)
 
 function toHomepage() {
 	// redirects to homepage
-	location.href = "file:index.html";
+	location.href = "/index.html";
 
 }
 
