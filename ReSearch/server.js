@@ -34,11 +34,12 @@ var db = pgp(dbConfig);
 
 app.set('view engine', 'ejs'); //test this
 app.use(express.static(__dirname + '/'));
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 app.get('/', function(req, res) {
-    res.render('/views/index',{
-    
-    });
+    res.render('index.html');
 });
 
 app.post('/student_registration',jsonParser, function(req, res, next) { 
