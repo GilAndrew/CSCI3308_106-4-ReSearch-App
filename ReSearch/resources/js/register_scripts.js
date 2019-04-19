@@ -393,7 +393,7 @@ function autoComplete(value) {
 
 	//major info retrieval from database
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("POST", "http://localhost:3000/major_retrieve", true);
+	xmlhttp.open("POST", "/major_retrieve", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
