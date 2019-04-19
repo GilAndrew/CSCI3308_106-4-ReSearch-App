@@ -406,11 +406,8 @@ function autoComplete(value) {
 			var response = JSON.parse(this.response);
 			if (response) {
 				for (i = 0; i < response.data.length; i++) {
-					//set all datalist tags as visible
 					var id = "option" + (i+1);
 					document.getElementById(id).style.visibility = "visible";
-					//if response.data[i] is not null do normal stuff
-					//else (if response.data[i] is null) make datalist tags invisible 
 					if (response.data[i] != null) {
 						var result = JSON.parse(JSON.stringify(response.data[i].major)) + " - " + JSON.parse(JSON.stringify(response.data[i].major_desc));
 						document.getElementById(id).value = JSON.parse(JSON.stringify(response.data[i].major));
@@ -418,11 +415,6 @@ function autoComplete(value) {
 						console.log("TEST");
 						console.log("Value: " + document.getElementById(id).value);
 						console.log("LABEL: " + document.getElementById(id).label);
-					}
-
-					else if (response.data[0] == null) {
-						document.getElementById.style.visibility = "hidden";
-						break;
 					}
 
 					else {
