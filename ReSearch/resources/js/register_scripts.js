@@ -265,7 +265,7 @@ function student_form_called(callback)
 	xmlhttp.onreadystatechange = function() {
 		console.log("TESTING");
 		if (this.readyState == 4 && this.status == 200) {
-			Console.log("TESTER");
+			console.log("TESTER");
 			response = JSON.parse(this.response);
 			//Check if email is unique
 			if (response.unique[0].exists) {
