@@ -263,9 +263,7 @@ function student_form_called(callback)
 	xmlhttp.open("POST", "/student_registration", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
-		console.log("TESTING");
 		if (this.readyState == 4 && this.status == 200) {
-			console.log("TESTER");
 			response = JSON.parse(this.response);
 			//Check if email is unique
 			if (response.unique[0].exists) {
@@ -386,7 +384,8 @@ function toHomepage() {
 }
 
 function autoComplete(value) {
-
+	//begin console logging here to see where autoComplete goes wrong
+	console.log("Is it here?");
 	var current = value;
 	var currentMost = current.substring(0, current.length - 1);
 	var charLast = current.charCodeAt(current.length - 1);

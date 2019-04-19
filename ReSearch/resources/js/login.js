@@ -6,10 +6,10 @@ function login(callback) {
 
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
 	if (userType == 's') {
-		xmlhttp.open("POST", "http://localhost:3000/student_login", true);
+		xmlhttp.open("POST", "/student_login", true);
 	}
 	else {
-		xmlhttp.open("POST", "http://localhost:3000/researcher_login", true);
+		xmlhttp.open("POST", "/researcher_login", true);
 	}
 	
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
@@ -33,7 +33,7 @@ function login(callback) {
 
 function toHomepage() {
 	// redirects to homepage
-	location.href = "file:///home/luke/Documents/CSCI3308_106-4-ReSearch-App/ReSearch/views/index.html";
+	location.href = "/index.html";
 }
 
 function switchToStudent() {
