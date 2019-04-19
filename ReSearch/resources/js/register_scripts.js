@@ -399,9 +399,7 @@ function autoComplete(value) {
 		if (this.readyState == 4 && this.status == 200) {
 			var response = JSON.parse(this.response);
 			if (response) {
-				for (i = 0; i < response.data.length; i++) {
-					//document object might be breaking
-					//console log it, see if you need to change how you reference it
+				for (i = 0; i < response.data.length && response.data[i] != null; i++) {
 					var id = "option" + (i+1);
 					document.getElementById(id).value = "";
 					document.getElementById(id).label = "";
@@ -415,7 +413,6 @@ function autoComplete(value) {
 
 			}
 			else {
-				console.log("NUUUUUUULL");
 				console.log(err);
 			}
 
