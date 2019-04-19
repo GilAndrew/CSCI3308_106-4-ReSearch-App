@@ -51,7 +51,7 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
     var year = req.body.year;
     var major = req.body.major;
 
-    bcrypt.hash(password, saltRounds, function (err, hash));
+    //bcrypt.hash(password, saltRounds, function (err, hash));
 
     //need to add major into the insert statement, will have to utilize the foreign key
 
