@@ -396,14 +396,13 @@ function autoComplete(value) {
 	xmlhttp.open("POST", "/major_retrieve", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
-		console.log("Well?");
 		if (this.readyState == 4 && this.status == 200) {
-			console.log("We good?");
 			var response = JSON.parse(this.response);
 			if (response) {
-				console.log("There's a response");
 				for (i = 0; i < response.data.length; i++) {
+					//document object might be breaking
 					var id = "option" + (i+1);
+					console.log("ID: " + id);
 					document.getElementById(id).value = "";
 					document.getElementById(id).label = "";
 					var result = JSON.parse(JSON.stringify(response.data[i].major)) + " - " + JSON.parse(JSON.stringify(response.data[i].major_desc));
@@ -414,7 +413,6 @@ function autoComplete(value) {
 			}
 			else {
 				console.log(err);
-				console.log("LET ME GUESS");
 			}
 
 		}
