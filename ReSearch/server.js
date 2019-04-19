@@ -42,7 +42,7 @@ app.get('/', function(req, res) {
     res.render('index.html');
 });
 
-app.get('/index', function(req, res) {
+app.get('/index.html', function(req, res) {
     res.render('index.html');
 });
 
@@ -50,26 +50,25 @@ app.get('/login.html', function(req, res) {
     res.render('login.html');
 });
 
-app.get('/feed', function(req, res) {
+app.get('/feed.html', function(req, res) {
     res.render('feed.html');
 });
 
-app.get('/post', function(req, res) {
+app.get('/post.html', function(req, res) {
     res.render('post.html');
 });
 
-app.get('/registration', function(req, res) {
+app.get('/registration.html', function(req, res) {
     res.render('registration.html');
 });
 
-app.get('/researcher_profile', function(req,res) {
+app.get('/researcher_profile.html', function(req,res) {
     res.render('researcher_profile.html');
 });
 
-app.get('/student_profile', function(req, res) {
+app.get('/student_profile.html', function(req, res) {
     res.render('student_profile.html')
 });
-//index, login, feed, post, registration, researcher_profile, student_profile
 
 app.post('/student_registration',jsonParser, function(req, res, next) { 
 
