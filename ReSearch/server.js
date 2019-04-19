@@ -3,8 +3,8 @@ var app = express();
 
 // bcrypt
 //var db = require('../models');
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
+//var bcrypt = require('bcrypt');
+//const saltRounds = 10;
 // end bcrypt
 
 //var session = require('express-session')
