@@ -359,6 +359,6 @@ app.post('/major_retrieve',jsonParser, function(req, res, next) {
     });
 });
 
-app.listen(process.env.PORT || 3000); //test this
+app.listen(process.env.PORT || 3000, "0.0.0.0"); //test this
 //app.listen(3000);
 console.log('3000 is the magic port');

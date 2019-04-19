@@ -21,7 +21,8 @@
   },
   "author": "TEAM MADLADS",
   "engines": {
-    "node": "11.x"
+    "node": "11.x",
+    "npm": "6.7.0"
   },
   "license": "ISC",
   "bugs": {
