@@ -419,6 +419,12 @@ function autoComplete(value) {
 						console.log("Value: " + document.getElementById(id).value);
 						console.log("LABEL: " + document.getElementById(id).label);
 					}
+
+					else if (response.data[0] == null) {
+						document.getElementById.style.visibility = "hidden";
+						break;
+					}
+
 					else {
 						document.getElementById(id).style.visibility = "hidden";
 					}
