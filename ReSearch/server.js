@@ -377,7 +377,6 @@ app.post('/major_retrieve',jsonParser, function(req, res, next) {
             task.any(query)
         ]);
     })
-    console.log("QUERY SENT");
     .then(info => {
         res.send({
             data: [info[0][0], info[0][1], info[0][2], info[0][3]]
