@@ -6,6 +6,7 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "cors": "^2.8.5",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "pg-promise": "^8.6.4"
   },
