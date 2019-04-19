@@ -3,8 +3,8 @@ var app = express();
 
 // bcrypt
 //var db = require('../models');
-//var bcrypt = require('bcrypt');
-//const saltRounds = 10;
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
 // end bcrypt
 
 //var session = require('express-session')
@@ -19,15 +19,16 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 var pgp = require('pg-promise')();
 
+//dbConfig for localhost
 /*const dbConfig = {
 	host: 'localhost',
-	port: 5432, //5432 or 3000
+	port: 5432, //5432
 	database: 'research_db',
 	user: 'postgres',
-	password: 'newpassword' //pwd or newpassword
+	password: 'newpassword' //newpassword
 };*/
 
-const dbConfig = process.env.DATABASE_URL; //test this
+const dbConfig = process.env.DATABASE_URL;
 
 
 var db = pgp(dbConfig);
@@ -80,7 +81,7 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
     var year = req.body.year;
     var major = req.body.major;
 
-    //bcrypt.hash(password, saltRounds, function (err, hash));
+    bcrypt.hash(password, saltRounds, function (err, hash));
 
     //need to add major into the insert statement, will have to utilize the foreign key
 
