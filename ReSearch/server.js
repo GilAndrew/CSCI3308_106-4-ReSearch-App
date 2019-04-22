@@ -71,7 +71,7 @@ app.get('/student_profile.html', function(req, res) {
     res.sendFile(__dirname + '/views/student_profile.html')
 });
 
-/*
+
 app.post('/student_registration',jsonParser, function(req, res, next) { 
 
     var name = req.body.name;
@@ -82,12 +82,15 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
     var year = req.body.year;
     var major = req.body.major;
 
-    /*bcrypt.hash(password, saltRounds, function (err, hash) {
+    bcrypt.hash(password, saltRounds, function (err, hash) {
 
     });
 
-    //need to add major into the insert statement, will have to utilize the foreign key
+    //1. need to add major into the insert statement, will have to utilize the foreign key
+    
+    //2. iterate the numSelected column in the majors table
 
+    //change password to hash and vice versa
     var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
 
     var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year) " + 
@@ -96,8 +99,10 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
                         "RETURNING id;";
 
     var data_query = "INSERT INTO user_data(encryptId, major) " + 
-                     "SELECT '"+ /*ENCRYPTID VARIABLE GOES HERE*//* +"', '" + major +"'";
-                        
+                     "SELECT '"+ /*ENCRYPTID VARIABLE GOES HERE*/ +"', '" + major +"'";
+    console.log("DATA QUERY: " + data_query);
+    var increment_query = "UPDATE majors SET numSelected = numSelected + 1 WHERE major = '"+ major + "';";
+    console.log("INCREMENT QUERY: " + increment_query);                 
     db.task('get-everything', task => {
         return task.batch([
             task.any(unique_query),
@@ -118,51 +123,7 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
             id: ''
         })
     });
-}); */
-
- app.post('/student_registration',jsonParser, function(req, res, next) { 
-
- 	var name = req.body.name;
- 	var email = req.body.email;
- 	var username = req.body.username;
- 	var password = req.body.confirm_password;
- 	var birthday = req.body.birthday;
-    var year = req.body.year;
-    var major = req.body.major;
-
-    //need to add major into the insert statement, will have to utilize the foreign key
-
-    var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
-
- 	var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year) " + 
-                         "SELECT'"+name+"', '"+email+"','"+username+"' , '"+password+"', '"+birthday+"', '"+year+"' WHERE " +
-                         "NOT EXISTS (SELECT email FROM user_profiles WHERE email = '"+email+"') " +
-                         "RETURNING id;";
-
-    var data_query = "INSERT INTO user_data(encryptId, major) " + 
-                      "SELECT '"+ /*ENCRYPTID VARIABLE GOES HERE*/ +"', '" + major +"'";
-                        
- 	db.task('get-everything', task => {
-         return task.batch([
-             task.any(unique_query),
-             task.any(insert_query)
-         ]);
-     })
-     .then(info => {
-     	res.send({
- 				unique: info[0],
-                 id: info[1]
- 			})
-     })
-     .catch(err => {
-         // display error message in case an error
-         console.log(err);
-         res.send({
-             unique: '',
-             id: ''
-         })
-     });
- });
+}); 
 
 app.post('/researcher_registration',jsonParser, function(req, res, next) { 
 	var name = req.body.name;

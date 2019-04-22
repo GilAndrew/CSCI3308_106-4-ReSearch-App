@@ -412,9 +412,8 @@ function autoComplete(value) {
 						var result = JSON.parse(JSON.stringify(response.data[i].major)) + " - " + JSON.parse(JSON.stringify(response.data[i].major_desc));
 						document.getElementById(id).value = JSON.parse(JSON.stringify(response.data[i].major));
 						document.getElementById(id).label = result;
-						console.log("TEST");
-						console.log("Value: " + document.getElementById(id).value);
-						console.log("LABEL: " + document.getElementById(id).label);
+						var increment_query = "UPDATE majors SET numSelected = numSelected + 1 WHERE major = '"+ response.data[i].major + "';";
+						console.log("INCREMENT QUERY: " + increment_query);  
 					}
 
 					else {
