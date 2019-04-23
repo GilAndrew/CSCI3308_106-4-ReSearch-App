@@ -384,7 +384,6 @@ function toHomepage() {
 }
 
 function autoComplete(value) {
-	//begin console logging here to see where autoComplete goes wrong
 	var current = value;
 	var currentMost = current.substring(0, current.length - 1);
 	var charLast = current.charCodeAt(current.length - 1);
@@ -412,8 +411,6 @@ function autoComplete(value) {
 						var result = JSON.parse(JSON.stringify(response.data[i].major)) + " - " + JSON.parse(JSON.stringify(response.data[i].major_desc));
 						document.getElementById(id).value = JSON.parse(JSON.stringify(response.data[i].major));
 						document.getElementById(id).label = result;
-						var increment_query = "UPDATE majors SET numSelected = numSelected + 1 WHERE major = '"+ response.data[i].major + "';";
-						console.log("INCREMENT QUERY: " + increment_query);  
 					}
 
 					else {

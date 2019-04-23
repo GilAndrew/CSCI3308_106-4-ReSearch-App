@@ -83,12 +83,10 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
     var major = req.body.major;
 
     bcrypt.hash(password, saltRounds, function (err, hash) {
-
+        //return hashed password, named hash
     });
 
     //1. need to add major into the insert statement, will have to utilize the foreign key
-    
-    //2. iterate the numSelected column in the majors table
 
     //change password to hash and vice versa
     var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
@@ -98,11 +96,15 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
                         "NOT EXISTS (SELECT email FROM user_profiles WHERE email = '"+email+"') " +
                         "RETURNING id;";
 
+    bcrypt.hash(username, saltRounds, function(err, hash) {
+        //return hashed username, named encryptId
+    });
+                        
     var data_query = "INSERT INTO user_data(encryptId, major) " + 
                      "SELECT '"+ /*ENCRYPTID VARIABLE GOES HERE*/ +"', '" + major +"'";
-    console.log("DATA QUERY: " + data_query);
+
     var increment_query = "UPDATE majors SET numSelected = numSelected + 1 WHERE major = '"+ major + "';";
-    console.log("INCREMENT QUERY: " + increment_query);                 
+
     db.task('get-everything', task => {
         return task.batch([
             task.any(unique_query),
@@ -126,7 +128,8 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
 }); 
 
 app.post('/researcher_registration',jsonParser, function(req, res, next) { 
-	var name = req.body.name;
+    console.log("IN THE SERVER");
+    var name = req.body.name;
 	var email = req.body.email;
 	var password = req.body.confirm_password;
     var unique_query = "SELECT EXISTS(SELECT 1 FROM researcher_profiles where email='"+email+"');";
