@@ -128,7 +128,6 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
 }); 
 
 app.post('/researcher_registration',jsonParser, function(req, res, next) { 
-    console.log("IN THE SERVER");
     var name = req.body.name;
 	var email = req.body.email;
 	var password = req.body.confirm_password;
