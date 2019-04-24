@@ -23,7 +23,8 @@ CREATE TABLE IF NOT EXISTS user_profiles (
     username VARCHAR(30) NOT NULL,
     password VARCHAR(30) NOT NULL,
     birthday DATE,
-    year VARCHAR(3)
+    year VARCHAR(3),
+    major VARCHAR(4)
 );
 
 Creating researcher_profiles table
@@ -36,26 +37,6 @@ CREATE TABLE IF NOT EXISTS researcher_profiles (
     description TEXT,
     password VARCHAR(30) NOT NULL
 );
-
-Creating user_data table
-
-CREATE TABLE IF NOT EXISTS user_data (
-    encryptId TEXT NOT NULL PRIMARY KEY,
-    major VARCHAR(4),
-    psychReport TEXT,
-    demographics TEXT,
-    medHistory TEXT
-);
-
-Creating researcher_data table
-
-CREATE TABLE IF NOT EXISTS researcher_data (
-    encryptId TEXT NOT NULL PRIMARY KEY,
-    credentials TEXT,
-    field VARCHAR(4),
-    institution VARCHAR(50)
-);
-
 
 Creating postings table
 
