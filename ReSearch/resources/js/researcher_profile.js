@@ -1,3 +1,41 @@
+var edit_name = "";
+var edit_email = "";
+var edit_phone = "";
+var edit_info = "";
+
+function load_profile() { 
+  var name = document.getElementById("Name");
+  var username = document.getElementById("Username");
+  var email = document.getElementById("Email");
+  var phone = document.getElementById("Phone");
+  var info = document.getElementById("Research_Info");
+
+  var xmlhttp = new XMLHttpRequest();  
+  xmlhttp.open("POST", "/retrieve_researcher_profile", true);
+  xmlhttp.setRequestHeader("Content-Type", "application/json");
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      // console.log(this.response)
+      var response = JSON.parse(this.response);
+      
+      edit_name = response.profile[0].name;
+      edit_email = response.profile[0].email;
+      edit_phone = response.profile[0].phone;
+      edit_info = response.profile[0].description;
+
+      name.innerHTML = response.profile[0].name;
+      username.innerHTML = response.profile[0].name;
+      email.innerHTML = response.profile[0].email;
+      phone.innerHTML = response.profile[0].phone;
+      info.innerHTML = response.profile[0].description;
+
+    }
+      
+  };
+  var userID = window.sessionStorage.getItem('userID')
+  xmlhttp.send(JSON.stringify({userID: userID}));
+}
+
 function change_tab(evt, tabName) {
   // Declare all variables
   var i, tabcontent, tablinks;
@@ -33,6 +71,13 @@ function edit_profile() {
   document.getElementById("edit_page").style.border = "0px";
   document.getElementById("edit_page").style.width = "822.844px";
   document.getElementById("edit_page").style.height = "360px";
+  var researcher_name = document.getElementById("edit_page_name");
+  researcher_name.innerHTML = edit_name;
+
+  document.getElementById("edit_Username").value = edit_name;
+  document.getElementById("edit_Email").value = edit_email;
+  document.getElementById("edit_Phone").value = edit_phone;
+  document.getElementById("edit_Info").value = edit_info;
 
 }
 
@@ -55,7 +100,32 @@ function save_changes() {
   document.getElementById("Username").innerHTML = document.getElementById("edit_Username").value;
   document.getElementById("Email").innerHTML = document.getElementById("edit_Email").value;
   document.getElementById("Phone").innerHTML = document.getElementById("edit_Phone").value;
-  document.getElementById("Research_Info").innerHTML = document.getElementById("Research_Info_Edit").value;
+  document.getElementById("Research_Info").innerHTML = document.getElementById("edit_Info").value;
+
+  var name = document.getElementById("edit_Username");
+  var email = document.getElementById("edit_Email");
+  var phone = document.getElementById("edit_Phone");
+  var info = document.getElementById("edit_Info");
+
+  console.log(name, email, phone, info);
+
+  var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+  xmlhttp.open("POST", "/update_researcher_profile", true);
+  xmlhttp.setRequestHeader("Content-Type", "application/json");
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      response = JSON.parse(this.response);
+      //Check if email is unique
+      /*
+      if (response.unique[0].exists) {
+        alert("The email you entered has already been registered")
+      }
+      */
+    }
+  }
+
+  var userID = window.sessionStorage.getItem('userID')
+  xmlhttp.send(JSON.stringify({name:name.value, email:email.value, phone:phone.value, info:info.value, userID: userID}));
 }
 
 function hide() {

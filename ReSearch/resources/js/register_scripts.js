@@ -261,7 +261,7 @@ function student_form_called(callback)
 	/* database/server requests */
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
 	//xmlhttp.open("POST", "/student_registration", true);
-	xmlhttp.open("POST", "https://localhost:3000/student_registration", true);
+	xmlhttp.open("POST", "/student_registration", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -380,7 +380,7 @@ function researcher_form_called(callback)
 
 function toHomepage() {
 	// redirects to homepage
-	location.href = "/index.html";
+	location.href = "index.html";
 
 }
 
