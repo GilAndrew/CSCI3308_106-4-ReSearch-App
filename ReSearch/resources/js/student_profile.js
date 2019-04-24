@@ -37,6 +37,7 @@ the function which Grabs the information from database on Load Up and
 places data from DB into global variables above*/
 function load_profile()
 { 
+  var edit_name = document.getElementById("Edit-Name");
   var name = document.getElementById("Name");
   var username = document.getElementById("Username");
   var email = document.getElementById("Email");
@@ -51,6 +52,7 @@ function load_profile()
       // console.log(this.response)
       var response = JSON.parse(this.response);
       
+      edit_name.innerHTML = response.profile[0].name;
       name.innerHTML = response.profile[0].name;
       username.innerHTML = response.profile[0].username;
       email.innerHTML = response.profile[0].email;
@@ -76,10 +78,17 @@ and is called again one data is changed in edit function*/
 function update_profile()
 {
     console.log("Updating")
-    Email = document.getElementById("edit-profile-js").elements["Edit-Email"];
-    Birthday = document.getElementById("edit-profile-js").elements["Edit-Birthday"];
-    Year = document.getElementById("edit-profile-js").elements["Edit-Year"];
-    Username = document.getElementById("edit-profile-js").elements["Edit-Username"];
+    Image = document.getElementById("edit-profile-js").elements["Edit-Image"];
+    Email = document.getElementById("edit-profile-js").elements["Edit-Email"].value;
+    Birthday = document.getElementById("edit-profile-js").elements["Edit-Birthday"].value;
+    Year = document.getElementById("edit-profile-js").elements["Edit-Year"].value;
+    Username = document.getElementById("edit-profile-js").elements["Edit-Username"].value;
+
+    document.getElementById("Profile-Image").innerHTML = Image;
+  document.getElementById("Username").innerHTML = Username;
+  document.getElementById("Email").innerHTML = Email;
+  document.getElementById("Year").innerHTML = Year;
+  document.getElementById("Birthday").innerHTML = Birthday;
 
 
   var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
@@ -98,7 +107,7 @@ function update_profile()
   }
 
   var userID = window.sessionStorage.getItem('userID')
-  xmlhttp.send(JSON.stringify({username:Username.value, email:Email.value, birthday:Birthday.value, year:Year.value, userID: userID}));
+  xmlhttp.send(JSON.stringify({username:Username, email:Email, birthday:Birthday, year:Year, userID: userID}));
 }
 
 /* Deals with the visibility of each form */
@@ -134,43 +143,13 @@ function headingToProfile()
     console.log("Save Edits function Called");
 
     /* Set DOM Elements to temp variables before assigned to actual variables (excluding Image thats fine) */
-    Image = document.getElementById("Edit-Image").src;
-
-    Temp_Email = document.getElementById("edit-profile-js").elements["Edit-Email"].value;
-    Temp_Birthday = document.getElementById("edit-profile-js").elements["Edit-Birthday"].value;
-    Temp_Year = document.getElementById("edit-profile-js").elements["Edit-Year"].value;
-    Temp_Username = document.getElementById("edit-profile-js").elements["Edit-Username"].value;
+    //Image = document.getElementById("Edit-Image").src;
     
-    /* Making sure data is clean (Only setting if real Input) */
-    if (Temp_Email != ''){
-        Email = Temp_Email;
-    } 
-    if (Temp_Year != 'Select Year of Education'){
-        Year = Temp_Year;
-    }
-    if (Temp_Birthday != '2000-01-01'){
-        Birthday = Temp_Birthday;
-    }
-    if (Temp_Username != ''){
-        Username = Temp_Username;
-    }
-
-    console.log("Data Entry Succefull, will be entered to DB")
-    get_correct_data(); /* Will Update what the user see's imediately */
 
     /* Visibility Calls if data is good to sumbit */
     edit_profile('edit-profile',0); 
     edit_profile('profile',1);
 
-    /* Clear input fields here since no page reload */
-    document.getElementById("edit-profile-js").elements["Edit-Email"].value = '';
-    document.getElementById("edit-profile-js").elements["Edit-Birthday"].value = '2000-01-01';
-    document.getElementById("edit-profile-js").elements["Edit-Username"].value = '';
-    $('#DropDown option').prop('selected', function() {
-        return this.defaultSelected;
-    });
-
-    /* These Updated Values should be sent and Stored In database Here...*/
 }
 
 
