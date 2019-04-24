@@ -86,29 +86,21 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
         //return hashed password, named hash
     });
 
-    //1. need to add major into the insert statement, will have to utilize the foreign key
-
     //change password to hash and vice versa
     var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
 
-    var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year) " + 
-                        "SELECT'"+name+"', '"+email+"','"+username+"' , '"+hash+"', '"+birthday+"', '"+year+"' WHERE " +
+    var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year, major) " + 
+                        "SELECT'"+name+"', '"+email+"','"+username+"' , '"+password+"', '"+birthday+"', '"+year+"', '"+major+"' WHERE " +
                         "NOT EXISTS (SELECT email FROM user_profiles WHERE email = '"+email+"') " +
                         "RETURNING id;";
-
-    bcrypt.hash(username, saltRounds, function(err, hash) {
-        //return hashed username, named encryptId
-    });
-                        
-    var data_query = "INSERT INTO user_data(encryptId, major) " + 
-                     "SELECT '"+ /*ENCRYPTID VARIABLE GOES HERE*/ +"', '" + major +"'";
 
     var increment_query = "UPDATE majors SET numSelected = numSelected + 1 WHERE major = '"+ major + "';";
 
     db.task('get-everything', task => {
         return task.batch([
             task.any(unique_query),
-            task.any(insert_query)
+            task.any(insert_query),
+            task.any(increment_query)
         ]);
     })
     .then(info => {
@@ -130,7 +122,13 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
 app.post('/researcher_registration',jsonParser, function(req, res, next) { 
     var name = req.body.name;
 	var email = req.body.email;
-	var password = req.body.confirm_password;
+    var password = req.body.confirm_password;
+    
+    bcrypt.hash(password, saltRounds, function (err, hash) {
+        //return hashed password, named hash
+    });
+
+    //change password to hash and vice versa
     var unique_query = "SELECT EXISTS(SELECT 1 FROM researcher_profiles where email='"+email+"');";
 	var insert_query = "INSERT INTO researcher_profiles(name, email, password) " + 
                         "SELECT '"+name+"', '"+email+"', '"+password+"' WHERE " +
@@ -163,6 +161,12 @@ app.post('/student_login',jsonParser, function(req, res, next) {
 	var email = req.body.email;
 	var password = req.body.password;
 
+    //hash used to get hashed password from table
+    bcrypt.hash(password, saltRounds, function (err, hash) {
+        //return hashed password, named hash
+    });
+
+    //change password to hash and vice versa
 	var validation_query = "select exists(select 1 from user_profiles where email='"+email+"' AND password='"+password+"');";
     var user_id_query = "select id from user_profiles where email='"+email+"' AND password='"+password+"';"
 
@@ -192,6 +196,12 @@ app.post('/researcher_login',jsonParser, function(req, res, next) {
     var email = req.body.email;
     var password = req.body.password;
 
+     //hash used to get hashed password from table
+    bcrypt.hash(password, saltRounds, function (err, hash) {
+        //return hashed password, named hash
+    });
+
+    //change password to hash and vice versa
     var validation_query = "select exists(select 1 from researcher_profiles where email='"+email+"' AND password='"+password+"');";
     var user_id_query = "select id from researcher_profiles where email='"+email+"' AND password='"+password+"';"
 
@@ -282,10 +292,20 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     var contact_email = req.body.contact_email;
     var contact_phone = req.body.contact_phone;
     var contact_fax = req.body.contact_fax;
+    var username = req.body.username;
 
-    var insert_query = "INSERT INTO postings (title, school, city, state, zip, body, major, app_open, app_close, " +
+    //need to add a hashed ownerprofile
+
+    bcrypt.hash(password, saltRounds, function (err, hash) {
+        //return hashed username, named ownerProfile
+    });
+
+    //dummy profile var that will be deleted once hash function implemented
+    var ownerProfile = "GENERIC PROFILE";
+
+    var insert_query = "INSERT INTO postings (ownerProfile, title, school, city, state, zip, body, major, app_open, app_close, " +
                         "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax)" +
-                        "VALUES ('"+title+"', '"+school+"', '"+city+"', '"+state+"', "+zip+", '"+body+"', '"+major+"', '"+app_open+"', '"+app_close+"', '" +
+                        "VALUES ('"+ownerProfile+"', '"+title+"', '"+school+"', '"+city+"', '"+state+"', "+zip+", '"+body+"', '"+major+"', '"+app_open+"', '"+app_close+"', '" +
                         start_date+"', '"+end_date+"', '"+contact_name+"', '"+contact_email+"', '"+contact_phone+"', '"+contact_fax+"');";
 
     db.task('get-everything', task => {
