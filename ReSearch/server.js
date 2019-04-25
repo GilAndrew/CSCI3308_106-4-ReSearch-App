@@ -292,16 +292,15 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     var contact_email = req.body.contact_email;
     var contact_phone = req.body.contact_phone;
     var contact_fax = req.body.contact_fax;
-    var username = req.body.username;
 
     //need to add a hashed ownerprofile
 
     bcrypt.hash(username, saltRounds, function (err, hash) {
-        //return hashed username, named ownerProfile
+        //return hashed email, named ownerProfile
     });
 
     //dummy profile var that will be deleted once hash function implemented
-    var ownerProfile = username;
+    var ownerProfile = contact_email;
 
     var insert_query = "INSERT INTO postings (ownerProfile, title, school, city, state, zip, body, major, app_open, app_close, " +
                         "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax)" +
