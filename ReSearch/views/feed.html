@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" contet="Official ReSearch Feed Page">
+    <meta name="keywords" content="ReSearch">
+
+    <title>ReSearch. Connecting Minds</title>
+    <link href="#" rel="shortcut icon">
+    <link rel='icon' href='../resources/img/favicon.ico' type='image/x-icon' />
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- font-awesome EXTERNAL RESOURCE-->
+    <link href="../resources/css/feed.css" rel="stylesheet">
+    <!-- after style.css becouse style.css will be modified -->
+</head>
+
+<body onload="populateFeed()">
+   
+    <!--================================================
+        NAVBAR
+    =================================================-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html"><strong>ReSearch</strong></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Links Left-->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Testimonies</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Popular</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Opportunities</a></li>
+            </ul>
+            <!-- Links Right-->
+            <span class="navbar-nav form-inline">
+                <li class="nav-item mr-auto"><a class="nav-link" href="login.html" id="login_link">Login</a></li>
+                <li class="nav-item mr-auto"><a class="nav-link" href="registration.html" id="signin_link">Sign Up</a></li>
+                <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="profile_link"><span class="fas fa-user-circle fa-lg"></span><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Profile<i class="fas fa-user pull-right"></i></a></li>
+                        <li id="post_link"><a href="post.html">Post<i id="post_icon" class="fas fa-edit pull-right"></i></a></li>
+                        <li><a href="#contact">Contact<i class="fas fa-envelope pull-right"></i></a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a onclick="logout();">Logout<i class="fas fa-power-off pull-right"></i></a></li>
+                    </ul>
+                </li>
+            </span>
+        </div>
+    </nav>
+
+    <!--================================================
+        Post Card
+    =================================================-->
+    <section id="post">
+        <br>
+        <div class="container">
+            <div id="feed" class="row">
+                <!-- Dummy space to center card -->
+                <!-- Post Card -->
+                <!--
+                <div class="col-xl-4 col-lg-4">
+                    <div class="card"> -->
+                        <!-- Card Header 
+                        <div class="card-header py-3 card_title">
+                            <h6 class="m-0 font-weight-bold">National Institutes of Health Cancer Research</h6>
+                        </div> -->
+                        <!-- Card Body
+                        <div class="card-body card_body">
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="title">University of Colorado Boulder</label>
+                                    <label for="location">Boulder, CO 80200</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="major">Major: Human Health Science</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="applicant">Target Applicants: Undergraduate</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="body">The program will prepare you to build community, corporate, and college health programs, design health messages to inspire people to action, and pursue careers in such fields as: Health Advocate: support and promote the rights of community members in the health care arena, build capacity to improve community health, and enhance health policy initiatives. Community Health Education: Develop educational campaigns and programs to promote healthy habits and environments. Public Health Research Assistant: provide general research support (recruitment of subjects, document preparation, graphical reporting of research results, conducting literature reviews) to a lead research scientist Health Marketing & Communication: apply traditional marketing & health promotion principles to increase community awareness of important advancements in health and health-protecting services. </label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="app_open">App Opens: (01/14/2020)</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="app_close">App Closes:(09/23/2020)</label>
+                                </div>
+                            </div>
+                            <div class="form-row row_above_hr">
+                                <div class="form-group col-md-6 row_above_hr">
+                                    <label for="start">Research Starts: (01/14/2020)</label>
+                                </div>
+                                <div class="form-group col-md-6 row_above_hr">
+                                    <label for="end">Research Ends: (09/23/2020)</label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="contact_name">Alex Turning</label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="contact_email">Alex@healthcare.gov</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 row_above_hr">
+                                    <label for="contact_phone">Phone: (720)-223-2348</label>
+                                </div>
+                                <div class="form-group col-md-6 row_above_hr">
+                                    <label for="contact_fax">Fax: (303))-212-2348</label>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="end_statement">
+                                <h6>Live and Learn as if you were to live forever.</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                -->
+            </div>
+        </div>
+        <br>
+    </section>
+
+    <!--================================================
+        End
+    =================================================-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../resources/js/feed.js"></script>
+    <script src="../resources/js/custom.js"></script>
+
+</body>
+
+</html>

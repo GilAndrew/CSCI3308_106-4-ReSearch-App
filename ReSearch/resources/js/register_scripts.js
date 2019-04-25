@@ -155,13 +155,12 @@ JS that submits forms
 */
 function student_form_called(callback)
 {
-	/*
-	going to have to manually insert student value
-	*/
+
 	var Name = document.getElementById("Student-js").elements["Name"];
 	var User_name = document.getElementById("Student-js").elements["User-name"];
 	var Email = document.getElementById("Student-js").elements["Email"];
 	var Year = document.getElementById("Student-js").elements["Year"];
+	var Major = document.getElementById("Student-js").elements["Major"];
 	var Birthday = document.getElementById("Student-js").elements["Birthday"];
 	var Password = document.getElementById("Student-js").elements["Password"];
 	var Confirm_Password = document.getElementById("Student-js").elements["Confirm-Password"];
@@ -171,7 +170,8 @@ function student_form_called(callback)
 	*/
 	var requirements = (digit_s.classList == "not-correct" || upper_s.classList == "not-correct" || char_s.classList == "not-correct");
 	var pass_check = (Password.value != Confirm_Password.value);
-	var drop_check = (Year.value == "Select Year of Education")
+	var drop_check = (Year.value == "Select Year of Education");
+
 	if (pass_check || requirements || drop_check)
 	{
 		/* Clear password input fields */
@@ -260,22 +260,24 @@ function student_form_called(callback)
 
 	/* database/server requests */
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-	xmlhttp.open("POST", "http://localhost:3000/user_registration", true);
+	xmlhttp.open("POST", "/student_registration", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			response = JSON.parse(this.response);
 			//Check if email is unique
-			if (response.data[0].exists) {
+			if (response.unique[0].exists) {
 				alert("The email you entered has already been registered")
 			}
 			else {
 				// Callback used to redirect user to homepage after inserting data into database
+				window.sessionStorage.setItem('userID', response.id[0].id)
+				window.sessionStorage.setItem('userType', 's')
 				callback()
 			}
 		}
 	}
-	xmlhttp.send(JSON.stringify({name:Name.value, username:User_name.value, email:Email.value, year:Year.value, birthday:Birthday.value, password:Password.value, confirm_password:Confirm_Password.value}));
+	xmlhttp.send(JSON.stringify({name:Name.value, username:User_name.value, email:Email.value, year:Year.value, major: Major.value, birthday:Birthday.value, password:Password.value, confirm_password:Confirm_Password.value}));
 	
 }
 
@@ -283,9 +285,6 @@ var current_visibility_confirm_r = false; /* For  keeping track of password conf
 var current_visibility_requirements_r = false; /* for keeping track of password req popup on S form */
 function researcher_form_called(callback)
 {
-	/*
-	going to have to manually insert the researcher value
-	*/
 	var Email = document.getElementById("Researcher-js").elements["Email"];
 	var Name = document.getElementById("Researcher-js").elements["Name"];
 	var Password = document.getElementById("Researcher-js").elements["Password"];
@@ -357,17 +356,19 @@ function researcher_form_called(callback)
 	console.log("Researcher form Met requirements to submit");
 
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-	xmlhttp.open("POST", "http://localhost:3000/researcher_registration", true);
+	xmlhttp.open("POST", "/researcher_registration", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			response = JSON.parse(this.response);
 			//Check if email is unique
-			if (response.data[0].exists) {
+			if (response.unique[0].exists) {
 				alert("The email you entered has already been registered")
 			}
 			else {
 				// Callback used to redirect user to homepage after inserting data into database
+				window.sessionStorage.setItem('userID', response.id[0].id)
+				window.sessionStorage.setItem('userType', 'r')
 				callback()
 			}
 		}
@@ -378,6 +379,54 @@ function researcher_form_called(callback)
 
 function toHomepage() {
 	// redirects to homepage
-	location.href = "file:///home/luke/Documents/CSCI3308_106-4-ReSearch-App/ReSearch/views/index.html";
+	location.href = "/index.html";
 
 }
+
+function autoComplete(value) {
+	var current = value;
+	var currentMost = current.substring(0, current.length - 1);
+	var charLast = current.charCodeAt(current.length - 1);
+	var charNext = String.fromCharCode(1 + charLast);
+	var retrieval_query = "select major, major_desc from majors where (major_desc >= '" + current + "' and major_desc < '" + currentMost + charNext + "') order by numSelected, major;";
+
+	for (j = 0; j < 4; j++) {
+		var id = "option" + (j+1);
+		document.getElementById(id).value = "";
+		document.getElementById(id).label = "";
+	}
+
+	//major info retrieval from database
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("POST", "/major_retrieve", true);
+	//use this xmlhttp.open, or this format when you want to use localhost for testing
+	//xmlhttp.open("POST", "http://localhost:3000/major_retrieve", true);
+	xmlhttp.setRequestHeader("Content-Type", "application/json");
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var response = JSON.parse(this.response);
+			if (response) {
+				for (i = 0; i < response.data.length; i++) {
+					var id = "option" + (i+1);
+					document.getElementById(id).style.visibility = "visible";
+					if (response.data[i] != null) {
+						var result = JSON.parse(JSON.stringify(response.data[i].major)) + " - " + JSON.parse(JSON.stringify(response.data[i].major_desc));
+						document.getElementById(id).value = JSON.parse(JSON.stringify(response.data[i].major));
+						document.getElementById(id).label = result;
+					}
+
+					else {
+						document.getElementById(id).style.visibility = "hidden";
+					}
+				}
+
+			}
+			else {
+				console.log(err);
+			}
+
+		}
+	}
+	xmlhttp.send(JSON.stringify({query:retrieval_query}));
+	return ;
+};

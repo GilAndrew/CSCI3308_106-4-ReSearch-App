@@ -1,7 +1,7 @@
 html, body{
     background-image: url('../img/register-image.jpg');
     background-size: cover;
-    font-family: "Times New Roman", Times, serif !important;
+    font-family: "Raleway", cursive !important;
 
     position: absolute;
     margin: 0px;
@@ -37,11 +37,8 @@ html, body{
     justify-content: left;
 }
 
-::placeholder {
-    color:white !important;
-}
-
 /*Gets Rid of outline after clicking button*/
+
 button:focus {
     outline:0;
 }
@@ -82,7 +79,7 @@ button:focus {
 
 /* Styling Select drop down */
 select {
-    background: rgba(0,0,0,.7) !important;
+    background: white !important;
     color:#000;
 }
 option:not(:checked) {
