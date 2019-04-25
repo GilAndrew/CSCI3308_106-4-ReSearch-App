@@ -18,7 +18,7 @@
         <link href="../resources/css/student_profile.css" rel="stylesheet">
     </head>
 
-    <body onload="load_from_DB(); get_correct_data();">
+    <body onload="loadNavbar(); load_profile();">
 
     <!--================================================
         NAVBAR
@@ -34,23 +34,23 @@
             <!-- Links Left-->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html">Testimonies</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html">Popular</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html">Contact Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="index.html">Opportunities</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#testimonies">Testimonies</a></li>
+                <li class="nav-item"><a class="nav-link" href="#popular">Popular</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="feed.html">Opportunities</a></li>
             </ul>
             <!-- Links Right-->
             <span class="navbar-nav form-inline">
                 <li class="nav-item mr-auto"><a class="nav-link" href="login.html" id="login_link">Login</a></li>
                 <li class="nav-item mr-auto"><a class="nav-link" href="registration.html" id="signin_link">Sign Up</a></li>
-                <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="profile_link"><span class="fas fa-user-circle fa-lg"></span><b class="caret"></b></a>
+                <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="profile_dropdown"><span class="fas fa-user-circle fa-lg"></span><b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Profile<i class="fas fa-user pull-right"></i></a></li>
+                        <li><a id="profile_link" href="#">Profile<i class="fas fa-user pull-right"></i></a></li>
                         <li id="post_link"><a href="post.html">Post<i id="post_icon" class="fas fa-edit pull-right"></i></a></li>
                         <li><a href="#contact">Contact<i class="fas fa-envelope pull-right"></i></a></li>
                         <li class="dropdown-divider"></li>
-                        <li><a onclick="logout();">Logout<i class="fas fa-power-off pull-right"></i></a></li>
+                        <li><a>Logout<i class="fas fa-power-off pull-right"></i></a></li>
                     </ul>
                 </li>
             </span>
@@ -118,7 +118,7 @@
         </div>
 
         <!--Form To Submit Edits to Profile-->
-        <form action="#" onsubmit="headingToProfile(); return false;" id="edit-profile-js">
+        <form action="#" id="edit-profile-js">
             <div class="container" id="edit-profile">
                 <div class="edit-profile">
                     <form>
@@ -154,7 +154,7 @@
                                         <label>Email:</label>
                                     </div>
                                     <div class="col-md-6 form-group input-group">
-                                        <input name="Edit-Email" class="form-control" type="email" placeholder="Email Adress">
+                                        <input name="Edit-Email" class="form-control" type="email" placeholder="Email Address">
                                     </div>
                                 </div>
                                 <div class="row edit">
@@ -165,7 +165,7 @@
                                         <select class="form-control" name="Edit-Year" id="DropDown">
                                             <option selected="">Select Year of Education</option> <!--Need to make sure they cannot submit this one-->
                                             <option value="FSH">Freshman</option>
-                                            <option value="SPH">Sophmore</option>
+                                            <option value="SPH">Sophomore</option>
                                             <option value="JNR">Junior</option>
                                             <option value="SNR">Senior</option>
                                             <option value="OTH">Other</option>
@@ -184,7 +184,7 @@
                                 </div>  
                             </div>
                             <div class="col-md-2 form-group">
-                                <button type="submit" class="profile-save-btn">Save Changes</button>
+                                <button type="submit" onclick="event.preventDefault(); update_profile(location.reload());" class="profile-save-btn">Save Changes</button>
                                 <p class="Note-Txt"></br>Please note default option will not change data.</br></p>
                             </div>
                         </div>
@@ -195,6 +195,7 @@
         <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="../resources/js/student_profile.js"></script>
+        <script src="../resources/js/homepage.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> <!--Font and Logos on registration card-->
         <link rel="stylesheet" href="../resources/css/style.css">
         <link rel="stlyesheet" href="../resources/css/responsive.css"> 
