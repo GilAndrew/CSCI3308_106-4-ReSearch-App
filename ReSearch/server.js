@@ -292,22 +292,21 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     var contact_email = req.body.contact_email;
     var contact_phone = req.body.contact_phone;
     var contact_fax = req.body.contact_fax;
-    var username = req.body.username;
 
     //need to add a hashed ownerprofile
 
-    bcrypt.hash(password, saltRounds, function (err, hash) {
-        //return hashed username, named ownerProfile
+    bcrypt.hash(contact_email, saltRounds, function (err, hash) {
+        //return hashed email, named ownerProfile
     });
 
     //dummy profile var that will be deleted once hash function implemented
-    var ownerProfile = "GENERIC PROFILE";
+    var ownerProfile = "HASHED EMAIL";
 
     var insert_query = "INSERT INTO postings (ownerProfile, title, school, city, state, zip, body, major, app_open, app_close, " +
                         "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax)" +
                         "VALUES ('"+ownerProfile+"', '"+title+"', '"+school+"', '"+city+"', '"+state+"', "+zip+", '"+body+"', '"+major+"', '"+app_open+"', '"+app_close+"', '" +
                         start_date+"', '"+end_date+"', '"+contact_name+"', '"+contact_email+"', '"+contact_phone+"', '"+contact_fax+"');";
-
+    console.log("INSERT QUERY: " + insert_query);
     db.task('get-everything', task => {
         return task.batch([
             task.any(insert_query)
@@ -368,6 +367,116 @@ app.post('/major_retrieve',jsonParser, function(req, res, next) {
         console.log(err);
         res.send({
             data: ''
+        })
+    });
+});
+
+app.post('/retrieve_researcher_profile',jsonParser, function(req, res, next) { 
+    var userID = req.body.userID;
+
+    var profile_query = "select * from researcher_profiles where id='"+userID+"';";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(profile_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+                profile: info[0]
+        })          
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+          profile: ''
+        })
+    });
+}); 
+
+app.post('/update_researcher_profile',jsonParser, function(req, res, next) { 
+    var name = req.body.name;
+    var email = req.body.email;
+    var phone = req.body.phone;
+    var info = req.body.info;
+    var userID = req.body.userID;
+
+    var update_query = "UPDATE researcher_profiles SET " + 
+                        "name = '"+name+"', email = '"+email+"', phone = '"+phone+"', description = '"+info+"' " +
+                        "WHERE id = '"+userID+"'";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(update_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+                unique: ''
+            })
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            unique: ''
+        })
+    });
+});
+
+app.post('/retrieve_student_profile',jsonParser, function(req, res, next) { 
+    var userID = req.body.userID;
+
+    var profile_query = "select * from user_profiles where id='"+userID+"';";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(profile_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+                profile: info[0]
+        })          
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+          profile: ''
+        })
+    });
+}); 
+
+app.post('/update_student_profile',jsonParser, function(req, res, next) { 
+    var username = req.body.username;
+    var email = req.body.email;
+    var year = req.body.year;
+    var birthday = req.body.birthday;
+    var userID = req.body.userID;
+
+    console.log("In server")
+
+    var update_query = "UPDATE user_profiles SET " + 
+                        "username = '"+username+"', email = '"+email+"', year = '"+year+"', birthday = '"+birthday+"' " +
+                        "WHERE id = '"+userID+"'";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(update_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+                unique: ''
+            })
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            unique: ''
         })
     });
 });

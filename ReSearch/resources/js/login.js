@@ -33,7 +33,7 @@ function login(callback) {
 
 function toHomepage() {
 	// redirects to homepage
-	location.href = "/index.html";
+	location.href = "index.html";
 }
 
 function switchToStudent() {
