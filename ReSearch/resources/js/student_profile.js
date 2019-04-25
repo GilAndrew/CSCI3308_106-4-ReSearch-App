@@ -123,11 +123,6 @@ function headingToEdit()
     /* populate place Holders with individuals information If time permits
     Ill add the functionality*/
 
-    edit_profile('edit-profile',1); 
-    edit_profile('profile',0); 
-    document.getElementById("Edit-Image").src = Image;
-    console.log("Heading To Edit Fourm");
-
     document.getElementById("edit-profile-js").elements["Edit-Email"].value = Email;
     document.getElementById("edit-profile-js").elements["Edit-Birthday"].value = Birthday;
     document.getElementById("edit-profile-js").elements["Edit-Year"].value = Year;
