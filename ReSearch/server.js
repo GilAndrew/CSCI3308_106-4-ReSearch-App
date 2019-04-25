@@ -295,7 +295,7 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
 
     //need to add a hashed ownerprofile
 
-    bcrypt.hash(username, saltRounds, function (err, hash) {
+    bcrypt.hash(contact_email, saltRounds, function (err, hash) {
         //return hashed email, named ownerProfile
     });
 
