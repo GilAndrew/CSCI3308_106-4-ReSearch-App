@@ -1,4 +1,4 @@
-function loadHomepage() { 
+function loadNavbar() { 
   // If a user is logged in
   if (window.sessionStorage.getItem('userType')) {
 
@@ -20,7 +20,7 @@ function loadHomepage() {
         response = JSON.parse(this.response);
         //alert(JSON.stringify(response.name[0].name));
         //Here we want to update the name on the homepage
-        document.getElementById("profile_link").innerHTML += " " + response.name[0].name;
+        document.getElementById("profile_dropdown").innerHTML += " " + response.name[0].name;
       }
     };
     // Retrieve user ID of current user
@@ -35,8 +35,8 @@ function loadHomepage() {
 
 function loggedIn() {
   // Show profile button on homepage
-  document.getElementById("profile_link").style.visibility = "visible";
-  document.getElementById("profile_link").style.width = "auto";
+  document.getElementById("profile_dropdown").style.visibility = "visible";
+  document.getElementById("profile_dropdown").style.width = "auto";
 
   // Remove log in and sign up buttons
   document.getElementById("login_link").style.visibility = "hidden";
@@ -48,17 +48,19 @@ function loggedIn() {
   // Only show post option if user is a researcher
   if (window.sessionStorage.getItem('userType') == 's') {
     document.getElementById("post_link").style.display = "none";
+    document.getElementById("profile_link").href = "student_profile.html"
   }
   else {
     document.getElementById("post_link").style.display = "initial";
+    document.getElementById("profile_link").href = "researcher_profile.html"
   }
 }
 
 function loggedOut() {
   // Remove profile button from homepage
-  document.getElementById("profile_link").style.visibility = "hidden";
-  document.getElementById("profile_link").style.width = "0px";
-  document.getElementById("profile_link").style.height = "0px";
+  document.getElementById("profile_dropdown").style.visibility = "hidden";
+  document.getElementById("profile_dropdown").style.width = "0px";
+  document.getElementById("profile_dropdown").style.height = "0px";
 
   // Show log in and sign up buttons
   document.getElementById("login_link").style.visibility = "visible";
