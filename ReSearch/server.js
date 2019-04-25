@@ -296,7 +296,7 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
 
     //need to add a hashed ownerprofile
 
-    bcrypt.hash(password, saltRounds, function (err, hash) {
+    bcrypt.hash(username, saltRounds, function (err, hash) {
         //return hashed username, named ownerProfile
     });
 
@@ -307,7 +307,7 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
                         "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax)" +
                         "VALUES ('"+ownerProfile+"', '"+title+"', '"+school+"', '"+city+"', '"+state+"', "+zip+", '"+body+"', '"+major+"', '"+app_open+"', '"+app_close+"', '" +
                         start_date+"', '"+end_date+"', '"+contact_name+"', '"+contact_email+"', '"+contact_phone+"', '"+contact_fax+"');";
-
+    console.log("INSERT QUERY: " + insert_query);
     db.task('get-everything', task => {
         return task.batch([
             task.any(insert_query)
