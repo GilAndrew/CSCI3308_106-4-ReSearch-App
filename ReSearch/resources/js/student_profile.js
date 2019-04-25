@@ -122,11 +122,18 @@ function headingToEdit()
 {
     /* populate place Holders with individuals information If time permits
     Ill add the functionality*/
+
+    edit_profile('edit-profile',1); 
+    edit_profile('profile',0); 
+    document.getElementById("Edit-Image").src = Image;
+    console.log("Heading To Edit Fourm");
+
     document.getElementById("edit-profile-js").elements["Edit-Email"].value = Email;
     document.getElementById("edit-profile-js").elements["Edit-Birthday"].value = Birthday;
     document.getElementById("edit-profile-js").elements["Edit-Year"].value = Year;
     document.getElementById("edit-profile-js").elements["Edit-Username"].value = Username;
     console.log("Heading To Edit Form");
+
 }
 
 function headingToProfile()
@@ -135,7 +142,7 @@ function headingToProfile()
 
     /* Set DOM Elements to temp variables before assigned to actual variables (excluding Image thats fine) */
     Image = document.getElementById("Edit-Image").src;
-
+    /* Need to set the submit forms photo too on load up */
     Temp_Email = document.getElementById("edit-profile-js").elements["Edit-Email"].value;
     Temp_Birthday = document.getElementById("edit-profile-js").elements["Edit-Birthday"].value;
     Temp_Year = document.getElementById("edit-profile-js").elements["Edit-Year"].value;
@@ -156,7 +163,7 @@ function headingToProfile()
     }
 
     console.log("Data Entry Succefull, will be entered to DB")
-    get_correct_data(); /* Will Update what the user see's imediately */
+    get_correct_data(); /* Will Update what the user see's imediately  on page, dont have to get from DB every time, on on page load up*/
 
     /* Visibility Calls if data is good to sumbit */
     edit_profile('edit-profile',0); 

@@ -110,7 +110,7 @@
                                 </div>  
                             </div>
                         <div class="col-md-2">
-                            <input class="profile-edit-btn" name="Edit" onclick="edit_profile('edit-profile',1); edit_profile('profile',0); headingToEdit();" value="Edit Profile"/>
+                            <input class="profile-edit-btn" name="Edit" onclick="headingToEdit();" value="Edit Profile"/>
                         </div>
                     </div>
                 </form>   
@@ -153,6 +153,8 @@
                                     <div class="col-md-6">
                                         <label>Email:</label>
                                     </div>
+
+
                                     <div class="col-md-6 form-group input-group">
                                         <input name="Edit-Email" class="form-control" type="email" placeholder="Email Address">
                                     </div>
@@ -184,8 +186,12 @@
                                 </div>  
                             </div>
                             <div class="col-md-2 form-group">
+
+                                <button type="submit" class="profile-save-btn">Save Changes</button>
+                                <!--
                                 <button type="submit" onclick="event.preventDefault(); update_profile(location.reload());" class="profile-save-btn">Save Changes</button>
                                 <p class="Note-Txt"></br>Please note default option will not change data.</br></p>
+                                -->
                             </div>
                         </div>
                     </form> 
