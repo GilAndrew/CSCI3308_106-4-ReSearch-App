@@ -1,5 +1,12 @@
 var express = require('express'); //Ensure our express framework has been added
 var app = express();
+
+// bcrypt
+//var db = require('../models');
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
+// end bcrypt
+
 //var session = require('express-session')
 //var cookieParser = require('cookie-parser')
 var cors = require('cors') 
@@ -12,48 +19,95 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 var pgp = require('pg-promise')();
 
-const dbConfig = {
+//dbConfig for localhost, kept for archical/testing purposes
+/*const dbConfig = {
 	host: 'localhost',
-	port: 5432,
+	port: 5432, //5432
 	database: 'research_db',
 	user: 'postgres',
-	password: 'newpassword' //pwd or newpassword
-};
+	password: 'newpassword' //newpassword
+};*/
+
+const dbConfig = process.env.DATABASE_URL;
+
 
 var db = pgp(dbConfig);
 
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/'));
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/index.html', function(req, res) {
+    res.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/login.html', function(req, res) {
+    res.sendFile(__dirname + '/views/login.html');
+});
+
+app.get('/feed.html', function(req, res) {
+    res.sendFile(__dirname + '/views/feed.html');
+});
+
+app.get('/post.html', function(req, res) {
+    res.sendFile(__dirname + '/views/post.html');
+});
+
+app.get('/registration.html', function(req, res) {
+    res.sendFile(__dirname + '/views/registration.html');
+});
+
+app.get('/researcher_profile.html', function(req,res) {
+    res.sendFile(__dirname + '/views/researcher_profile.html');
+});
+
+app.get('/student_profile.html', function(req, res) {
+    res.sendFile(__dirname + '/views/student_profile.html')
+});
+
+
 app.post('/student_registration',jsonParser, function(req, res, next) { 
 
-	var name = req.body.name;
-	var email = req.body.email;
-	var username = req.body.username;
-	var password = req.body.confirm_password;
-	var birthday = req.body.birthday;
+    var name = req.body.name;
+    var email = req.body.email;
+    var username = req.body.username;
+    var password = req.body.confirm_password;
+    var birthday = req.body.birthday;
     var year = req.body.year;
     var major = req.body.major;
 
-    //need to add major into the insert statement, will have to utilize the foreign key
+    bcrypt.hash(password, saltRounds, function (err, hash) {
+        //return hashed password, named hash
+    });
 
+    //change password to hash and vice versa
     var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
-	var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year) " + 
-                        "SELECT'"+name+"', '"+email+"','"+username+"' , '"+password+"', '"+birthday+"', '"+year+"' WHERE " +
+
+    var insert_query = "INSERT INTO user_profiles(name, email, username, password, birthday, year, major) " + 
+                        "SELECT'"+name+"', '"+email+"','"+username+"' , '"+password+"', '"+birthday+"', '"+year+"', '"+major+"' WHERE " +
                         "NOT EXISTS (SELECT email FROM user_profiles WHERE email = '"+email+"') " +
                         "RETURNING id;";
 
-    var data_query = "INSERT INTO user_data(encryptId, major) " + 
-                     "SELECT '"+ /*ENCRYPTID VARIABLE GOES HERE*/ +"', '" + major +"'";
-                        
-	db.task('get-everything', task => {
+    var increment_query = "UPDATE majors SET numSelected = numSelected + 1 WHERE major = '"+ major + "';";
+
+    db.task('get-everything', task => {
         return task.batch([
             task.any(unique_query),
-            task.any(insert_query)
+            task.any(insert_query),
+            task.any(increment_query)
         ]);
     })
     .then(info => {
-    	res.send({
-				unique: info[0],
+        res.send({
+                unique: info[0],
                 id: info[1]
-			})
+            })
     })
     .catch(err => {
         // display error message in case an error
@@ -63,12 +117,18 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
             id: ''
         })
     });
-});
+}); 
 
 app.post('/researcher_registration',jsonParser, function(req, res, next) { 
-	var name = req.body.name;
+    var name = req.body.name;
 	var email = req.body.email;
-	var password = req.body.confirm_password;
+    var password = req.body.confirm_password;
+    
+    bcrypt.hash(password, saltRounds, function (err, hash) {
+        //return hashed password, named hash
+    });
+
+    //change password to hash and vice versa
     var unique_query = "SELECT EXISTS(SELECT 1 FROM researcher_profiles where email='"+email+"');";
 	var insert_query = "INSERT INTO researcher_profiles(name, email, password) " + 
                         "SELECT '"+name+"', '"+email+"', '"+password+"' WHERE " +
@@ -101,6 +161,12 @@ app.post('/student_login',jsonParser, function(req, res, next) {
 	var email = req.body.email;
 	var password = req.body.password;
 
+    //hash used to get hashed password from table
+    bcrypt.hash(password, saltRounds, function (err, hash) {
+        //return hashed password, named hash
+    });
+
+    //change password to hash and vice versa
 	var validation_query = "select exists(select 1 from user_profiles where email='"+email+"' AND password='"+password+"');";
     var user_id_query = "select id from user_profiles where email='"+email+"' AND password='"+password+"';"
 
@@ -130,6 +196,12 @@ app.post('/researcher_login',jsonParser, function(req, res, next) {
     var email = req.body.email;
     var password = req.body.password;
 
+     //hash used to get hashed password from table
+    bcrypt.hash(password, saltRounds, function (err, hash) {
+        //return hashed password, named hash
+    });
+
+    //change password to hash and vice versa
     var validation_query = "select exists(select 1 from researcher_profiles where email='"+email+"' AND password='"+password+"');";
     var user_id_query = "select id from researcher_profiles where email='"+email+"' AND password='"+password+"';"
 
@@ -211,6 +283,7 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     var state = req.body.state;
     var zip = req.body.zip;
     var body = req.body.body;
+    var major = req.body.major;
     var app_open = req.body.app_open;
     var app_close = req.body.app_close;
     var start_date = req.body.start_date;
@@ -220,11 +293,20 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     var contact_phone = req.body.contact_phone;
     var contact_fax = req.body.contact_fax;
 
-    var insert_query = "INSERT INTO postings (title, school, city, state, zip, body, major, app_open, app_close, " +
-                        "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax)" +
-                        "VALUES ('"+title+"', '"+school+"', '"+city+"', '"+state+"', "+zip+", '"+body+"', '"+app_open+"', '"+app_close+"', '" +
-                        start_date+"', '"+end_date+"', '"+contact_name+"', '"+contact_email+"', '"+contact_phone+"', '"+contact_fax+"');";
+    //need to add a hashed ownerprofile
 
+    bcrypt.hash(contact_email, saltRounds, function (err, hash) {
+        //return hashed email, named ownerProfile
+    });
+
+    //dummy profile var that will be deleted once hash function implemented
+    var ownerProfile = "HASHED EMAIL";
+
+    var insert_query = "INSERT INTO postings (ownerProfile, title, school, city, state, zip, body, major, app_open, app_close, " +
+                        "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax)" +
+                        "VALUES ('"+ownerProfile+"', '"+title+"', '"+school+"', '"+city+"', '"+state+"', "+zip+", '"+body+"', '"+major+"', '"+app_open+"', '"+app_close+"', '" +
+                        start_date+"', '"+end_date+"', '"+contact_name+"', '"+contact_email+"', '"+contact_phone+"', '"+contact_fax+"');";
+    console.log("INSERT QUERY: " + insert_query);
     db.task('get-everything', task => {
         return task.batch([
             task.any(insert_query)
@@ -269,9 +351,7 @@ app.get('/populate_feed',jsonParser, function(req, res, next) {
 }); 
 
 app.post('/major_retrieve',jsonParser, function(req, res, next) {
-
     var query = req.body.query;
-
     db.task('get-majors', task => {
         return task.batch([
             task.any(query)
@@ -291,5 +371,115 @@ app.post('/major_retrieve',jsonParser, function(req, res, next) {
     });
 });
 
-app.listen(3000);
+app.post('/retrieve_researcher_profile',jsonParser, function(req, res, next) { 
+    var userID = req.body.userID;
+
+    var profile_query = "select * from researcher_profiles where id='"+userID+"';";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(profile_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+                profile: info[0]
+        })          
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+          profile: ''
+        })
+    });
+}); 
+
+app.post('/update_researcher_profile',jsonParser, function(req, res, next) { 
+    var name = req.body.name;
+    var email = req.body.email;
+    var phone = req.body.phone;
+    var info = req.body.info;
+    var userID = req.body.userID;
+
+    var update_query = "UPDATE researcher_profiles SET " + 
+                        "name = '"+name+"', email = '"+email+"', phone = '"+phone+"', description = '"+info+"' " +
+                        "WHERE id = '"+userID+"'";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(update_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+                unique: ''
+            })
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            unique: ''
+        })
+    });
+});
+
+app.post('/retrieve_student_profile',jsonParser, function(req, res, next) { 
+    var userID = req.body.userID;
+
+    var profile_query = "select * from user_profiles where id='"+userID+"';";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(profile_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+                profile: info[0]
+        })          
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+          profile: ''
+        })
+    });
+}); 
+
+app.post('/update_student_profile',jsonParser, function(req, res, next) { 
+    var username = req.body.username;
+    var email = req.body.email;
+    var year = req.body.year;
+    var birthday = req.body.birthday;
+    var userID = req.body.userID;
+
+    console.log("In server")
+
+    var update_query = "UPDATE user_profiles SET " + 
+                        "username = '"+username+"', email = '"+email+"', year = '"+year+"', birthday = '"+birthday+"' " +
+                        "WHERE id = '"+userID+"'";
+
+    db.task('get-everything', task => {
+        return task.batch([
+            task.any(update_query)
+        ]);
+    })
+    .then(info => {
+        res.send({
+                unique: ''
+            })
+    })
+    .catch(err => {
+        // display error message in case an error
+        console.log(err);
+        res.send({
+            unique: ''
+        })
+    });
+});
+
+app.listen(process.env.PORT || 3000, "0.0.0.0");
 console.log('3000 is the magic port');

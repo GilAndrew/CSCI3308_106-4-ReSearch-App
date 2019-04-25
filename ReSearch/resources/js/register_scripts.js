@@ -260,7 +260,7 @@ function student_form_called(callback)
 
 	/* database/server requests */
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-	xmlhttp.open("POST", "http://localhost:3000/student_registration", true);
+	xmlhttp.open("POST", "/student_registration", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -356,7 +356,7 @@ function researcher_form_called(callback)
 	console.log("Researcher form Met requirements to submit");
 
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-	xmlhttp.open("POST", "http://localhost:3000/researcher_registration", true);
+	xmlhttp.open("POST", "/researcher_registration", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -379,21 +379,26 @@ function researcher_form_called(callback)
 
 function toHomepage() {
 	// redirects to homepage
-	location.href = "file:index.html";
+	location.href = "index.html";
 
 }
 
 function autoComplete(value) {
-
 	var current = value;
 	var currentMost = current.substring(0, current.length - 1);
 	var charLast = current.charCodeAt(current.length - 1);
 	var charNext = String.fromCharCode(1 + charLast);
 	var retrieval_query = "select major, major_desc from majors where (major_desc >= '" + current + "' and major_desc < '" + currentMost + charNext + "') order by numSelected, major;";
 
+	for (j = 0; j < 4; j++) {
+		var id = "option" + (j+1);
+		document.getElementById(id).value = "";
+		document.getElementById(id).label = "";
+	}
+
 	//major info retrieval from database
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open("POST", "http://localhost:3000/major_retrieve", true);
+	xmlhttp.open("POST", "/major_retrieve", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -401,11 +406,16 @@ function autoComplete(value) {
 			if (response) {
 				for (i = 0; i < response.data.length; i++) {
 					var id = "option" + (i+1);
-					document.getElementById(id).value = "";
-					document.getElementById(id).label = "";
-					var result = JSON.parse(JSON.stringify(response.data[i].major)) + " - " + JSON.parse(JSON.stringify(response.data[i].major_desc));
-					document.getElementById(id).value = JSON.parse(JSON.stringify(response.data[i].major));
-					document.getElementById(id).label = result;
+					document.getElementById(id).style.visibility = "visible";
+					if (response.data[i] != null) {
+						var result = JSON.parse(JSON.stringify(response.data[i].major)) + " - " + JSON.parse(JSON.stringify(response.data[i].major_desc));
+						document.getElementById(id).value = JSON.parse(JSON.stringify(response.data[i].major));
+						document.getElementById(id).label = result;
+					}
+
+					else {
+						document.getElementById(id).style.visibility = "hidden";
+					}
 				}
 
 			}

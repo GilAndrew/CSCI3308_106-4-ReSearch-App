@@ -16,11 +16,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- font-awesome EXTERNAL RESOURCE-->
+    <link href="../resources/css/style.css" rel="stylesheet">
     <link href="../resources/css/post.css" rel="stylesheet">
     <!-- after style.css becouse style.css will be modified -->
 </head>
 
-<body>
+<body onload="loadNavbar()">
     <!--================================================
         NAVBAR
     =================================================-->
@@ -45,13 +46,13 @@
             <span class="navbar-nav form-inline">
                 <li class="nav-item mr-auto"><a class="nav-link" href="login.html" id="login_link">Login</a></li>
                 <li class="nav-item mr-auto"><a class="nav-link" href="registration.html" id="signin_link">Sign Up</a></li>
-                <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="profile_link"><span class="fas fa-user-circle fa-lg"></span><b class="caret"></b></a>
+                <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="profile_dropdown"><span class="fas fa-user-circle fa-lg"></span><b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Profile<i class="fas fa-user pull-right"></i></a></li>
+                        <li><a id="profile_link" href="#">Profile<i class="fas fa-user pull-right"></i></a></li>
                         <li id="post_link"><a href="post.html">Post<i id="post_icon" class="fas fa-edit pull-right"></i></a></li>
                         <li><a href="#contact">Contact<i class="fas fa-envelope pull-right"></i></a></li>
                         <li class="dropdown-divider"></li>
-                        <li><a onclick="logout();">Logout<i class="fas fa-power-off pull-right"></i></a></li>
+                        <li><a onclick="logout();" href="index.html">Logout<i class="fas fa-power-off pull-right"></i></a></li>
                     </ul>
                 </li>
             </span>
@@ -205,6 +206,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="../resources/js/post.js"></script>
     <script src="../resources/js/custom.js"></script>
+    <script src="../resources/js/homepage.js"></script>
 
 </body>
 

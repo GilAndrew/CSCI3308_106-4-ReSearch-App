@@ -12,7 +12,7 @@ function populateFeed() {
     }
   };
 
-  xhttp.open("GET", "http://localhost:3000/populate_feed", true);
+  xhttp.open("GET", "/populate_feed", true);
   xhttp.send();
 }
 
