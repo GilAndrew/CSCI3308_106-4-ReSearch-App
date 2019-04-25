@@ -301,7 +301,7 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     });
 
     //dummy profile var that will be deleted once hash function implemented
-    var ownerProfile = "GENERIC PROFILE";
+    var ownerProfile = username;
 
     var insert_query = "INSERT INTO postings (ownerProfile, title, school, city, state, zip, body, major, app_open, app_close, " +
                         "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax)" +
