@@ -1,37 +1,50 @@
-html, body{
-  background: -webkit-linear-gradient(left,#cfb87c, #4c4c4c);
+html,body {
+    background: -webkit-linear-gradient(left, #cfb87c, #4c4c4c);
 }
-.profile{
-  padding: 3%;
-  margin-top: 3%;
-  margin-bottom: 3%;
-  width: 800px;
-  border-radius: 0.5rem;
-  background: #fff;
+
+.profile {
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 800px;
+    border-radius: 0.5rem;
+    background: #fff;
 }
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    display: block;
+}
+
 .p-image {
-  position: relative;
-  left: 175px;
-  bottom: 25px;
-  color: #666666;
-  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+    position: relative;
+    left: 175px;
+    bottom: 25px;
+    color: #666666;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
 }
+
 .p-image:hover {
-  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
 }
+
 .upload-button {
-  font-size: 1.2em;
+    font-size: 1.2em;
 }
+
 .upload-button:hover {
-  transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
-  color: #999;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275);
+    color: #999;
 }
-.file-upload{
-  display: none;
+
+.file-upload {
+    display: none;
 }
+
 #edit_profile {
-  visibility: hidden !important;
-  padding: 0%;
-  margin: 0%;
-  
+    visibility: hidden !important;
+    padding: 0%;
+    margin: 0%;
+
 }
