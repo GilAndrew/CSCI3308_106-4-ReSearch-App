@@ -19,6 +19,7 @@ html, body{
   margin-left: auto;
   margin-right: auto;
   width: 800px;
+  height: 274.59px;
   border-radius: 0.5rem;
   background: #fff;
 }
@@ -75,7 +76,7 @@ html {
  /* Edit Profile Button*/
 .profile-edit-btn{
   border: none;
-  border-radius: 1.5rem;
+  border-radius: 4px;
   width: 90%;
   padding: 2%;
   font-weight: 500;
@@ -87,8 +88,8 @@ html {
 
 .profile-save-btn{
   border: none;
-  border-radius: 1.5rem;
-  width: 110%;
+  border-radius: 4px;
+  width: 120%;
   padding: 2%;
   font-weight: 500;
   color: white;
