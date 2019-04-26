@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS researcher_profiles (
 Creating postings table
 
 CREATE TABLE IF NOT EXISTS postings (
-    ownerProfile VARCHAR(30) NOT NULL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
+    ownerProfile VARCHAR(30) NOT NULL,
     title VARCHAR(50) NOT NULL,
     school TEXT NOT NULL,
     city VARCHAR(50) NOT NULL,

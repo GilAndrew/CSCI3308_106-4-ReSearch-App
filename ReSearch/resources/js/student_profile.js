@@ -131,20 +131,18 @@ function headingToEdit()
 {
     /* populate place Holders with individuals information If time permits
     Ill add the functionality*/
+
     document.getElementById("edit-profile-js").elements["Edit-Email"].value = Email;
     document.getElementById("edit-profile-js").elements["Edit-Birthday"].value = Birthday;
     document.getElementById("edit-profile-js").elements["Edit-Year"].value = Year;
     document.getElementById("edit-profile-js").elements["Edit-Username"].value = Username;
     console.log("Heading To Edit Form");
+
 }
 
 function headingToProfile()
 {
     console.log("Save Edits function Called");
-
-    /* Set DOM Elements to temp variables before assigned to actual variables (excluding Image thats fine) */
-    //Image = document.getElementById("Edit-Image").src;
-    
 
     /* Visibility Calls if data is good to sumbit */
     edit_profile('edit-profile',0); 

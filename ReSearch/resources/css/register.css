@@ -5,7 +5,7 @@ html, body{
 
     position: absolute;
     margin: 0px;
-    overflow: hidden;
+    overflow: auto;
     top: 0px;
     bottom: 0px;
     width: 100%;
@@ -84,6 +84,7 @@ select {
 }
 option:not(:checked) {
     background-color: black;
+    color: white;
 }
 option:checked {
     color: black;
@@ -121,8 +122,8 @@ option:checked {
     color: white;
     margin-top: -10px;
     margin-bottom: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 14px;
+    padding-right: 14px;
 }
   
 .not-correct::after {
@@ -133,18 +134,13 @@ option:checked {
 }
   
 
-/*
-For hidding the scroll bar that was poping up when student was selected
-Issue may come up if Researcher of Student aplication goes past end of page
-*/
 html {
     overflow: scroll;
     overflow-x: hidden;
 }
 ::-webkit-scrollbar {
     width: 0px;  /*remove scrollbar*/
-}
-
+} 
 
 /* Popups on form (for errors) */
 .popup {

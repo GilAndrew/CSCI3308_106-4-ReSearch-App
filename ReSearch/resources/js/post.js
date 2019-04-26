@@ -33,5 +33,5 @@ function post_submit(callback) {
 
 function toHomepage() {
 	// redirects to homepage
-	location.href = "index.html";
+	location.href = "feed.html";
 }

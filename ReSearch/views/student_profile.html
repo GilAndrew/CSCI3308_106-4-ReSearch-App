@@ -34,10 +34,10 @@
             <!-- Links Left-->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="#testimonies">Testimonies</a></li>
-                <li class="nav-item"><a class="nav-link" href="#popular">Popular</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#testimonies">Testimonies</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#popular">Popular</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="feed.html">Opportunities</a></li>
             </ul>
             <!-- Links Right-->
@@ -50,7 +50,7 @@
                         <li id="post_link"><a href="post.html">Post<i id="post_icon" class="fas fa-edit pull-right"></i></a></li>
                         <li><a href="#contact">Contact<i class="fas fa-envelope pull-right"></i></a></li>
                         <li class="dropdown-divider"></li>
-                        <li><a>Logout<i class="fas fa-power-off pull-right"></i></a></li>
+                        <li><a onclick="logout();" href="index.html">Logout<i class="fas fa-power-off pull-right"></i></a></li>
                     </ul>
                 </li>
             </span>
@@ -110,7 +110,7 @@
                                 </div>  
                             </div>
                         <div class="col-md-2">
-                            <input class="profile-edit-btn" name="Edit" onclick="edit_profile('edit-profile',1); edit_profile('profile',0); headingToEdit();" value="Edit Profile"/>
+                            <input class="profile-edit-btn" name="Edit" onclick="headingToEdit(); edit_profile('edit-profile',1); edit_profile('profile',0);" value="Edit Profile"/>
                         </div>
                     </div>
                 </form>   
@@ -153,6 +153,8 @@
                                     <div class="col-md-6">
                                         <label>Email:</label>
                                     </div>
+
+
                                     <div class="col-md-6 form-group input-group">
                                         <input name="Edit-Email" class="form-control" type="email" placeholder="Email Address">
                                     </div>
@@ -184,8 +186,12 @@
                                 </div>  
                             </div>
                             <div class="col-md-2 form-group">
+
                                 <button type="submit" onclick="event.preventDefault(); update_profile(); headingToProfile();" class="profile-save-btn">Save Changes</button>
+                                <!--
+
                                 <p class="Note-Txt"></br>Please note default option will not change data.</br></p>
+                                -->
                             </div>
                         </div>
                     </form> 
