@@ -261,6 +261,7 @@ function student_form_called(callback)
 	/* database/server requests */
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
 	xmlhttp.open("POST", "/student_registration", true);
+	//xmlhttp.open("POST", "http://localhost:3000/student_registration", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -357,6 +358,7 @@ function researcher_form_called(callback)
 
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
 	xmlhttp.open("POST", "/researcher_registration", true);
+	//xmlhttp.open("POST", "http://localhost:3000/researcher_registration", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -399,6 +401,7 @@ function autoComplete(value) {
 	//major info retrieval from database
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.open("POST", "/major_retrieve", true);
+	//xmlhttp.open("POST", "http://localhost:3000/major_retrieve", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {

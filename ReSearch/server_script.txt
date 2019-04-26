@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS user_profiles (
     name VARCHAR(50) NOT NULL, /* user's first and last name */
     email VARCHAR(100) NOT NULL,
     username VARCHAR(30) NOT NULL,
-    password VARCHAR(30) NOT NULL,
+    password TEXT NOT NULL,
     birthday DATE,
     year VARCHAR(3),
     major VARCHAR(4)
@@ -35,14 +35,14 @@ CREATE TABLE IF NOT EXISTS researcher_profiles (
     email VARCHAR(100) NOT NULL,
     phone VARCHAR(15),
     description TEXT,
-    password VARCHAR(30) NOT NULL
+    password TEXT NOT NULL
 );
 
 Creating postings table
 
 CREATE TABLE IF NOT EXISTS postings (
     id SERIAL PRIMARY KEY,
-    ownerProfile VARCHAR(30) NOT NULL,
+    ownerProfile TEXT NOT NULL,
     title VARCHAR(50) NOT NULL,
     school TEXT NOT NULL,
     city VARCHAR(50) NOT NULL,
