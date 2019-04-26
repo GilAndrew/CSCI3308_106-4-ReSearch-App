@@ -86,9 +86,7 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
     bcrypt
         .hash(password, saltRounds)
         .then(hash => {
-            console.log(`Hash: ${hash}`);
             hashed = hash;
-            console.log("HASHED: " + hashed);
 
             var unique_query = "SELECT EXISTS(SELECT 1 FROM user_profiles WHERE email='"+email+"');";
 
@@ -98,7 +96,6 @@ app.post('/student_registration',jsonParser, function(req, res, next) {
                                 "RETURNING id;";
         
             var increment_query = "UPDATE majors SET numSelected = numSelected + 1 WHERE major = '"+ major + "';";
-            console.log("HASHED INSERT QUERY: " + insert_query);
             db.task('get-everything', task => {
                 return task.batch([
                     task.any(unique_query),
@@ -134,9 +131,8 @@ app.post('/researcher_registration',jsonParser, function(req, res, next) {
     bcrypt
         .hash(password, saltRounds)
         .then(hash => {
-            console.log(`Hash: ${hash}`);
             hashed = hash;
-            console.log("HASHED: " + hashed);
+
             var unique_query = "SELECT EXISTS(SELECT 1 FROM researcher_profiles where email='"+email+"');";
 	        var insert_query = "INSERT INTO researcher_profiles(name, email, password) " + 
                         "SELECT '"+name+"', '"+email+"', '"+hashed+"' WHERE " +
@@ -177,9 +173,7 @@ app.post('/student_login',jsonParser, function(req, res, next) {
         ]);
     })
     .then(result => {
-        console.log("RESULT: " + result[0][0].password);
         var hash = result[0][0].password;
-        console.log("Hello: " + hash);
         bcrypt.compare(password, hash)
         .then(bool => {
             console.log("Response: " + bool);
@@ -227,9 +221,7 @@ app.post('/researcher_login',jsonParser, function(req, res, next) {
         ]);
     })
     .then(result => {
-        console.log("RESULT: " + result[0][0].password);
         var hash = result[0][0].password;
-        console.log("HELLO: " + hash);
         bcrypt.compare(password, hash)
         .then(bool => {
             console.log("Response: " + bool);
@@ -335,9 +327,7 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
     bcrypt
         .hash(contact_email, saltRounds)
         .then(hash => {
-            console.log(`Hash: ${hash}`);
             ownerProfile = hash;
-            console.log("HASHED: " + ownerProfile);
             var insert_query = "INSERT INTO postings (ownerProfile, title, school, city, state, zip, body, major, app_open, app_close, " +
                         "start_date, end_date, contact_name, contact_email, contact_phone, contact_fax)" +
                         "VALUES ('"+ownerProfile+"', '"+title+"', '"+school+"', '"+city+"', '"+state+"', "+zip+", '"+body+"', '"+major+"', '"+app_open+"', '"+app_close+"', '" +
