@@ -1,0 +1,1 @@
+ReSearch is a portal that allows grad students and professors to make postings for prospective candidates in psychological studies. Students can view a variety of postings for various research opportunities and contact the researcher to be a participant in their study.
