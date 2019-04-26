@@ -19,6 +19,7 @@ function post_submit(callback) {
 	/* database/server requests */
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
 	xmlhttp.open("POST", "/post_submit", true);
+	//xmlhttp.open("POST", "http://localhost:3000/post_submit", true);
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {

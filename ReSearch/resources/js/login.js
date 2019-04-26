@@ -7,9 +7,11 @@ function login(callback) {
 	var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
 	if (userType == 's') {
 		xmlhttp.open("POST", "/student_login", true);
+		//xmlhttp.open("POST", "http://localhost:3000/student_login", true);
 	}
 	else {
 		xmlhttp.open("POST", "/researcher_login", true);
+		//xmlhttp.open("POST", "http://localhost:3000/researcher_login", true);
 	}
 	
 	xmlhttp.setRequestHeader("Content-Type", "application/json");
