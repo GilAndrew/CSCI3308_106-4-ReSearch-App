@@ -8,9 +8,9 @@ function populateFeed() {
     	response = JSON.parse(this.response);
         var majorPosts = "";
     	var otherPosts = "";
-        console.log("Major: " + response.major)
+        console.log("Major: " + response.major.major)
     	response.postings.forEach(post => {
-            if (post.major == response.major) {
+            if (post.major == response.major.major) {
                 majorPosts += makeCard(post);
             }
             else {
