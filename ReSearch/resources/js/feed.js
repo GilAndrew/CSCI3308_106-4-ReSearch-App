@@ -1,11 +1,14 @@
 function populateFeed() {
-  var xhttp = new XMLHttpRequest();  
-  xhttp.onreadystatechange = function() {
+    var xhttp = new XMLHttpRequest(); 
+    xhttp.open("POST", "/populate_feed", true);
+    xhttp.setRequestHeader("Content-Type", "application/json"); 
+    xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
     	// console.log(this.response)
     	response = JSON.parse(this.response);
         var majorPosts = "";
     	var otherPosts = "";
+        console.log("Major: " + response.major)
     	response.postings.forEach(post => {
             if (post.major == response.major) {
                 majorPosts += makeCard(post);
@@ -18,8 +21,6 @@ function populateFeed() {
       document.getElementById("feed").innerHTML += allPosts;
     }
   };
-
-  xhttp.open("GET", "/populate_feed", true);
 
   var userID = window.sessionStorage.getItem('userID')
   var userType = window.sessionStorage.getItem('userType')
