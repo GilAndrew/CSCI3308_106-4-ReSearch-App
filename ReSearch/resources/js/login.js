@@ -40,12 +40,16 @@ function toHomepage() {
 
 function switchToStudent() {
 	document.getElementById("email-field").placeholder = "Student Email Address";
+	document.getElementById("email-field").value = '';
+	document.getElementById("password-field").value ='';
 	document.getElementById("student-button").style.borderWidth = 'medium';
 	document.getElementById("researcher-button").style.borderWidth = 'thin';
 }
 
 function switchToResearcher() {
 	document.getElementById("email-field").placeholder = "Researcher Email Address";
+	document.getElementById("email-field").value = '';
+	document.getElementById("password-field").value = '';
 	document.getElementById("researcher-button").style.borderWidth = 'medium';
 	document.getElementById("student-button").style.borderWidth = 'thin';
 }

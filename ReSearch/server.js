@@ -176,30 +176,54 @@ app.post('/student_login',jsonParser, function(req, res, next) {
         var hash = result[0][0].password;
         bcrypt.compare(password, hash)
         .then(bool => {
-            console.log("Response: " + bool);
-
-            var validation_query = "select exists(select 1 from user_profiles where email='"+email+"' AND password='"+hash+"');";
-            var user_id_query = "select id from user_profiles where email='"+email+"' AND password='"+hash+"';"
-            db.task('get-everything', task => {
-                return task.batch([
-                    task.any(validation_query),
-                    task.any(user_id_query)
-                ]);
-            })
-            .then(info => {
-                res.send({
-                    inTable: info[0],
-                    id: info[1]
+            if(bool) {
+                var validation_query = "select exists(select 1 from user_profiles where email='"+email+"' AND password='"+hash+"');";
+                var user_id_query = "select id from user_profiles where email='"+email+"' AND password='"+hash+"';";
+                db.task('get-everything', task => {
+                    return task.batch([
+                        task.any(validation_query),
+                        task.any(user_id_query)
+                    ]);
+                }) 
+                .then(info => {
+                    res.send({
+                        inTable: info[0],
+                        id: info[1]
+                    })
                 })
-            })
-            .catch(err => {
-                // display error message in case an error
-                console.log(err);
-                res.send({
-                    inTable: info[0],
-                    id: info[1]
+                .catch(err => {
+                    // display error message in case an error
+                    console.log(err);
+                    res.send({
+                        inTable: info[0],
+                        id: info[1]
+                    })
+                });
+            }
+            else {
+                var validation_query = "select exists(select 1 from user_profiles where email='"+email+"' AND password='"+"FALSE"+"');";
+                var user_id_query = "select id from user_profiles where email='"+email+"' AND password='"+"FALSE"+"';";
+                db.task('get-everything', task => {
+                    return task.batch([
+                        task.any(validation_query),
+                        task.any(user_id_query)
+                    ]);
+                }) 
+                .then(info => {
+                    res.send({
+                        inTable: info[0],
+                        id: info[1]
+                    })
                 })
-            })
+                .catch(err => {
+                    // display error message in case an error
+                    console.log(err);
+                    res.send({
+                        inTable: info[0],
+                        id: info[1]
+                    })
+                });
+            }
         })
         .catch(function (err) {
             console.log(err);
@@ -224,29 +248,54 @@ app.post('/researcher_login',jsonParser, function(req, res, next) {
         var hash = result[0][0].password;
         bcrypt.compare(password, hash)
         .then(bool => {
-            console.log("Response: " + bool);
-            var validation_query = "select exists(select 1 from researcher_profiles where email='"+email+"' AND password='"+hash+"');";
-            var user_id_query = "select id from researcher_profiles where email='"+email+"' AND password='"+hash+"';"
-            db.task('get-everything', task => {
-                return task.batch([
-                    task.any(validation_query),
-                    task.any(user_id_query)
-                ]);
-            }) 
-            .then(info => {
-                res.send({
-                    inTable: info[0],
-                    id: info[1]
+            if(bool) {
+                var validation_query = "select exists(select 1 from researcher_profiles where email='"+email+"' AND password='"+hash+"');";
+                var user_id_query = "select id from researcher_profiles where email='"+email+"' AND password='"+hash+"';";
+                db.task('get-everything', task => {
+                    return task.batch([
+                        task.any(validation_query),
+                        task.any(user_id_query)
+                    ]);
+                }) 
+                .then(info => {
+                    res.send({
+                        inTable: info[0],
+                        id: info[1]
+                    })
                 })
-            })
-            .catch(err => {
-                // display error message in case an error
-                console.log(err);
-                res.send({
-                    inTable: info[0],
-                    id: info[1]
+                .catch(err => {
+                    // display error message in case an error
+                    console.log(err);
+                    res.send({
+                        inTable: info[0],
+                        id: info[1]
+                    })
+                });
+            }
+            else {
+                var validation_query = "select exists(select 1 from researcher_profiles where email='"+email+"' AND password='"+"FALSE"+"');";
+                var user_id_query = "select id from researcher_profiles where email='"+email+"' AND password='"+"FALSE"+"';";
+                db.task('get-everything', task => {
+                    return task.batch([
+                        task.any(validation_query),
+                        task.any(user_id_query)
+                    ]);
+                }) 
+                .then(info => {
+                    res.send({
+                        inTable: info[0],
+                        id: info[1]
+                    })
                 })
-            });
+                .catch(err => {
+                    // display error message in case an error
+                    console.log(err);
+                    res.send({
+                        inTable: info[0],
+                        id: info[1]
+                    })
+                });
+            }
         })
         .catch(function (err) {
             console.log(err);
