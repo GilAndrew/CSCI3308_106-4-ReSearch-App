@@ -417,7 +417,7 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
 });
 
 
-app.get('/populate_feed',jsonParser, function(req, res, next) { 
+app.post('/populate_feed',jsonParser, function(req, res, next) { 
     var userID = req.body.userID;
     var userType = req.body.userType;
 
@@ -438,7 +438,7 @@ app.get('/populate_feed',jsonParser, function(req, res, next) {
     .then(info => {
         res.send({
                 postings: info[0],
-                major: info[1]
+                major: info[1][0]
         })          
     })
     .catch(err => {
