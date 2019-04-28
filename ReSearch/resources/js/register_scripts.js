@@ -15,9 +15,11 @@ function Student_Researcher_Visibility(id, toggle)
 {
 	if(toggle == 0)
 	{
+		document.getElementById("Student-js").reset();
+		document.getElementById("Researcher-js").reset();
 		document.getElementById(id).style.visibility = "hidden";
 		document.getElementById(id).style.height = "0px";
-		/* Toggle student popups tog et rid of bug */
+		/* Toggle student popups to get rid of bug */
 		if (id == "Student-Form")
 		{
 			if (current_visibility_confirm_S == true && det_confirm == false)
