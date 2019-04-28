@@ -20,7 +20,7 @@ function login(callback) {
 			//console.log(this.response)
 			response = JSON.parse(this.response);
 			//alert(response.inTable[0].exists);
-			if (response.inTable[0].exists){
+			if (response.inTable[0].exists && response.inTable !== undefined){
 				window.sessionStorage.setItem('userID', response.id[0].id) // Store userID in session storage
 				window.sessionStorage.setItem('userType', userType) // Store userType
 				callback()

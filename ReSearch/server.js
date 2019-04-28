@@ -173,6 +173,13 @@ app.post('/student_login',jsonParser, function(req, res, next) {
         ]);
     })
     .then(result => {
+        if (result[0][0] === undefined) {
+            res.send({
+                inTable: [[]],
+                id: ''
+            });
+        }
+        else {
         var hash = result[0][0].password;
         bcrypt.compare(password, hash)
         .then(bool => {
@@ -228,6 +235,7 @@ app.post('/student_login',jsonParser, function(req, res, next) {
         .catch(function (err) {
             console.log(err);
         })
+    }
     })
     .catch(function(err) {
         console.log(err);
@@ -245,6 +253,13 @@ app.post('/researcher_login',jsonParser, function(req, res, next) {
         ]);
     })
     .then(result => {
+        if (result[0][0] === undefined) {
+            res.send({
+                inTable: [[]],
+                id: ''
+            });
+        }
+        else {
         var hash = result[0][0].password;
         bcrypt.compare(password, hash)
         .then(bool => {
@@ -300,6 +315,7 @@ app.post('/researcher_login',jsonParser, function(req, res, next) {
         .catch(function (err) {
             console.log(err);
         })
+    }
     })
     .catch(function (err) {
         console.log(err);
