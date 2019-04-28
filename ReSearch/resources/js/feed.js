@@ -4,16 +4,26 @@ function populateFeed() {
     if (this.readyState == 4 && this.status == 200) {
     	// console.log(this.response)
     	response = JSON.parse(this.response);
-    	var allPosts = "";
+        var majorPosts = "";
+    	var otherPosts = "";
     	response.postings.forEach(post => {
-    		allPosts += makeCard(post);
+            if (post.major == response.major) {
+                majorPosts += makeCard(post);
+            }
+            else {
+                otherPosts += makeCard(post);
+            }
     	})
+        var allPosts = majorPosts + otherPosts;
       document.getElementById("feed").innerHTML += allPosts;
     }
   };
 
   xhttp.open("GET", "/populate_feed", true);
-  xhttp.send();
+
+  var userID = window.sessionStorage.getItem('userID')
+  var userType = window.sessionStorage.getItem('userType')
+  xhttp.send(JSON.stringify({userID: userID, userType: userType}));
 }
 
 function makeCard(post) {

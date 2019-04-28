@@ -418,24 +418,35 @@ app.post('/post_submit',jsonParser, function(req, res, next) {
 
 
 app.get('/populate_feed',jsonParser, function(req, res, next) { 
+    var userID = req.body.userID;
+    var userType = req.body.userType;
 
     var all_postings_query = "SELECT * FROM postings;";
+    if (userType == 's'){
+        var major_query = "SELECT major FROM user_profiles WHERE id = '"+userID+"';";
+    }
+    else {
+        var major_query = "";
+    }
 
     db.task('get-everything', task => {
         return task.batch([
-            task.any(all_postings_query)
+            task.any(all_postings_query),
+            task.any(major_query)
         ]);
     })
     .then(info => {
         res.send({
-                postings: info[0]
+                postings: info[0],
+                major: info[1]
         })          
     })
     .catch(err => {
         // display error message in case an error
         console.log(err);
         res.send({
-          postings: ''
+          postings: '',
+          major: ''
         })
     });
 }); 
