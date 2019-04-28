@@ -428,7 +428,7 @@ app.post('/populate_feed',jsonParser, function(req, res, next) {
         var major_query = "SELECT major FROM user_profiles WHERE id = '"+userID+"';";
     }
     else {
-        var major_query = "SELECT * FROM user_profiles;"; //Dummy query, won't actually be used to get major
+        var major_query = "SELECT * FROM researcher_profiles;"; //Dummy query, won't actually be used to get major
     }
 
     db.task('get-everything', task => {
